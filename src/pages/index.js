@@ -3,10 +3,10 @@ import Link from 'gatsby-link'
 
 const IndexPage = () => (
   <div>
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <Link to="/page-2/">Go to page 2</Link>
+    <h1>Hello.</h1>
+    <p>You've stumbled on a work in progress!</p>
+    <p>This will be a new site to help new fans get to know the work of composer, multi-instrumentalist and game designer Mike Oldfield.</p>
+    <p>Check back in a while for further updates!</p>
   </div>
 )
 
