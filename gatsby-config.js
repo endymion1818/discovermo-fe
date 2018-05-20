@@ -19,12 +19,12 @@ module.exports = {
         path: `${__dirname}/src/content/posts`,
       },
     },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `albums`,
-        path: `${__dirname}/src/content/albums`,
-      },
-    },
+    // {
+    //   resolve: `gatsby-source-filesystem`,
+    //   options: {
+    //     name: `albums`,
+    //     path: `${__dirname}/src/content/albums`,
+    //   },
+    // },
   ],
 }
