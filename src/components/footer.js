@@ -1,11 +1,11 @@
 import React from 'react'
 import Link from 'gatsby-link'
+import WhiteLogo from './disvovermikeoldfield-logo-white.svg'
 
 const Footer = ({ siteTitle }) => (
   <div
     style={{
-      background: 'black',
-      marginBottom: '1.45rem',
+      background: '#0D3947',
     }}
   >
     <div
@@ -15,17 +15,16 @@ const Footer = ({ siteTitle }) => (
         padding: '1.45rem 1.0875rem',
       }}
     >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: 'white',
-            textDecoration: 'none',
-          }}
-        >
-          {siteTitle}
-        </Link>
-      </h1>
+    <Link
+      to="/"
+      style={{
+        color: 'white',
+        textDecoration: 'none',
+      }}
+    >
+     <img src={WhiteLogo} alt={siteTitle} />
+      
+    </Link>
     </div>
   </div>
 )
