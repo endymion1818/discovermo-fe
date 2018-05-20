@@ -3,15 +3,19 @@ module.exports = {
     title: 'Discover Mike Oldfield',
   },
   plugins: [
+    `gatsby-transformer-remark`,
     'gatsby-plugin-react-helmet',
     {
-      resolve: 'gatsby-source-wordpress',
+      resolve: `gatsby-source-strapi`,
       options: {
-        baseUrl: 'discover-mike-oldfield-content.herokuapp.com/wp/',
-        protocol: 'http',
-        useACF: true,
-        concurrentRequests: 10,
-      }
-    }
+        apiURL: `https://discovermikeoldfield-content.herokuapp.com/`,
+        contentTypes: [`products`, `posts`],
+        // Possibility to login with a strapi user, when content types are not publically available (optional).
+        // loginData: {
+        //   identifier: "",
+        //   password: "",
+        // },
+      },
+    },
   ],
 }
