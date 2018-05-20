@@ -23,8 +23,7 @@ const Header = ({ siteTitle }) => (
         textDecoration: 'none',
       }}
     >
-     <img src={WhiteLogo} alt={siteTitle} />
-      
+      <img src={WhiteLogo} alt={siteTitle} width="180" height="auto"/>
     </Link>
     </div>
   </div>
