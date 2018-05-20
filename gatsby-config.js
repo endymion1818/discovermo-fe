@@ -3,15 +3,28 @@ module.exports = {
     title: 'Discover Mike Oldfield',
   },
   plugins: [
+    `gatsby-transformer-remark`,
     'gatsby-plugin-react-helmet',
     {
-      resolve: 'gatsby-source-wordpress',
+      resolve: `gatsby-source-filesystem`,
       options: {
-        baseUrl: 'discover-mike-oldfield-content.herokuapp.com/wp/',
-        protocol: 'http',
-        useACF: true,
-        concurrentRequests: 10,
-      }
-    }
+        name: `pages`,
+        path: `${__dirname}/src/content/pages`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `posts`,
+        path: `${__dirname}/src/content/posts`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `albums`,
+        path: `${__dirname}/src/content/albums`,
+      },
+    },
   ],
 }
