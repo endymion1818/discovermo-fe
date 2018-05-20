@@ -1,6 +1,6 @@
 import React from 'react'
 import Link from 'gatsby-link'
-import WhiteLogo from './disvovermikeoldfield-logo-white.svg'
+import WhiteLogo from './discovermikeoldfield-logo-white.svg'
 
 const Footer = ({ siteTitle }) => (
   <div
