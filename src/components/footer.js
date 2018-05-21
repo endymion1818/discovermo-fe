@@ -1,19 +1,17 @@
 import React from 'react'
 import Link from 'gatsby-link'
+
+import Container from './container'
 import WhiteLogo from './discovermikeoldfield-logo-white.svg'
 
 const Footer = ({ siteTitle }) => (
-  <div
+  <footer
     style={{
       background: '#0D3947',
     }}
   >
-    <div
-      style={{
-        margin: '0 auto',
-        maxWidth: 960,
-        padding: '1.45rem 1.0875rem',
-      }}
+    <Container
+      color="primary"
     >
     <Link
       to="/"
@@ -24,8 +22,8 @@ const Footer = ({ siteTitle }) => (
     >
      <img src={WhiteLogo} alt={siteTitle} width="180" height="auto"/>
     </Link>
-    </div>
-  </div>
+    </Container>
+  </footer>
 )
 
 export default Footer
