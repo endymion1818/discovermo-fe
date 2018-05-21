@@ -20,7 +20,7 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
 
   const getArticles = makeRequest(graphql, `
     {
-      allStrapiArticle {
+      allStrapiPost {
         edges {
           node {
             id
@@ -30,7 +30,7 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
     }
     `).then(result => {
     // Create pages for each article.
-    result.data.allStrapiArticle.edges.forEach(({ node }) => {
+    result.data.allStrapiPost.edges.forEach(({ node }) => {
       createPage({
         path: `/${node.id}`,
         component: path.resolve(`src/templates/page.js`),

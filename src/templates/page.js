@@ -6,12 +6,12 @@ export default ({ data }) => {
   if (post.frontmatter.type == 'page') {
   return (
     <div>
-    <Helmet title={`${post.frontmatter.title} | ${data.site.siteMetadata.title}`} />
+    <Helmet title={`${post.frontmatter.title} | ${site.siteMetadata.title}`} />
       <div>
         <h1>
-          {post.frontmatter.title}
+          {post.title}
         </h1>
-        <div dangerouslySetInnerHTML={{ __html: post.html }} />
+        <div dangerouslySetInnerHTML={{ __html: post.content }} />
       </div>
       <div>
       </div>
@@ -20,7 +20,7 @@ export default ({ data }) => {
   }else{
     return (
       <div>
-      <Helmet title={`${post.frontmatter.title} | ${data.site.siteMetadata.title}`} />
+      <Helmet title={`${post.frontmatter.title} | ${site.siteMetadata.title}`} />
         <div>
           <h1>
             {post.frontmatter.title}
@@ -42,13 +42,10 @@ export const query = graphql`
         title
       }
     }
-    strapiArticle(fields: { slug: { eq: $slug } }) {
-      html
-      frontmatter {
+    strapiPost {
         title
-        type
-        date(formatString: "DD MMMM, YYYY")
+        createdAt(formatString: "DD MMMM, YYYY")
+        content
       }
     }
-  }
 `
