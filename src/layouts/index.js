@@ -1,10 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
-
 import Header from '../components/header'
 import Footer from '../components/footer'
-import './index.css'
+import './normalise.scss'
+import './globals.scss'
 
 const Layout = ({ children, data }) => (
   <div>
