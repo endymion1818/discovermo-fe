@@ -4,13 +4,16 @@
   "version": "1.0.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
+    "babel-plugin-styled-components": "^1.5.1",
     "gatsby": "^1.9.247",
     "gatsby-link": "^1.6.40",
     "gatsby-plugin-react-helmet": "^2.0.10",
     "gatsby-plugin-sass": "^1.0.26",
+    "gatsby-plugin-styled-components": "^2.0.11",
     "gatsby-source-wordpress": "^2.0.82",
     "gatsby-transformer-remark": "^1.7.41",
-    "react-helmet": "^5.2.0"
+    "react-helmet": "^5.2.0",
+    "styled-components": "^3.3.0"
   },
   "keywords": [
     "gatsby"

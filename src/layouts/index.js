@@ -1,6 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
+
+import Container from '../components/container'
 import Header from '../components/header'
 import Footer from '../components/footer'
 import './normalise.scss'
@@ -12,7 +14,9 @@ const Layout = ({ children, data }) => (
       title={data.site.siteMetadata.title}
     />
     <Header siteTitle={data.site.siteMetadata.title} />
-      {children()}
+      <Container>
+        {children()}
+      </Container>
     <Footer siteTitle={data.site.siteMetadata.title} />
   </div>
 )
