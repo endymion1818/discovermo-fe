@@ -25,6 +25,7 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
         edges {
           node {
             id
+            slug
           }
         }
       }
@@ -33,7 +34,7 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
     // Create pages for each article.
     result.data.allStrapiPost.edges.forEach(({ node }) => {
       createPage({
-        path: `/${node.id}`,
+        path: `/${node.slug}`,
         component: path.resolve(`src/templates/post.js`),
         context: {
           id: node.id,
@@ -42,32 +43,32 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
     })
   });
 
-  const getAuthors = makeRequest(graphql, `
-    {
-      allStrapiUser {
-        edges {
-          node {
-            id
-          }
-        }
-      }
-    }
-    `).then(result => {
-    // Create pages for each user.
-    result.data.allStrapiUser.edges.forEach(({ node }) => {
-      createPage({
-        path: `/authors/${node.id}`,
-        component: path.resolve(`src/templates/user.js`),
-        context: {
-          id: node.id,
-        },
-      })
-    })
-  });
+  // const getAuthors = makeRequest(graphql, `
+  //   {
+  //     allStrapiUser {
+  //       edges {
+  //         node {
+  //           id
+  //         }
+  //       }
+  //     }
+  //   }
+  //   `).then(result => {
+  //   // Create pages for each user.
+  //   result.data.allStrapiUser.edges.forEach(({ node }) => {
+  //     createPage({
+  //       path: `/authors/${node.id}`,
+  //       component: path.resolve(`src/templates/user.js`),
+  //       context: {
+  //         id: node.id,
+  //       },
+  //     })
+  //   })
+  // });
 
   // Queries for articles and authors nodes to use in creating pages.
   return Promise.all([
     getArticles,
-    getAuthors,
+    // getAuthors,
   ])
 };
