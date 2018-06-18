@@ -7,27 +7,21 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sass`,
     `gatsby-plugin-styled-components`,
-
+    `gatsby-plugin-typescript`,
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: `gatsby-source-strapi`,
       options: {
-        name: `pages`,
-        path: `${__dirname}/src/content/pages`,
+        apiURL: `http://localhost:1337`,
+        contentTypes: [
+          `post`,
+          `album`
+        ],
+        // Possibility to login with a strapi user, when content types are not publically available (optional).
+        loginData: {
+          identifier: "",
+          password: "",
+        },
       },
     },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `posts`,
-        path: `${__dirname}/src/content/posts`,
-      },
-    },
-    // {
-    //   resolve: `gatsby-source-filesystem`,
-    //   options: {
-    //     name: `albums`,
-    //     path: `${__dirname}/src/content/albums`,
-    //   },
-    // },
   ],
 }
