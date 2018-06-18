@@ -1,7 +1,17 @@
-import React from 'react'
+import * as React from 'react'
 import Link from 'gatsby-link'
 
-const IndexPage = ({ data }) => (
+interface IndexPageProps {
+  data: {
+    site: {
+      siteMetadata: {
+        title: string
+      }
+    }
+  }
+}
+
+const IndexPage: React.StatelessComponent<{}> = ({ data }) => (
   <div>
     <h1>Hi people</h1>
     <p>Welcome to your new Gatsby site.</p>
