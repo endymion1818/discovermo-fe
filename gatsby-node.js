@@ -34,7 +34,7 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
     // Create pages for each article.
     result.data.allStrapiPost.edges.forEach(({ node }) => {
       createPage({
-        path: `/${node.id}`,
+        path: `/${node.slug}`,
         component: path.resolve(`src/templates/post.js`),
         context: {
           id: node.slug,
@@ -43,8 +43,37 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
     })
   });
 
+  const getAlbums = makeRequest(graphql, `
+    {
+    allStrapiAlbum {
+      edges {
+        node {
+          title
+          slug
+          about
+          published
+        }
+      }
+    }
+  }
+    `).then(result => {
+    // Create pages for each article.
+    result.data.allStrapiAlbum.edges.forEach(({ node }) => {
+      createPage({
+        path: `/${node.slug}`,
+        component: path.resolve(`src/templates/album.js`),
+        context: {
+          id: node.slug,
+        },
+      })
+    })
+  });
+
+
+
   // Queries for articles and authors nodes to use in creating pages.
   return Promise.all([
     getArticles,
+    getAlbums
   ])
 };

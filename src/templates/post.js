@@ -4,7 +4,6 @@ import Link from 'gatsby-link'
 const PostTemplate = ({ data }) => (
   <div>
     <h1>{data.strapiPost.title}</h1>
-    <p>by <Link to={`/authors/${data.strapiPost.author.id}`}>{data.strapiPost.author.username}</Link></p>
     <p>{data.strapiPost.content}</p>
   </div>
 )
@@ -12,14 +11,10 @@ const PostTemplate = ({ data }) => (
 export default PostTemplate
 
 export const query = graphql`
-  query PostTemplate($id: String!) {
-    strapiPost(id: {eq: $id}) {
+  query PostTemplate {
+    strapiPost {
       title
       content
-      author {
-        id
-        username
-      }
     }
   }
 `

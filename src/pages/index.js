@@ -10,7 +10,17 @@ const IndexPage = ({ data }) => (
       {data.allStrapiPost.edges.map(document => (
         <li key={document.node.id}>
           <h2>
-            <Link to={`/${document.node.id}`}>{document.node.title}</Link>
+            <Link to={`/${document.node.slug}`}>{document.node.title}</Link>
+          </h2>
+          <p>{document.node.content}</p>
+        </li>
+      ))}
+    </ul>
+    <ul>
+      {data.allStrapiAlbum.edges.map(document => (
+        <li key={document.node.id}>
+          <h2>
+            <Link to={`/${document.node.slug}`}>{document.node.title}</Link>
           </h2>
           <p>{document.node.content}</p>
         </li>
@@ -30,6 +40,18 @@ export const pageQuery = graphql`
           id
           title
           content
+          slug
+        }
+      }
+    }
+    allStrapiAlbum {
+      edges {
+        node {
+          id
+          title
+          published
+          about
+          slug
         }
       }
     }
