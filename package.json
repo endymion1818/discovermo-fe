@@ -1,8 +1,8 @@
 {
-  "name": "gatsby-starter-default",
-  "description": "Gatsby default starter",
+  "name": "Discover Mike Oldfield",
+  "description": "Website for people interested in the music of Mike Oldfield",
   "version": "1.0.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Benjamin Read <endymion1818@gmail.com>",
   "dependencies": {
     "babel-plugin-styled-components": "^1.5.1",
     "gatsby": "^1.9.247",

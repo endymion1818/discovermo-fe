@@ -1,6 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: 'Discover Mike Oldfield',
+    description: 'Discover the music and inspiration behind multi-genre multi-instrumentalist Mike Oldfield'
   },
   plugins: [
     `gatsby-transformer-remark`,
@@ -16,11 +17,6 @@ module.exports = {
           `post`,
           `album`
         ],
-        // Possibility to login with a strapi user, when content types are not publically available (optional).
-        loginData: {
-          identifier: "",
-          password: "",
-        },
       },
     },
   ],
