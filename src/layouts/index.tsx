@@ -1,14 +1,24 @@
-import React from 'react'
+import * as React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 
-import Container from '../components/container'
+import Container from '../components/Container'
 import Header from '../components/header'
 import Footer from '../components/footer'
 import './normalise.scss'
 import './globals.scss'
 
-const Layout = ({ children, data }) => (
+interface IndexPageProps {
+  data: {
+    site: {
+      siteMetadata: {
+        title: string
+      }
+    }
+  }
+}
+
+const Layout: React.StatelessComponent<{children, data}> = ({ children, data }) => (
   <div>
     <Helmet
       title={data.site.siteMetadata.title}

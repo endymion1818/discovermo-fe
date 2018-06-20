@@ -1,17 +1,32 @@
 import * as React from 'react'
 import Link from 'gatsby-link'
+import Container from '../components/Container'
 
 interface IndexPageProps {
-  data: {
-    site: {
-      siteMetadata: {
-        title: string
+  allStrapiPost: {
+    edges: {
+      node: {
+        id: string,
+        title: string,
+        content: string,
+        slug: string
+      }
+    }
+  }
+  allStrapiAlbum: {
+    edges: {
+      node: {
+        id: string,
+        title: string,
+        published: string,
+        about: string,
+        slug: string
       }
     }
   }
 }
 
-const IndexPage: React.StatelessComponent<{}> = ({ data }) => (
+const IndexPage: React.StatelessComponent<{data}> = ({ data }) => (
   <div>
     <h1>Hi people</h1>
     <p>Welcome to your new Gatsby site.</p>
