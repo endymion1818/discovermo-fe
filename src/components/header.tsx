@@ -1,10 +1,12 @@
 import * as React from 'react'
 import Link from 'gatsby-link'
 
-import WhiteLogo from './discovermikeoldfield-logo-white.svg'
+import WhiteLogo from './WhiteLogo'
 import Container from './Container'
 
-const Header: React.StatelessComponent<{}> = ({ siteTitle }) => (
+
+
+const Header: React.StatelessComponent<{}> = () => (
   <div
     style={{
       background: '#0D3947',
@@ -21,7 +23,7 @@ const Header: React.StatelessComponent<{}> = ({ siteTitle }) => (
         padding: '2em 0'
       }}
     >
-      <img src={WhiteLogo} alt={siteTitle} width="180" height="auto"/>
+    <WhiteLogo/>
     </Link>
     </Container>
   </div>

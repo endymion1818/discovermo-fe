@@ -26,7 +26,7 @@ interface IndexPageProps {
   }
 }
 
-const IndexPage: React.StatelessComponent<{data}> = ({ data }) => (
+const IndexPage: React.StatelessComponent<{data, allStrapiPost, allStrapiAlbum}> = ({ data }) => (
   <div>
     <h1>Hi people</h1>
     <p>Welcome to your new Gatsby site.</p>

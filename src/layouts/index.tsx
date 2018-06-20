@@ -1,5 +1,4 @@
 import * as React from 'react'
-import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 
 import Container from '../components/Container'
@@ -15,7 +14,8 @@ interface IndexPageProps {
         title: string
       }
     }
-  }
+  },
+  children: any
 }
 
 const Layout: React.StatelessComponent<{children, data}> = ({ children, data }) => (
@@ -30,10 +30,6 @@ const Layout: React.StatelessComponent<{children, data}> = ({ children, data }) 
     <Footer siteTitle={data.site.siteMetadata.title} />
   </div>
 )
-
-Layout.propTypes = {
-  children: PropTypes.func,
-}
 
 export default Layout
 
