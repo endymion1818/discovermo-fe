@@ -3,10 +3,7 @@ import {
     BRAND_SECONDARY
 } from './variables'
 
-export default Container = Styled.div`
+export default Container = Styled.section`
     background-color: ${props => props.bgColor ? props.bgColor : BRAND_SECONDARY };
-    max-width: 1190px;
-    margin: 0 auto;
-    padding: 0 1rem;
 `
 
