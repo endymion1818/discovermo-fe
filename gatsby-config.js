@@ -1,23 +1,22 @@
 module.exports = {
   siteMetadata: {
     title: 'Discover Mike Oldfield',
+    description: 'Discover the music and inspiration behind multi-genre multi-instrumentalist Mike Oldfield'
   },
   plugins: [
     `gatsby-transformer-remark`,
-    'gatsby-plugin-react-helmet',
+    `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sass`,
+    `gatsby-plugin-styled-components`,
+    `gatsby-plugin-typescript`,
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: `gatsby-source-strapi`,
       options: {
-        name: `pages`,
-        path: `${__dirname}/src/content/pages`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `posts`,
-        path: `${__dirname}/src/content/posts`,
+        apiURL: `http://localhost:1337`,
+        contentTypes: [
+          `post`,
+          `album`
+        ],
       },
     },
   ],

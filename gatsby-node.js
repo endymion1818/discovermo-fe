@@ -1,44 +1,79 @@
-const path = require(`path`)
-const { createFilePath } = require(`gatsby-source-filesystem`)
+const path = require(`path`);
 
-exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
-  const { createNodeField } = boundActionCreators
-  if (node.internal.type === `MarkdownRemark`) {
-    const slug = createFilePath({ node, getNode, basePath: `pages` })
-    createNodeField({
-      node,
-      name: `slug`,
-      value: slug,
+const makeRequest = (graphql, request) => new Promise((resolve, reject) => {
+  // Query for article nodes to use in creating pages.
+  resolve(
+    graphql(request).then(result => {
+      if (result.errors) {
+        reject(result.errors)
+      }
+
+      return result;
     })
-  }
-}
-exports.createPages = ({ graphql, boundActionCreators }) => {
-  const { createPage } = boundActionCreators
-  return new Promise((resolve, reject) => {
-    graphql(`
-      {
-        allMarkdownRemark {
-          edges {
-            node {
-              fields {
-                slug
-              }
-            }
+  )
+});
+
+
+// Implement the Gatsby API “createPages”. This is called once the
+// data layer is bootstrapped to let plugins create pages from data.
+exports.createPages = ({ boundActionCreators, graphql }) => {
+  const { createPage } = boundActionCreators;
+
+  const getArticles = makeRequest(graphql, `
+    {
+      allStrapiPost {
+        edges {
+          node {
+            id
+            slug
           }
         }
       }
+    }
     `).then(result => {
-      result.data.allMarkdownRemark.edges.map(({ node }) => {
-        createPage({
-          path: node.fields.slug,
-          component: path.resolve(`./src/templates/page.js`),
-          context: {
-            // Data passed to context is available in page queries as GraphQL variables.
-            slug: node.fields.slug,
-          },
-        })
+    // Create pages for each article.
+    result.data.allStrapiPost.edges.forEach(({ node }) => {
+      createPage({
+        path: `/${node.slug}`,
+        component: path.resolve(`src/templates/post.tsx`),
+        context: {
+          id: node.slug,
+        },
       })
-      resolve()
     })
-  })
-}
+  });
+
+  const getAlbums = makeRequest(graphql, `
+    {
+    allStrapiAlbum {
+      edges {
+        node {
+          title
+          slug
+          about
+          published
+        }
+      }
+    }
+  }
+    `).then(result => {
+    // Create pages for each article.
+    result.data.allStrapiAlbum.edges.forEach(({ node }) => {
+      createPage({
+        path: `/${node.slug}`,
+        component: path.resolve(`src/templates/album.tsx`),
+        context: {
+          id: node.slug,
+        },
+      })
+    })
+  });
+
+
+
+  // Queries for articles and authors nodes to use in creating pages.
+  return Promise.all([
+    getArticles,
+    getAlbums
+  ])
+};
