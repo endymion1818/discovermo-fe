@@ -1,19 +1,18 @@
 import React from 'react'
-import Link from 'gatsby-link'
+import Link from '../Molecules/Link'
 
-import Container from './container'
-import WhiteLogo from '../assets/images/discovermikeoldfield-logo-white.svg'
+import {
+  Band, 
+  Container
+} from '../Atoms'
+
+import * as variable from '../variables'
+import WhiteLogo from '../../assets/images/discovermikeoldfield-logo-white.svg'
+
 
 const Header = ({ siteTitle }) => (
-  <div
-    style={{
-      background: '#0D3947',
-      marginBottom: '1.45rem',
-    }}
-  >
-    <Container
-      color="primary"
-    >
+  <Band backgroundColor={variable.BRAND_PRIMARY}>
+    <Container>
     <Link
       to="/"
       style={{
@@ -24,7 +23,7 @@ const Header = ({ siteTitle }) => (
       <img src={WhiteLogo} alt={siteTitle} width="180" height="auto"/>
     </Link>
     </Container>
-  </div>
+  </Band>
 )
 
 export default Header

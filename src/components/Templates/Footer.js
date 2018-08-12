@@ -1,15 +1,16 @@
 import React from 'react'
-import Link from 'gatsby-link'
+import Link from '../Molecules/Link'
 
-import Container from './container'
-import WhiteLogo from '../assets/images/discovermikeoldfield-logo-white.svg'
+import {
+  Band,
+  Container
+} from '../Atoms'
+import * as variable from '../variables'
+
+import WhiteLogo from '../../assets/images/discovermikeoldfield-logo-white.svg'
 
 const Footer = ({ siteTitle }) => (
-  <footer
-    style={{
-      background: '#0D3947',
-    }}
-  >
+  <Band backgroundColor={variable.BRAND_PRIMARY}>
     <Container
       color="primary"
     >
@@ -23,7 +24,7 @@ const Footer = ({ siteTitle }) => (
      <img src={WhiteLogo} alt={siteTitle} width="180" height="auto"/>
     </Link>
     </Container>
-  </footer>
+  </Band>
 )
 
 export default Footer

@@ -1,14 +1,16 @@
 import React from 'react'
 import Link from 'gatsby-link'
 import styled from 'styled-components'
-import HomeAnimation from ''
+import {
+  Band,
+  Container,
+  HeadingMain,
+} from '../components/Atoms'
 
-const Banner = styled.section`
-  display: flex;
-`
 const HomeIntro = styled.div`
   background-color: white;
   display: flex;
+  flex-direction: column;
   align-items: center;
 `
 
@@ -24,16 +26,17 @@ const TextIntro = styled.p`
   font-size: 1.5rem;
 `
 
-export default IndexPage = props => (
+const IndexPage = props => (
   <div>
-  <Banner>
-    <HomeAnimation/>
+  <Band>
     <HomeIntro>
       <TextTop>Discover</TextTop>
       <TextMain>Mike Oldfield</TextMain>
       <TextIntro>Multi-instrumentalist. Game designer. Genius composer. Discover the incredible world of <Link to="/about">Mike Oldfield.</Link></TextIntro>
     </HomeIntro>
-  </Banner>
+  </Band>
   
 </div>
 )
+
+export default IndexPage

@@ -2,9 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 
-import Header from '../components/header'
-import Footer from '../components/footer'
-import Container from '../components/container'
+import Header from '../components/Templates/Header'
+import Footer from '../components/Templates/Footer'
+import {Container} from '../components/Atoms'
 import './index.scss'
 
 const Layout = ({ children, data }) => (
