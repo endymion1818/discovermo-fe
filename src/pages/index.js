@@ -4,7 +4,6 @@ import styled from 'styled-components'
 import {
   Band,
   Container,
-  HeadingMain,
 } from '../components/Atoms'
 
 const HomeIntro = styled.div`
@@ -29,13 +28,14 @@ const TextIntro = styled.p`
 const IndexPage = props => (
   <div>
   <Band>
-    <HomeIntro>
-      <TextTop>Discover</TextTop>
-      <TextMain>Mike Oldfield</TextMain>
-      <TextIntro>Multi-instrumentalist. Game designer. Genius composer. Discover the incredible world of <Link to="/about">Mike Oldfield.</Link></TextIntro>
-    </HomeIntro>
+    <Container>
+      <HomeIntro>
+        <TextTop>Discover</TextTop>
+        <TextMain>Mike Oldfield</TextMain>
+        <TextIntro>Multi-instrumentalist. Game designer. Genius composer. Discover the incredible world of <Link to="/about">Mike Oldfield.</Link></TextIntro>
+      </HomeIntro>
+    </Container>
   </Band>
-  
 </div>
 )
 
