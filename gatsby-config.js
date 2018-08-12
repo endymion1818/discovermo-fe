@@ -8,14 +8,15 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sass`,
     `gatsby-plugin-styled-components`,
-    `gatsby-plugin-typescript`,
+    // `gatsby-plugin-typescript`,
     {
       resolve: `gatsby-source-strapi`,
       options: {
-        apiURL: `http://localhost:1337`,
+        apiURL: `https://discovermikeoldfield-content.herokuapp.com/`,
         contentTypes: [
           `post`,
           `album`
+          `discovery`
         ],
       },
     },
