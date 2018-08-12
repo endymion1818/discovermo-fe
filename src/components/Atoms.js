@@ -42,8 +42,8 @@ export const Container = styled.div`
     
     ${props => (props.backgroundColor ? `background-color: ${props.backgroundColor}` : null)}
 
-    @media all and (min-width: ${variable.BREAKPOINT_SM_Phone}) {
-      max-width: ${variable.TEXT_CONTENT_MAX_WIDTH_PHONE};
+    @media all and (min-width: ${variable.BREAKPOINT_SM}) {
+      max-width: ${variable.TEXT_CONTENT_MAX_WIDTH};
       margin: 0 auto;
       padding-left: 2rem;
       padding-right: 2rem;

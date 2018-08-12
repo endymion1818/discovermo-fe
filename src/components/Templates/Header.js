@@ -10,7 +10,7 @@ import * as variable from '../variables'
 import WhiteLogo from '../../assets/images/discovermikeoldfield-logo-white.svg'
 
 
-const Header = ({ siteTitle }) => (
+const Header = props => (
   <Band backgroundColor={variable.BRAND_PRIMARY}>
     <Container>
     <Link
@@ -20,7 +20,7 @@ const Header = ({ siteTitle }) => (
         textDecoration: 'none',
       }}
     >
-      <img src={WhiteLogo} alt={siteTitle} width="180" height="auto"/>
+      <img src={WhiteLogo} alt={props.siteTitle} width="180" height="auto"/>
     </Link>
     </Container>
   </Band>

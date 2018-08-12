@@ -35,7 +35,7 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
     result.data.allStrapiPost.edges.forEach(({ node }) => {
       createPage({
         path: `/${node.slug}`,
-        component: path.resolve(`src/templates/post.tsx`),
+        component: path.resolve(`src/templates/post.js`),
         context: {
           id: node.slug,
         },
@@ -61,7 +61,7 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
     result.data.allStrapiAlbum.edges.forEach(({ node }) => {
       createPage({
         path: `/${node.slug}`,
-        component: path.resolve(`src/templates/album.tsx`),
+        component: path.resolve(`src/templates/album.js`),
         context: {
           id: node.slug,
         },
