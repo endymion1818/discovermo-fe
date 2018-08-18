@@ -69,11 +69,36 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
     })
   });
 
+  const getDiscoveries = makeRequest(graphql, `
+    {
+    allStrapiDiscovery {
+      edges {
+        node {
+          title
+          Slug
+        }
+      }
+    }
+  }
+    `).then(result => {
+    // Create pages for each article.
+    result.data.allStrapiDiscovery.edges.forEach(({ node }) => {
+      createPage({
+        path: `/${node.slug}`,
+        component: path.resolve(`src/templates/discovery.js`),
+        context: {
+          id: node.slug,
+        },
+      })
+    })
+  });
+
 
 
   // Queries for articles and authors nodes to use in creating pages.
   return Promise.all([
     getArticles,
-    getAlbums
+    getAlbums,
+    getDiscoveries
   ])
 };
