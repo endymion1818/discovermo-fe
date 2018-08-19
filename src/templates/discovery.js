@@ -7,7 +7,7 @@ const DiscoveryTemplate = ({ data }) => (
   </div>
 )
 
-export default DisoveryTemplate
+export default DiscoveryTemplate
 
 export const query = graphql`
   query DiscoveryTemplate {
