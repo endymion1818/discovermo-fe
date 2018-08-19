@@ -27,7 +27,7 @@ const FourColumn = props => (
                 />
               ) : null}
               {item.link ? (
-                <Link to={item.link}>{item.linkText}</Links>
+                <Link to={item.link}>{item.linkText}</Link>
               ) : null}
             </Column>
           ))
