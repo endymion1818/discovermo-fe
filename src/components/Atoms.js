@@ -131,3 +131,15 @@ color: ${props => props.textColor ? props.textColor : '#000000' }
     }
   }
 `
+export const LargeView = styled.div`
+  display: none;
+  @media (min-width: ${variable.BREAK_DESKTOP}) {
+    display: block;
+  }
+`
+export const SmallView = styled.div`
+  display: block;
+  @media (min-width: ${variable.BREAK_DESKTOP}) {
+    display: none;
+  }
+`

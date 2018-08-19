@@ -1,5 +1,5 @@
 {
-  "name": "discover mike oldfield",
+  "name": "discover-mike-oldfield",
   "description": "The place to discover the incredible, diverse and prolific music of Mike Oldfield",
   "version": "1.0.0",
   "author": "Benjamin Read <endymion1818@gmail.com>",
@@ -10,8 +10,11 @@
     "gatsby-link": "^1.6.40",
     "gatsby-plugin-react-helmet": "^2.0.10",
     "gatsby-plugin-sass": "^1.0.26",
+    "gatsby-plugin-styled-components": "^2.0.11",
+    "gatsby-source-strapi": "0.0.3",
     "gatsby-transformer-remark": "^1.7.41",
     "react-helmet": "^5.2.0",
+    "react-scrollspy": "^3.3.5",
     "styled-components": "^3.3.0"
   },
   "keywords": [

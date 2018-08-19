@@ -1,12 +1,14 @@
 import React from 'react'
 import Slider from 'react-slick'
+import {
+    Container,
+    Paragraph,
+    HeadingSecondary
+} from '../../Atoms'
 import { 
     Main,
     NewsCardsContainer,
     MainTextContainer,
-    MainHeading,
-    MainParagraph,
-    Container,
     SmallView,
     LargeView,
 } from './styles'
@@ -29,8 +31,8 @@ class NewsCardsCarousel extends React.Component {
             <Main style={ this.props.backgroundimg ? { backgroundImage: `url(${this.props.backgroundimg})`, backgroundSize:`cover` } : null }>
                 <Container { ...this.props }>
                     <MainTextContainer>
-                        <MainHeading>What we've been up to</MainHeading>
-                        <MainParagraph>Intel, updates, company news and beyond, the Zopa blog has the latest.</MainParagraph>
+                        <HeadingSecondary>What we've been up to</HeadingSecondary>
+                        <Paragraph>Intel, updates, company news and beyond, the Zopa blog has the latest.</Paragraph>
                         <Button>View more articles.</Button>
                     </MainTextContainer>
                     <NewsCardsContainer>
