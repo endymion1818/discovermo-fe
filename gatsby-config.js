@@ -12,7 +12,7 @@ module.exports = {
     {
       resolve: `gatsby-source-strapi`,
       options: {
-        apiURL:  'https://discovermikeoldfield-content.herokuapp.com/',
+        apiURL:  'https://discovermikeoldfield-content.herokuapp.com',
         contentTypes: [
           `post`,
           `album`,
