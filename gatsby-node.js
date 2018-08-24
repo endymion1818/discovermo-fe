@@ -25,7 +25,6 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
         edges {
           node {
             id
-            slug
           }
         }
       }
@@ -45,17 +44,14 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
 
   const getAlbums = makeRequest(graphql, `
     {
-    allStrapiAlbum {
-      edges {
-        node {
-          title
-          slug
-          about
-          published
+      allStrapiAlbum {
+        edges {
+          node {
+            slug
+          }
         }
       }
     }
-  }
     `).then(result => {
     // Create pages for each article.
     result.data.allStrapiAlbum.edges.forEach(({ node }) => {
@@ -71,20 +67,19 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
 
   const getDiscoveries = makeRequest(graphql, `
     {
-    allStrapiDiscovery {
-      edges {
-        node {
-          title
-          Slug
+      allStrapiDiscovery {
+        edges {
+          node {
+            Slug
+          }
         }
       }
-    }
   }
     `).then(result => {
     // Create pages for each article.
     result.data.allStrapiDiscovery.edges.forEach(({ node }) => {
       createPage({
-        path: `/${node.slug}`,
+        path: `/${node.Slug}`,
         component: path.resolve(`src/templates/discovery.js`),
         context: {
           id: node.slug,
@@ -97,8 +92,8 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
 
   // Queries for articles and authors nodes to use in creating pages.
   return Promise.all([
-    getArticles,
+    // getArticles,
     getAlbums,
-    getDiscoveries
+    // getDiscoveries
   ])
 };
