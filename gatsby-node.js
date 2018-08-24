@@ -24,7 +24,7 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
       allStrapiPost {
         edges {
           node {
-            id
+            slug
           }
         }
       }
