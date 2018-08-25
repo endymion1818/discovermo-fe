@@ -5,6 +5,7 @@ import {
   Band,
   Container,
 } from '../components/Atoms'
+import * as variable from '../components/variables'
 
 const HomeIntro = styled.div`
   background-color: white;
@@ -27,7 +28,7 @@ const TextIntro = styled.p`
 
 const IndexPage = props => (
   <div>
-  <Band>
+  <Band backgroundColor={variable.BRAND_PRIMARY}>
     <Container>
       <HomeIntro>
         <TextTop>Discover</TextTop>
