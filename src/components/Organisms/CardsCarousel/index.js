@@ -2,7 +2,7 @@ import React from 'react'
 import Carousel from '../../Molecules/Carousel'
 import {
   Main,
-  NewsCardsContainer,
+  CardsContainer,
   MainTextContainer,
   MainHeading,
   MainParagraph,
@@ -10,14 +10,14 @@ import {
   SmallView,
   LargeView,
 } from './styles'
-import NewsCard from './NewsCard'
+import Card from './Card'
 import {
   CAROUSEL_SETTINGS_SMALL,
   CAROUSEL_SETTINGS_LARGE,
 } from './constants'
 import Button from '../../Molecules/Button'
 
-class NewsCardsCarousel extends React.Component {
+class CardsCarousel extends React.Component {
   constructor(props) {
     super(props)
   }
@@ -46,12 +46,12 @@ class NewsCardsCarousel extends React.Component {
               Read more articles
             </Button>
           </MainTextContainer>
-          <NewsCardsContainer>
+          <CardsContainer>
             <LargeView>
               <Carousel lightBubbles {...CAROUSEL_SETTINGS_LARGE}>
                 {this.props.posts
                   ? this.props.posts.map(item => (
-                      <NewsCard key={item.node.id} data={item.node} />
+                      <Card key={item.node.id} data={item.node} />
                     ))
                   : null}
               </Carousel>
@@ -60,16 +60,16 @@ class NewsCardsCarousel extends React.Component {
               <Carousel lightBubbles {...CAROUSEL_SETTINGS_SMALL}>
                 {this.props.posts
                   ? this.props.posts.map(item => (
-                      <NewsCard key={item.node.id} data={item.node} />
+                      <Card key={item.node.id} data={item.node} />
                     ))
                   : null}
               </Carousel>
             </SmallView>
-          </NewsCardsContainer>
+          </CardsContainer>
         </Container>
       </Main>
     )
   }
 }
 
-export default NewsCardsCarousel
+export default CardsCarousel

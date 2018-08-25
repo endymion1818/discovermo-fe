@@ -1,6 +1,5 @@
-import React from 'react'
 import styled from 'styled-components'
-import * as variable from '../../../variables'
+import * as variable from '../../variables'
 
 export const Main = styled.div`
   background-color: ${props =>
@@ -29,7 +28,7 @@ export const Container = styled.div`
   }
 `
 
-export const NewsCardsContainer = styled.div`
+export const CardsContainer = styled.div`
   @media (min-width: ${variable.BREAK_PHONE}) {
     width: 60%;
     float: right;

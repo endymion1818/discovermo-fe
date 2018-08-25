@@ -31,6 +31,39 @@ export const Band = styled.section`
     }
 `
 
+
+export const BandSplit = styled(Band)`
+    position: relative;
+
+    &:before {
+        position: absolute;
+        content: '';
+        width: 100%;
+        height: 50%;
+        ${props =>
+          props.backgroundColorTop
+            ? `background-color: ${props.backgroundColorTop};`
+            : `background-color : ${variable.BRAND_SECONDARY};`}
+        z-index: -1;
+        right: 0;
+        
+    }
+
+    &::after {
+        position: absolute;
+        content: '';
+        width: 100%;
+        height: 50%;
+        ${props =>
+          props.backgroundColorBottom
+            ? `background-color: ${props.backgroundColorBottom};`
+            : `background-color : ${variable.BRAND_SECONDARY};`}
+        bottom: 0;
+        right: 0;
+        z-index: -1;
+    }
+`
+
 export const Container = styled.div`
   max-width: 60rem;
   width: 100%;
@@ -112,6 +145,24 @@ export const HeadingTertiary = styled.h3`
   font-size: 1.2em;
   font-weight: bold;
 `
+
+export const TextContainer = styled.div`
+  color: ${props => props.textColor ? props.textColor : variable.neutral1000 };
+  font-family: ${variable.OPENSANS};
+  line-height: ${variable.TIGHT};
+  margin-bottom: ${variable.SINGLE};
+  text-align: ${props => props.textAlign ? props.textAlign : 'inherit' };
+  ul, ol {
+    margin-left: ${variable.SINGLEplusHALF};
+  }
+  ul {
+    
+  }
+  li {
+    margin-bottom: ${variable.SINGLEplusHALF};
+  }
+`
+
 
 export const Paragraph = styled.p`
 color: ${props => props.textColor ? props.textColor : '#000000' } 

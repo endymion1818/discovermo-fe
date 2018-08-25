@@ -31,5 +31,14 @@ export const query = graphql`
         title
       }
     }
+    allStrapiPost {
+      edges {
+        node {
+          title
+          content
+          slug
+        }
+      }
+    }
   }
 `

@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import * as variable from '../../../variables'
+import * as variable from '../../variables'
 
 const Wrapper = styled.div`
     {
@@ -73,7 +73,6 @@ const Details = styled.div`
 const NewsCard = props => (
     props.data ? (
         <Wrapper>
-
             <Main>
                 <TextContainer>
                     <Title>

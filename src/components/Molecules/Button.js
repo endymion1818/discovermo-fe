@@ -2,8 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 import Link from './Link'
-import cx from '../../../../../.cache/typescript/2.9/node_modules/@types/classnames'
-import * as variable from '../../variables'
+import * as variable from '../variables'
 
 const Button = styled(Link)`
   display: inline-flex;
