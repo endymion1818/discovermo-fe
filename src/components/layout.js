@@ -1,10 +1,26 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
+import { injectGlobal } from 'styled-components';
 import { StaticQuery, graphql } from 'gatsby'
 
 import Header from './header'
-import './layout.css'
+
+import exoRegular from '../fonts/Exo2-Regular.woff2'
+
+injectGlobal`
+  @font-face {
+    font-family: 'exo';
+    src: url(${exoRegular});
+  }
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+    font-family: 'exo'
+  }
+`;
 
 const Layout = ({ children, data }) => (
   <StaticQuery

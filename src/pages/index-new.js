@@ -14,6 +14,7 @@ import ColumnsFour from '../components/Organisms/ColumnsFour'
 import PopOut from '../components/Molecules/Popout'
 import Video from '../components/Organisms/Video'
 import CardsCarousel from '../components/Organisms/CardsCarousel'
+import { graphql } from 'gatsby';
 
 
 export default (props) => (
@@ -162,3 +163,18 @@ export default (props) => (
 
   </div>
 )
+
+export const query = graphql`
+query homePostQuery {
+  allStrapiPost(limit:5) {
+    edges {
+      node {
+        title
+        content
+        slug
+        id
+      }
+    }
+  }
+}
+`
