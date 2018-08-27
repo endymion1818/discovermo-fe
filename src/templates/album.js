@@ -3,7 +3,7 @@ import * as React from 'react'
 const AlbumTemplate = ({ data }) => (
   <div>
     <h1>{data.strapiAlbum.title}</h1>
-    <p><small>{data.strapiAlbum.published}</small></p>
+    <p><small>{data.strapiAlbum.yearPublished}</small></p>
     <p>{data.strapiAlbum.about}</p>
   </div>
 )
@@ -14,7 +14,9 @@ export const query = graphql`
   query AlbumTemplate {
     strapiAlbum {
       title
-      published
+      slug
+      yearpublished
+      coverimg
       about
     }
   }

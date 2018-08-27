@@ -1,104 +1,36 @@
 const path = require(`path`);
 
-const makeRequest = (graphql, request) => new Promise((resolve, reject) => {
-  // Query for article nodes to use in creating pages.
-  resolve(
-    graphql(request).then(result => {
-      if (result.errors) {
-        reject(result.errors)
-      }
+exports.createPages = ({ graphql, actions }) => {
+  const { createPage } = actions
 
-      return result;
-    })
-  )
-});
-
-
-// Implement the Gatsby API “createPages”. This is called once the
-// data layer is bootstrapped to let plugins create pages from data.
-exports.createPages = ({ boundActionCreators, graphql }) => {
-  const { createPage } = boundActionCreators;
-
-  const getArticles = makeRequest(graphql, `
-    {
-      allStrapiPost {
-        edges {
-          node {
-            id
-            slug
+  return new Promise((resolve, reject) => {
+    const blogPostTemplate = path.resolve(`src/templates/post.js`)
+    // Query for markdown nodes to use in creating pages.
+    resolve(
+      graphql(
+        `{
+          allStrapiPost {
+            edges {
+              node {
+                slug
+              }
+            }
           }
+        }`
+      ).then(result => {
+        if (result.errors) {
+          reject(result.errors)
         }
-      }
-    }
-    `).then(result => {
-    // Create pages for each article.
-    result.data.allStrapiPost.edges.forEach(({ node }) => {
-      createPage({
-        path: `/${node.slug}`,
-        component: path.resolve(`src/templates/post.js`),
-        context: {
-          id: node.slug,
-        },
+        result.data.allStrapiPost.edges.forEach(({ node }) => {
+          createPage({
+            path: `/blog/${node.slug}`,
+            component: path.resolve(`src/templates/post.js`),
+            context: {
+              id: node.slug,
+            },
+          })
+        })
       })
-    })
-  });
-
-  const getAlbums = makeRequest(graphql, `
-    {
-    allStrapiAlbum {
-      edges {
-        node {
-          title
-          slug
-          about
-          published
-        }
-      }
-    }
-  }
-    `).then(result => {
-    // Create pages for each article.
-    result.data.allStrapiAlbum.edges.forEach(({ node }) => {
-      createPage({
-        path: `/${node.slug}`,
-        component: path.resolve(`src/templates/album.js`),
-        context: {
-          id: node.slug,
-        },
-      })
-    })
-  });
-
-  const getDiscoveries = makeRequest(graphql, `
-    {
-    allStrapiDiscovery {
-      edges {
-        node {
-          title
-          Slug
-        }
-      }
-    }
-  }
-    `).then(result => {
-    // Create pages for each article.
-    result.data.allStrapiDiscovery.edges.forEach(({ node }) => {
-      createPage({
-        path: `/${node.slug}`,
-        component: path.resolve(`src/templates/discovery.js`),
-        context: {
-          id: node.slug,
-        },
-      })
-    })
-  });
-
-
-
-  // Queries for articles and authors nodes to use in creating pages.
-  return Promise.all([
-    getArticles,
-    getAlbums,
-    getDiscoveries
-  ])
-};
+    )
+  })
+}

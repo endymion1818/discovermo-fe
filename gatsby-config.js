@@ -1,13 +1,15 @@
 module.exports = {
   siteMetadata: {
-    title: 'Discover Mike Oldfield',
-    description: 'Discover the music and inspiration behind multi-genre multi-instrumentalist Mike Oldfield'
+    title: 'Gatsby Default Starter',
   },
   plugins: [
-    `gatsby-transformer-remark`,
-    `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-sass`,
-    `gatsby-plugin-styled-components`,
+    'gatsby-plugin-react-helmet',
+    {
+      resolve: `gatsby-plugin-styled-components`,
+      options: {
+        displayName: false
+      },
+    },
     // `gatsby-plugin-typescript`,
     {
       resolve: `gatsby-source-strapi`,
@@ -20,5 +22,18 @@ module.exports = {
         ],
       },
     },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: 'gatsby-starter-default',
+        short_name: 'starter',
+        start_url: '/',
+        background_color: '#663399',
+        theme_color: '#663399',
+        display: 'minimal-ui',
+        icon: 'src/images/favicon.png', // This path is relative to the root of the site.
+      },
+    },
+    'gatsby-plugin-offline',
   ],
 }

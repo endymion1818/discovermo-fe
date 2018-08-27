@@ -5,8 +5,6 @@ import Link from '../Molecules/Link'
 // import mastheadBgMob from '../../assets/images/masthead_bg_mob.png'
 import * as variable from '../variables'
 
-import cx from '../../../../../.cache/typescript/2.9/node_modules/@types/classnames'
-
 const StyledMasthead = Styled.div`
     background-color: ${variable.COLOR_DARKBLUE} ;
     color: #ffffff;

@@ -2,8 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 
 import Link from './Link'
-import cx from '../../../../../.cache/typescript/2.9/node_modules/@types/classnames'
-import * as variable from '../../variables'
+import * as variable from '../variables'
+import cx from 'classnames'
 
 const Button = styled(Link)`
   display: inline-flex;
@@ -89,11 +89,6 @@ const Button = styled(Link)`
     color: ${variable.BRAND_HILIGHT};
     cursor: not-allowed;
   }
-  &.partners {
-    background-color: #f52d5a;
-    color: #ffffff;
-    border-color: #ffffff;
-  }
 
   &.marginBottom {
     margin-bottom: 16px;
@@ -149,13 +144,8 @@ export default ({
       large,
       primary,
       alternative,
-      arrow,
       disabled,
       marginBottom,
-      partners,
-      loans,
-      saving,
-      investing,
       white,
       transparent,
       transparentWhiteOutline,

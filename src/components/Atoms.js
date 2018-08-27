@@ -26,33 +26,57 @@ export const Band = styled.section`
         ? `background-color: ${props.backgroundColor}`
         : null}
 
-    @media (min-width: ${variable.BREAKPOINT_MD}) {
+    @media (min-width: ${variable.BREAK_DESKTOP}) {
 
     }
 `
 
-export const Container = styled.div`
-  max-width: 60rem;
-  width: 100%;
-  margin: 0 auto;
 
-  ${props => (props.backgroundimg ? `background-image: url(${props.backgroundimg})
-    background-size:cover;
-    background-position: right top;` : null)}
-    
-    ${props => (props.backgroundColor ? `background-color: ${props.backgroundColor}` : null)}
+export const BandSplit = styled(Band)`
+    position: relative;
 
-    @media all and (min-width: ${variable.BREAKPOINT_SM}) {
-      max-width: ${variable.TEXT_CONTENT_MAX_WIDTH};
-      margin: 0 auto;
-      padding-left: 2rem;
-      padding-right: 2rem;
+    &:before {
+        position: absolute;
+        content: '';
+        width: 100%;
+        height: 50%;
+        ${props =>
+          props.backgroundColorTop
+            ? `background-color: ${props.backgroundColorTop};`
+            : `background-color : ${variable.BRAND_SECONDARY};`}
+        z-index: -1;
+        right: 0;
+        
     }
 
-  @media all and (min-width: ${variable.BREAKPOINT_MD}) {
-    max-width: ${variable.TEXT_CONTENT_MAX_WIDTH_MD};
-    margin: 0;
-    margin: 0 auto;
+    &::after {
+        position: absolute;
+        content: '';
+        width: 100%;
+        height: 50%;
+        ${props =>
+          props.backgroundColorBottom
+            ? `background-color: ${props.backgroundColorBottom};`
+            : `background-color : ${variable.BRAND_SECONDARY};`}
+        bottom: 0;
+        right: 0;
+        z-index: -1;
+    }
+`
+
+export const Container = styled.div`
+  width: 100%;
+  max-width: ${variable.CONTAINER_LARGEST}v;
+  padding: 0 ${variable.SINGLE};
+  margin: 0 auto;
+  ${props => (props.backgroundimg ? `
+    background-image: url(${props.backgroundimg})
+    background-size: cover;
+    background-position: right top;` : null)}
+  ${props => (props.backgroundColor ? `
+    background-color: ${props.backgroundColor}` : null)}
+  @media all and (min-width: ${variable.BREAK_PHONE}) {
+    padding: 0 ${variable.DOUBLE};
   }
 `
 
@@ -61,39 +85,38 @@ export const Column = styled.div`
   float: left;
   width: 100%;
   text-align: ${props => (props.textAlign ? props.textAlign : 'left')};
-  margin-top:2em;
-
+  margin-top: ${variable.DOUBLE};
   &:first-of-type{
-   margin-top:0em;
+    margin-top: 0;
+   }
+  @media (min-width: ${variable.BREAK_SMALLEST}) {
+    &:first-of-type{
+      margin-top: ${variable.DOUBLE};
+    }
   }
-
-  @media (min-width: ${variable.BREAKPOINT_MD}) {
+  @media (min-width: ${variable.BREAK_TABLET}) {
     width: ${props => (props.size ? (props.size / 12) * 100 : 100)}%;
   }
 `
 
 export const Row = styled.div`
   overflow: auto;
-  padding: 0 0em;
-
+  padding: 0;
   ${Column} {
-    padding: 0 0.5em;
-    @media (min-width: ${variable.BREAKPOINT_MD}) {
-      padding: 0 ${props => (props.columnBuffer ? props.columnBuffer : 0.5)}em;
+    padding: 0 ${variable.HALF};
+    @media (min-width: ${variable.BREAK_DESKTOP}) {
+      padding: 0 ${props => (props.columnBuffer ? props.columnBuffer : 0.5)}rem;
     }
-    @media (min-width: ${variable.BREAKPOINT_SM_Phone}) {
-      padding: 0 ${props => (props.columnBuffer ? props.columnBuffer : 0.5)}em;
+    @media (min-width: ${variable.BREAK_PHONE}) {
+      padding: 0 ${props => (props.columnBuffer ? props.columnBuffer : 0.5)}rem;
     }
   }
-
   ${Column}:first-child {
-    padding-left: 0.5em;
-    float: ${props => props.swapColumns ? 'right' : 'left' }
- }
+    padding-left: ${variable.HALF};
+    float: ${props => props.swapColumns ? 'right' : 'left'}
   }
-
   ${Column}:last-child {
-    padding-right: 0.5em;
+    padding-right: ${variable.HALF};
   }
 `
 
@@ -113,21 +136,36 @@ export const HeadingTertiary = styled.h3`
   font-weight: bold;
 `
 
-export const Paragraph = styled.p`
-color: ${props => props.textColor ? props.textColor : '#000000' } 
-  margin-bottom: ${variable.MARGIN_MAIN};
+export const TextContainer = styled.div`
+  color: ${props => props.textColor ? props.textColor : variable.BRAND_PRIMARY };
+  margin-bottom: ${variable.SINGLE};
+  text-align: ${props => props.textAlign ? props.textAlign : 'inherit' };
+  ul, ol {
+    margin-left: ${variable.SINGLEplusHALF};
+  }
+  ul {
+    
+  }
+  li {
+    margin-bottom: ${variable.SINGLEplusHALF};
+  }
+`
 
+
+export const Paragraph = styled.p`
+color: ${props => props.textColor ? props.textColor : variable.BRAND_HILIGHT };
+  font-size: ${variable.REGULAR};
+  margin-bottom: ${variable.SINGLE};
   & small {
-    color: ${variable.COLOR_TEXT_ON_GREY_BG};
+    color: ${variable.BRAND_HILIGHT};
   }
   > a {
-    color: ${variable.COLOR_PRIMARY_HOVER};
+    color: ${variable.BRAND_PRIMARY};
     text-decoration: underline;
-
     &:hover,
     &:active,
     &:focus {
-      color: ${variable.COLOR_PRIMARY_HOVER2};
+      color: ${variable.BRAND_HILIGHT};
     }
   }
 `

@@ -14,6 +14,8 @@ export const query = graphql`
     strapiDiscovery {
       title
       description
+      spotify_playlist
+      vimeo_video
     }
   }
 `

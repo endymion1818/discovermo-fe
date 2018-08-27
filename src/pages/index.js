@@ -1,10 +1,10 @@
 import React from 'react'
-import Link from 'gatsby-link'
 import styled from 'styled-components'
 import {
   Band,
   Container,
 } from '../components/Atoms'
+import * as variable from '../components/variables'
 
 const HomeIntro = styled.div`
   background-color: white;
@@ -27,12 +27,12 @@ const TextIntro = styled.p`
 
 const IndexPage = props => (
   <div>
-  <Band>
+  <Band backgroundColor={variable.BRAND_PRIMARY}>
     <Container>
       <HomeIntro>
-        <TextTop>Discover</TextTop>
-        <TextMain>Mike Oldfield</TextMain>
-        <TextIntro>Multi-instrumentalist. Game designer. Genius composer. Discover the incredible world of <Link to="/about">Mike Oldfield.</Link></TextIntro>
+        <TextTop>Hello.</TextTop>
+        <TextMain>You've stumbled on a work in progress</TextMain>
+        <TextIntro>This will be a new site to help new fans get to know the work of composer, multi-instrumentalist and game designer Mike Oldfield.. Check back in a while for further updates!</TextIntro>
       </HomeIntro>
     </Container>
   </Band>
