@@ -3,7 +3,7 @@ import * as variable from '../../variables'
 
 export const Main = styled.div`
   background-color: ${props =>
-    props.backgroundColor ? props.backgroundColor : variable.navy800};
+    props.backgroundColor ? props.backgroundColor : variable.BRAND_HILIGHT};
 `
 
 export const Container = styled.div`
@@ -16,7 +16,7 @@ export const Container = styled.div`
     padding: ${variable.QUAD} 0 ${variable.QUAD} 5rem;
   }
   .slick-dots li button {
-    border: ${variable.BORDER_THIN} solid ${variable.neutral0};
+    border: ${variable.BORDER_THIN} solid ${variable.BRAND_HILIGHT};
     border-radius: ${variable.RADIUS_BUTTON};
     height: ${variable.SINGLE};
     width: ${variable.SINGLE};
@@ -24,7 +24,7 @@ export const Container = styled.div`
   }
   .slick-dots li button:hover,
   .slick-dots li.slick-active button {
-    background-color: ${variable.neutral0};
+    background-color: ${variable.BRAND_HILIGHT};
   }
 `
 
@@ -46,18 +46,14 @@ export const MainTextContainer = styled.div`
 `
 
 export const MainHeading = styled.h2`
-  color: ${variable.neutral0};
-  font-family: ${variable.ALVERATA};
+  color: ${variable.BRAND_HILIGHT};
   font-size: ${variable.XLARGE};
-  line-height: ${variable.LOOSE};
   margin-bottom: ${variable.HALF};
 `
 
 export const MainParagraph = styled.p`
-  color: ${variable.neutral0};
-  font-family: ${variable.OPENSANS};
+  color: ${variable.BRAND_HILIGHT};
   font-size: ${variable.MEDIUM};
-  line-height: ${variable.TIGHT};
   margin-bottom: ${variable.SINGLE};
 `
 

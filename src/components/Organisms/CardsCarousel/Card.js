@@ -20,7 +20,6 @@ const Main = styled.div`
     {
         background-color: #ffffff;
         border-radius: 5px;
-        font-family: ${variable.OPENSANS};
         height: 200px;
         overflow: hidden;
         width: 100%;
@@ -41,7 +40,6 @@ const TextContainer = styled.div`
 
 const Title = styled.h3`
     {
-        font-weight: ${variable.BOLD};
         margin-bottom: 0.5em;
         line-height: 1.3em;
     }
@@ -60,7 +58,7 @@ const TextLink = styled.a`
 
 const Details = styled.div`
     {
-        color: ${variable.navy800};
+        color: ${variable.BRAND_HILIGHT};
         font-size: 0.875em;
         line-height: 1.5em;
 

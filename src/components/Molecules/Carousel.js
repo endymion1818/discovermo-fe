@@ -39,26 +39,26 @@ const Pagination = styled.div`
 const PaginationBubble = styled.div`
   width: ${variable.SINGLE};
   height: ${variable.SINGLE};
-  border: ${variable.BORDER_THIN} solid ${variable.neutral1000};
+  border: ${variable.BORDER_THIN} solid ${variable.BRAND_HILIGHT};
   border-radius: ${variable.RADIUS_BUTTON};
   margin: 0 ${variable.HALF};
   cursor: pointer;
   &:hover {
-    background-color: ${variable.neutral1000};
+    background-color: ${variable.BRAND_HILIGHT};
   }
   &.PaginationBubble--Active {
-    background-color: ${variable.neutral1000};
+    background-color: ${variable.BRAND_HILIGHT};
     width: ${variable.SINGLEplusHALF};
     height: ${variable.SINGLEplusHALF};
   }
   &.PaginationBubble--Light {
-    border: ${variable.BORDER_THIN} solid ${variable.neutral0};
+    border: ${variable.BORDER_THIN} solid ${variable.BRAND_HILIGHT};
   }
   &.PaginationBubble--Light:hover {
-    background-color: ${variable.neutral0};
+    background-color: ${variable.BRAND_HILIGHT};
   }
   &.PaginationBubble--Light.PaginationBubble--Active {
-    background-color: ${variable.neutral0};
+    background-color: ${variable.BRAND_HILIGHT};
     width: ${variable.SINGLEplusHALF};
     height: ${variable.SINGLEplusHALF};
   }
@@ -85,7 +85,7 @@ class Carousel extends Component {
     this.width = 0
   }
 
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     this.run = true
     if (typeof requestAnimationFrame !== 'undefined') {
       requestAnimationFrame(this.runloop)
