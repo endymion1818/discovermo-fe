@@ -1,9 +1,26 @@
-# Discover Mike Oldfield
+# gatsby-starter-default
+The default Gatsby starter.
 
-Frontend for [Discover Mike Oldfield](https://www.discovermikeoldfield.info/), a site about composer, multi-instrumentalist and game designer Mike Oldfield.
+For an overview of the project structure please refer to the [Gatsby documentation - Building with Components](https://www.gatsbyjs.org/docs/building-with-components/).
 
-## Back End
-The backend will be an api made with [Strapi](https://strapi.io) and hosted on [Heroku](https://www.heroku.com).
+## Install
 
-## Front End
-This is the frontend, a site built with [Gatsbyjs](https://www.gatsbyjs.org/), using [Typescript](http://www.typescriptlang.org/), hosted on [Netlify](https://www.netlify.com/).
+Make sure that you have the Gatsby CLI program installed:
+```sh
+npm install --global gatsby-cli
+```
+
+And run from your CLI:
+```sh
+gatsby new gatsby-example-site
+```
+
+Then you can run it by:
+```sh
+cd gatsby-example-site
+gatsby develop
+```
+
+## Deploy
+
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-default)

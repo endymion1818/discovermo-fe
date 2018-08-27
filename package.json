@@ -1,18 +1,22 @@
 {
-  "name": "discover mike oldfield",
-  "description": "The place to discover the incredible, diverse and prolific music of Mike Oldfield",
+  "name": "gatsby-starter-default",
+  "description": "Gatsby default starter",
   "version": "1.0.0",
-  "author": "Benjamin Read <endymion1818@gmail.com>",
+  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
-    "@types/react-helmet": "^5.0.6",
     "babel-plugin-styled-components": "^1.5.1",
-    "gatsby": "^1.9.247",
-    "gatsby-link": "^1.6.40",
-    "gatsby-plugin-react-helmet": "^2.0.10",
+    "gatsby": "^2.0.0-rc.0",
+    "gatsby-plugin-manifest": "next",
+    "gatsby-plugin-offline": "next",
+    "gatsby-plugin-react-helmet": "next",
     "gatsby-plugin-sass": "^1.0.26",
-    "gatsby-transformer-remark": "^1.7.41",
+    "gatsby-plugin-styled-components": "^2.0.11",
+    "gatsby-source-strapi": "0.0.3",
+    "node-sass": "^4.9.3",
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2",
     "react-helmet": "^5.2.0",
-    "styled-components": "^3.3.0"
+    "styled-components": "^3.4.5"
   },
   "keywords": [
     "gatsby"
@@ -21,11 +25,14 @@
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
-    "format": "prettier --write 'src/**/*.js'",
+    "format": "prettier --write '**/*.js'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
-    "@types/react-helmet": "^5.0.6",
-    "prettier": "^1.12.0"
+    "prettier": "^1.14.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
   }
 }
