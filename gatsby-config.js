@@ -4,20 +4,6 @@ module.exports = {
   },
   plugins: [
     'gatsby-plugin-react-helmet',
-    `gatsby-plugin-sass`,
-    `gatsby-plugin-styled-components`,
-    // `gatsby-plugin-typescript`,
-    {
-      resolve: `gatsby-source-strapi`,
-      options: {
-        apiURL: `https://discovermikeoldfield-content.herokuapp.com`,
-        contentTypes: [
-          `post`,
-          `album`,
-          `discovery`
-        ],
-      },
-    },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
