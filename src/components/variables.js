@@ -1,6 +1,8 @@
 export const BRAND_PRIMARY = '#0D3947'
-export const BRAND_HILIGHT = '#ffffff'
-export const BRAND_SECONDARY = '#00ff11'
+export const BRAND_PRIMARY_LIGHT = '#AAC6C1'
+export const BRAND_SECONDARY = '#153A61'
+export const BRAND_SECONDARY_DARK = '#364E5C'
+export const BRAND_HILIGHT = '#441283'
 
 export const PADDING_DEFAULT_TOP = '2rem'
 export const PADDING_DEFAULT_BOTTOM = '2rem'
@@ -10,7 +12,6 @@ export const BREAK_PHONE = '36em'
 export const BREAK_TABLET = '48em'
 export const BREAK_DESKTOP = '56.26em'
 export const BREAK_LARGEST = '62em'
-
 
 // container max-widths
 export const EIGHTY_PERCENT = '80%'

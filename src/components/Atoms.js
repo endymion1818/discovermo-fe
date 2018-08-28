@@ -16,18 +16,21 @@ export const Band = styled.section`
           : variable.PADDING_DEFAULT_BOTTOM};
     ${props =>
       props.backgroundimg
-        ? `background-image: url(${props.backgroundimg})
+        ? `background-image: url(${props.backgroundimg});
     background-size:cover;
     background-position: right top;`
         : null}
 
-    ${props =>
-      props.backgroundColor
-        ? `background-color: ${props.backgroundColor}`
-        : null}
+    background-color: ${props => props.backgroundColor || null };
+    color: ${props => props.textColor || null };
 
     @media (min-width: ${variable.BREAK_DESKTOP}) {
-
+      ${props =>
+      props.backgroundimgDesktop
+        ? `background-image: url(${props.backgroundimgDesktop});
+    background-size:cover;
+    background-position: right top;`
+        : null}
     }
 `
 
@@ -43,7 +46,7 @@ export const BandSplit = styled(Band)`
         ${props =>
           props.backgroundColorTop
             ? `background-color: ${props.backgroundColorTop};`
-            : `background-color : ${variable.BRAND_SECONDARY};`}
+            : null }
         z-index: -1;
         right: 0;
         
@@ -57,7 +60,7 @@ export const BandSplit = styled(Band)`
         ${props =>
           props.backgroundColorBottom
             ? `background-color: ${props.backgroundColorBottom};`
-            : `background-color : ${variable.BRAND_SECONDARY};`}
+            : null }
         bottom: 0;
         right: 0;
         z-index: -1;
@@ -120,24 +123,37 @@ export const Row = styled.div`
   }
 `
 
+export const RowCenter = styled(Row)`
+  display: flex;
+  justify-content: center;
+`
 
-export const HeadingMain = styled.h1`
+export const HeadingPrimary = styled.h1`
   font-size: 2em;
   font-weight: bold;
+  ${props =>
+      props.textColor
+        ? `color: ${props.textColor};`
+        : null }
 `
 
 export const HeadingSecondary = styled.h2`
   font-size: 1.5em;
   font-weight: bold;
-`
+  ${props =>
+      props.textColor
+        ? `color: ${props.textColor};`
+        : null }`
 
 export const HeadingTertiary = styled.h3`
   font-size: 1.2em;
   font-weight: bold;
-`
+  ${props =>
+      props.textColor
+        ? `color: ${props.textColor};`
+        : null }`
 
 export const TextContainer = styled.div`
-  color: ${props => props.textColor ? props.textColor : variable.BRAND_PRIMARY };
   margin-bottom: ${variable.SINGLE};
   text-align: ${props => props.textAlign ? props.textAlign : 'inherit' };
   ul, ol {
@@ -153,14 +169,20 @@ export const TextContainer = styled.div`
 
 
 export const Paragraph = styled.p`
-color: ${props => props.textColor ? props.textColor : variable.BRAND_HILIGHT };
+    ${props =>
+      props.textColor
+        ? `color: ${props.textColor};`
+        : null }
   font-size: ${variable.REGULAR};
   margin-bottom: ${variable.SINGLE};
   & small {
     color: ${variable.BRAND_HILIGHT};
   }
   > a {
-    color: ${variable.BRAND_PRIMARY};
+    ${props =>
+      props.textColor
+        ? `color: ${props.textColor};`
+        : null }
     text-decoration: underline;
     &:hover,
     &:active,

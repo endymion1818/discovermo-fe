@@ -1,14 +1,26 @@
-import React, { Component } from 'react'
+import React from 'react'
 import Styled from 'styled-components'
 import Link from '../Molecules/Link'
-// import mastheadBgDt from '../../assets/images/masthead_bg_dt.png'
-// import mastheadBgMob from '../../assets/images/masthead_bg_mob.png'
 import * as variable from '../variables'
+import {Paragraph, HeadingPrimary} from '../Atoms'
+
 
 const StyledMasthead = Styled.div`
     background-color: ${variable.COLOR_DARKBLUE} ;
-    color: #ffffff;
-    /* background-image:url(${mastheadBgDt}); */
+    ${props =>
+      props.textColor
+        ? `color: ${props.textColor};`
+        : null }
+    ${props =>
+      props.textAlign
+        ? `text-align: ${props.textAlign};`
+        : null }
+    ${props =>
+      props.backgroundimg
+        ? `background-image: url(${props.backgroundimg})
+    background-size:cover;
+    background-position: right top;`
+        : null}
     background-position:50% 0%;
     background-size:cover;
     padding-top: ${props => (props.buffer ? props.buffer : '5.5r')}em;
@@ -20,7 +32,6 @@ const StyledMasthead = Styled.div`
       }
 
     @media (min-width: ${variable.BREAKPOINT_SM}) {
-        /* background-image:url(${mastheadBgMob}); */
         background-position:50% 0%;
         background-size:cover;
         > * {
@@ -30,9 +41,12 @@ const StyledMasthead = Styled.div`
     }
 
     @media (min-width: ${variable.BREAKPOINT_MD}) {
-        background-image:url(${mastheadBgDt});
-        background-position:50% 50%;
-        background-size:cover;
+      ${props =>
+      props.backgroundimgDesktop
+        ? `background-image: url(${props.backgroundimgDesktop})
+            background-size:cover;
+            background-position: right top;`
+        : null}
         padding-top: ${props => (props.buffer ? props.buffer : '4.938r')}em;
         padding-bottom: ${props => (props.buffer ? props.buffer : '5.813r')}em;
 
@@ -46,17 +60,17 @@ const StyledMasthead = Styled.div`
     }
 `
 
-const Masthead = ({ deepPad, ...props }) => (
-  <StyledMasthead {...props} className={cx({ deepPad })}>
+const Masthead = ({...props }) => (
+  <StyledMasthead {...props}>
     <div>
       {props.breadcrumb ? props.breadcrumb : null}
-      <Title textColor={'#ffffff'}>{props.title}</Title>
+      <HeadingPrimary>{props.title}</HeadingPrimary>
       {props.intro ? <Paragraph>{props.intro}</Paragraph> : null}
       {props.byline ? <Paragraph>{props.byline}</Paragraph> : null}
       {props.linkText ? (
         <Paragraph>
           {props.linkIntro}{' '}
-          <Link style={{ color: `#ffffff` }} to={props.linkHref}>
+          <Link to={props.linkHref}>
             {props.linkText}
           </Link>
         </Paragraph>

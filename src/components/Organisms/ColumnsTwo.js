@@ -28,7 +28,7 @@ const TwoColumn = props => (
     ) : null}
     <Row swapColumns={props.swapColumns}>
       {props.col1 ? (
-        <Column size="6">
+        <Column size="6" {...props} >
           {props.col1.heading ? (
             <HeadingSecondary textColor={props.textColor} Color={props.textColor}>{props.col1.heading}</HeadingSecondary>
           ) : null}
@@ -55,7 +55,7 @@ const TwoColumn = props => (
         </Column>
       ) : null}
       {props.col2 ? (
-        <Column size="6">
+        <Column size="6" {...props}>
           {props.col2.heading ? (
             <HeadingSecondary textColor={props.textColor}>{props.col2.heading}</HeadingSecondary>
           ) : null}

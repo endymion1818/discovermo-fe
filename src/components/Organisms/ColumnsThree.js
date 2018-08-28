@@ -1,11 +1,16 @@
 import React from 'react'
+import styled from 'styled-components'
 import Button from '../Molecules/Button'
 
 import { Container, Row, Column, HeadingSecondary, HeadingTertiary, TextContainer, Paragraph } from '../Atoms'
 
+const StyledHeadingSecondary = styled(HeadingSecondary)`
+  text-align: center;
+`
+
 const ThreeColumn = props => (
     <Container>
-      { props.heading ? <HeadingSecondary>{ props.heading }</HeadingSecondary> : null }
+      { props.heading ? <StyledHeadingSecondary>{ props.heading }</StyledHeadingSecondary> : null }
       { props.content ? <Paragraph>{ props.content }</Paragraph> : null }
       <Row>
       {props.col1 ? (

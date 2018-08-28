@@ -1,0 +1,16 @@
+<svg width="470" height="470" viewBox="0 0 470 470" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="469.868" height="469.675" fill="black" fill-opacity="0"/>
+<rect width="469.868" height="469.675" rx="20" fill="url(#paint0_linear)"/>
+<rect width="281.24" height="278.017" fill="black" fill-opacity="0" transform="translate(102 103)"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M383.24 145.474C358.938 128.823 329.563 119.086 297.923 119.086C214.217 119.086 146.36 187.23 146.36 271.289C146.36 314.399 164.208 353.324 192.889 381.017C152.898 353.615 126.644 307.488 126.644 255.202C126.644 171.143 194.501 103 278.207 103C318.983 103 355.998 119.17 383.24 145.474Z" fill="white"/>
+<path d="M193.808 133.187L183.83 161.599L209.914 183.531L177.663 179.158L167.685 207.569L157.732 176.455L125.481 172.081L151.58 157.225L141.626 126.111L167.71 148.044L193.808 133.187Z" fill="white"/>
+<path d="M216.829 163.633C216.829 190.421 195.205 212.13 168.54 212.13C141.875 212.13 120.251 190.421 120.251 163.633C120.251 136.845 141.875 115.137 168.54 115.137C195.205 115.137 216.829 136.845 216.829 163.633Z" stroke="white" stroke-width="2"/>
+<line x1="102" y1="166.346" x2="230.151" y2="166.346" stroke="white" stroke-width="2"/>
+<line x1="167.075" y1="103" x2="167.075" y2="231.691" stroke="white" stroke-width="2"/>
+<defs>
+<linearGradient id="paint0_linear" x1="234.934" y1="469.675" x2="234.934" y2="-5.1885e-06" gradientUnits="userSpaceOnUse">
+<stop stop-color="#11566C"/>
+<stop offset="1" stop-color="#79B1EB"/>
+</linearGradient>
+</defs>
+</svg>

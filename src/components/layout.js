@@ -31,6 +31,13 @@ const Layout = ({ children, data }) => (
             title
           }
         }
+        allSitePage {
+          edges {
+            node {
+              path
+            }
+          }
+        }
       }
     `}
     render={data => (

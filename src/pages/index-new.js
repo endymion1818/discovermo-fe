@@ -1,21 +1,30 @@
 import React from 'react'
+import { graphql } from 'gatsby'
 import styled from 'styled-components'
 import Helmet from 'react-helmet'
 
+// Atoms & Variables
 import * as variable from '../components/variables'
-import {Paragraph, Band, BandSplit } from '../components/Atoms'
+import {Paragraph, Band, BandSplit, SmallView, RowCenter } from '../components/Atoms'
 
 // Molecules
-// import Hero from '../../components/Organisms/Hero'
+import PopOut from '../components/Molecules/Popout'
+import Link from '../components/Molecules/Link'
+
+// Organisms
 import ColumnsOne from '../components/Organisms/ColumnsOne'
 import ColumnsTwo from '../components/Organisms/ColumnsTwo'
 import ColumnsThree from '../components/Organisms/ColumnsThree'
 import ColumnsFour from '../components/Organisms/ColumnsFour'
-import PopOut from '../components/Molecules/Popout'
 import Video from '../components/Organisms/Video'
 import CardsCarousel from '../components/Organisms/CardsCarousel'
-import { graphql } from 'gatsby';
+import Masthead from '../components/Organisms/Masthead'
 
+// This page graphics
+import DiscoveryDawn from '../images/discovery-dawn.svg'
+import DiscoveryCrises from '../images/discovery-crises.svg'
+import DiscoveryIslands from '../images/discovery-islands.svg'
+import DiscoveryIbiza from '../images/discovery-ibiza.svg'
 
 export default (props) => (
   <div>
@@ -23,23 +32,40 @@ export default (props) => (
       <title>Home | { 'site meta title' }</title>
       <meta name="description" content="Discover the music of Mike Oldfield - playlists, articles, selected tracks hilighted and analysed regularly." />
     </Helmet>
-    <Band id="intro" buffer={variable.ZERO}>
-      <ColumnsOne
-        textAlign={'center'}
-        textColor={variable.BRAND_HILIGHT}
-        col1={{
-          heading: 'Featured Discovery',
-          content:
-            <div>
-                <Paragraph>Recently voted by fans on the Mike Oldfield Facebook page as their favourite album of all time, Ommadawn is undoubtably Mike Oldfield at his best.</Paragraph>
-            </div>
-        }}
-      />
-    </Band>
 
+    <Masthead
+      title="Discover"
+      intro="Mike Oldfield"
+      textColor={variable.BRAND_PRIMARY}
+      textAlign="center"
+    />
 
-<Band id="about-mike">
+    <BandSplit 
+      id="intro" 
+      buffer={variable.DOUBLE} 
+      backgroundColorBottom={variable.BRAND_SECONDARY}>
+      <PopOut>
+        <ColumnsOne
+          textAlign={'center'}
+          textColor='white'
+          col1={{
+            heading: 'Featured Discovery',
+            content:
+              <div>
+                  <Paragraph textColor="white">Recently voted by fans on the Mike Oldfield Facebook page as their favourite album of all time, Ommadawn is undoubtably Mike Oldfield at his best.</Paragraph>
+                  <iframe src="https://open.spotify.com/embed/user/1138668487/playlist/2LTvgOeaIGYIScTO5QjyJi" width="100%" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+              </div>
+          }}
+        />
+      </PopOut>
+    </BandSplit>
+
+    <Band id="about-mike" 
+      backgroundColor={variable.BRAND_SECONDARY} 
+      textColor={'white'}
+      bufferBottom={variable.QUAD} >
       <ColumnsThree
+        textColor="white"
         heading="More Recent Discoveries"
 
         col1={{
@@ -67,33 +93,60 @@ export default (props) => (
 
 
     <Band id="elements-mike-oldfield">
-      <ColumnsOne
-        textAlign={'center'}
-        textColor={variable.BRAND_HILIGHT}
-        col1={{
-          heading: 'Elements of Mike Oldfield',
-          content:
-            <div>
-                <Paragraph>The concept of ‘Elements’ groups Mike’s music into several categories which we
-            hope wil help you discover more of his work.</Paragraph>
-                <Paragraph>Whilst it’s really impossible to segment any artists’ work in such a stringent way,
-            we wanted to find a way to make Mike Oldfield’s music more accessible to an
-            audience unfamiliar with his work.</Paragraph>
-            <Paragraph>Each ‘Element’ takes a group of albums that seem to share some familiar
-            qualities and tone. For example, Mike Oldfield’s first 3 albums (“Tubular Bells”, 
-            “Hergest Ridge”  and “Ommadawn”) have a similar musical structure and tone
-            of voice.</Paragraph>
-            <Paragraph>So these albums we refer to as the “dawn” series.',</Paragraph>
-            </div>
-        }}
-      />
+        <ColumnsOne
+          narrowView='true'
+          textAlign={'center'}
+          textColor={variable.BRAND_PRIMARY}
+          col1={{
+            heading: 'Elements of Mike Oldfield',
+            content:
+              <div>
+                <Paragraph>The concept of ‘Elements’ groups Mike’s music into several categories which we hope wil help you discover more of his work.</Paragraph>
+                <Paragraph>Whilst it’s really impossible to segment any artists’ work in such a stringent way, we wanted to find a way to make Mike Oldfield’s music more accessible to an audience unfamiliar with his work.</Paragraph>
+                <Paragraph>Each ‘Element’ takes a group of albums that seem to share some familiar qualities and tone. For example, Mike Oldfield’s first 3 albums (“Tubular Bells”, “Hergest Ridge”  and “Ommadawn”) have a similar musical structure and tone of voice.</Paragraph>
+                <Paragraph>So these albums we refer to as the “dawn” series.',</Paragraph>
+              </div>
+          }}
+        />
+        <ColumnsTwo
+          textAlign={'center'}
+            col1={{
+              content:
+                <div>
+                  <img src={DiscoveryDawn} width="200"/>
+                  <Paragraph>The Dawn Playlist</Paragraph>
+                </div>
+            }}
+            col2={{
+              content:
+                <div>
+                  <img src={DiscoveryIbiza} width="200"/>
+                  <Paragraph>The Dawn Playlist</Paragraph>
+                </div>
+            }}
+        />
+        <ColumnsTwo
+          textAlign={'center'}
+            col1={{
+              content:
+                <div>
+                  <img src={DiscoveryIslands} width="200"/>
+                  <Paragraph>The Dawn Playlist</Paragraph>
+                </div>
+            }}
+            col2={{
+              content:
+                <div>
+                  <img src={DiscoveryCrises} width="200"/>
+                  <Paragraph>The Dawn Playlist</Paragraph>
+                </div>
+            }}
+        />
     </Band>
 
-
     <BandSplit id="concert-videos"
-      backgroundColorTop={variable.BRAND_HILIGHT}
-      backgroundColorBottom={variable.BRAND_PRIMARY}>
-      <PopOut>
+      backgroundColorBottom={variable.BRAND_PRIMARY_LIGHT}>
+      <PopOut >
         <ColumnsThree>
             heading="Concert Recordings"
             col1={{
@@ -115,7 +168,7 @@ export default (props) => (
     </BandSplit>
 
 
-    <Band id="recent-news">
+    <Band id="who-is-he" backgroundColor={variable.BRAND_PRIMARY_LIGHT}>
       <ColumnsThree
         heading="Who Is Mike Oldfield"
 

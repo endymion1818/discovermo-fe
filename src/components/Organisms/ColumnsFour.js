@@ -22,12 +22,12 @@ const HeadingSecondaryExtended = styled(HeadingSecondary)`
 `
 
 const FourColumn = props => (
-  <Container textAlign="center">
+  <Container>
     <HeadingSecondaryExtended>{props.heading ? props.heading : null}</HeadingSecondaryExtended>
     <Row>
       {props.data
         ? props.data.map((item, index) => (
-            <Column key={index} size="3" textAlign="center">
+            <Column key={index} size="3">
               {item.imagealt ? (
                 <ImageContainer>
                   <img alt={item.imagealt} src={item.imageurl} width="100%" />
