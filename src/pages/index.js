@@ -27,7 +27,7 @@ const TextIntro = styled.p`
 
 const IndexPage = props => (
   <div>
-  <Band backgroundColor={variable.BRAND_PRIMARY}>
+  <Band>
     <Container>
       <HomeIntro>
         <TextTop>Hello.</TextTop>
