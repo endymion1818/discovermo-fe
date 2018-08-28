@@ -16,9 +16,12 @@ injectGlobal`
   * {
     box-sizing: border-box;
   }
+  html {
+    font-size: 17px;
+  }
   body {
     margin: 0;
-    font-family: 'exo'
+    font-family: 'exo';
   }
 `;
 

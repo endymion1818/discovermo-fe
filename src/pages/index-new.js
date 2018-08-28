@@ -146,31 +146,26 @@ export default (props) => (
 
     <BandSplit id="concert-videos"
       backgroundColorBottom={variable.BRAND_PRIMARY_LIGHT}>
-      <PopOut >
-        <ColumnsThree>
+      <PopOut textColor="white">
+        <ColumnsThree
             heading="Concert Recordings"
             col1={{
-            heading: "Sublime Composer",
-            content: <Video link={'https://youtu.be/q7U1fvpuWWU'}></Video>
+            content: <Video embedCode={'https://youtu.be/nko3_1dMJf8'}/>
             }}
-
             col2={{
-            heading: "Multi Instrumentalist",
-            content: <Video link={'https://youtu.be/q7U1fvpuWWU'}></Video>
+            content: <Video embedCode={'https://youtu.be/FNsFo2X0SFo'}/>
             }}
-
             col3={{
-            heading: "Game Designer",
-            content: <Video link={'https://youtu.be/q7U1fvpuWWU'}></Video>
+            content: <Video embedCode={'https://youtu.be/RNaZmX-NmQo'}/>
             }}
-        </ColumnsThree>
+        />
       </PopOut>
     </BandSplit>
 
 
     <Band id="who-is-he" backgroundColor={variable.BRAND_PRIMARY_LIGHT}>
       <ColumnsThree
-        heading="Who Is Mike Oldfield"
+        heading="Who Is Mike Oldfield?"
 
         col1={{
           heading: "Sublime Composer",
