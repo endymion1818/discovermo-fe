@@ -1,11 +1,13 @@
 import React from 'react'
+import { 
+  HeadingSecondary,
+  Paragraph
+} from '../../Atoms'
 import Carousel from '../../Molecules/Carousel'
 import {
   Main,
   CardsContainer,
   MainTextContainer,
-  MainHeading,
-  MainParagraph,
   Container,
   SmallView,
   LargeView,
@@ -16,6 +18,7 @@ import {
   CAROUSEL_SETTINGS_LARGE,
 } from './constants'
 import Button from '../../Molecules/Button'
+import Layout from '../components/Templates/Layout'
 
 class CardsCarousel extends React.Component {
   constructor(props) {
@@ -36,12 +39,12 @@ class CardsCarousel extends React.Component {
       >
         <Container {...this.props}>
           <MainTextContainer>
-            <MainHeading>
-              {this.props.heading || 'See More'}
-            </MainHeading>
-            <MainParagraph>
-              {this.props.content || 'More articles.'}
-            </MainParagraph>
+            <HeadingSecondary textColor={this.props.textColor}>
+              {this.props.heading || 'Heading'}
+            </HeadingSecondary>
+            <Paragraph textColor={this.props.textColor}>
+              {this.props.content || 'Content.'}
+            </Paragraph>
             <Button to="/" white>
               Read more articles
             </Button>

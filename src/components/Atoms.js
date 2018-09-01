@@ -69,7 +69,7 @@ export const BandSplit = styled(Band)`
 
 export const Container = styled.div`
   width: 100%;
-  max-width: ${variable.CONTAINER_LARGEST}v;
+  max-width: ${variable.CONTAINER_LARGEST};
   padding: 0 ${variable.SINGLE};
   margin: 0 auto;
   ${props => (props.backgroundimg ? `

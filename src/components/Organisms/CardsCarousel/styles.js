@@ -44,19 +44,6 @@ export const MainTextContainer = styled.div`
     width: 40%;
   }
 `
-
-export const MainHeading = styled.h2`
-  color: ${variable.BRAND_HILIGHT};
-  font-size: ${variable.XLARGE};
-  margin-bottom: ${variable.HALF};
-`
-
-export const MainParagraph = styled.p`
-  color: ${variable.BRAND_HILIGHT};
-  font-size: ${variable.MEDIUM};
-  margin-bottom: ${variable.SINGLE};
-`
-
 export const SmallView = styled.div`
   display: block;
   @media (min-width: ${variable.BREAK_TABLET}) {
