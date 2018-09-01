@@ -150,13 +150,13 @@ export default (props) => (
         <ColumnsThree
             heading="Concert Recordings"
             col1={{
-            content: <Video embedCode={'https://youtu.be/nko3_1dMJf8'}/>
+            content: <Video embedCode={'nko3_1dMJf8'}/>
             }}
             col2={{
-            content: <Video embedCode={'https://youtu.be/FNsFo2X0SFo'}/>
+            content: <Video embedCode={'FNsFo2X0SFo'}/>
             }}
             col3={{
-            content: <Video embedCode={'https://youtu.be/RNaZmX-NmQo'}/>
+            content: <Video embedCode={'RNaZmX-NmQo'}/>
             }}
         />
       </PopOut>

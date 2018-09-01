@@ -2,7 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 
 const Main = styled.div`
-
   position: relative;
   padding-bottom: 56.25%; /* 16:9 */
   padding-top: 25px;
@@ -18,7 +17,7 @@ const Main = styled.div`
 `
 
 const Video = props => (
-  <Main dangerouslySetInnerHTML={{__html: '<iframe width="560" height="315" src="https://www.youtube.com/embed/' + props.embedCode + '&rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>'}}/>
+  <Main dangerouslySetInnerHTML={{__html: '<iframe width="560" height="315" src="https://www.youtube.com/embed/' + props.embedCode + '?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>'}}/>
 )
 
 export default Video
