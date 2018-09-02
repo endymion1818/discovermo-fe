@@ -4,8 +4,6 @@ exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
 
   return new Promise((resolve, reject) => {
-    const blogPostTemplate = path.resolve(`src/templates/post.js`)
-    // Query for markdown nodes to use in creating pages.
     resolve(
       graphql(
         `{
@@ -24,7 +22,7 @@ exports.createPages = ({ graphql, actions }) => {
         result.data.allStrapiPost.edges.forEach(({ node }) => {
           createPage({
             path: `/blog/${node.slug}`,
-            component: path.resolve(`src/templates/post.js`),
+            component: path.resolve(`src/components/Templates/post.js`),
             context: {
               id: node.slug,
             },

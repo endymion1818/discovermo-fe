@@ -18,7 +18,6 @@ import {
   CAROUSEL_SETTINGS_LARGE,
 } from './constants'
 import Button from '../../Molecules/Button'
-import Layout from '../components/Templates/Layout'
 
 class CardsCarousel extends React.Component {
   constructor(props) {
