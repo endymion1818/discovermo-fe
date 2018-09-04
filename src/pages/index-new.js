@@ -1,25 +1,21 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import styled from 'styled-components'
 import Helmet from 'react-helmet'
 
 // Atoms & Variables
 import * as variable from '../components/variables'
-import {Paragraph, Band, BandSplit, SmallView, RowCenter } from '../components/Atoms'
+import {Paragraph, Band, BandSplit } from '../components/Atoms'
 
 // Molecules
 import PopOut from '../components/Molecules/Popout'
-import Link from '../components/Molecules/Link'
 
 // Organisms
 import ColumnsOne from '../components/Organisms/ColumnsOne'
 import ColumnsTwo from '../components/Organisms/ColumnsTwo'
 import ColumnsThree from '../components/Organisms/ColumnsThree'
-import ColumnsFour from '../components/Organisms/ColumnsFour'
 import Video from '../components/Organisms/Video'
 import CardsCarousel from '../components/Organisms/CardsCarousel'
-import Masthead from '../components/Organisms/Masthead'
-
+import HomeHero from '../components/Partials/HomeHero'
 // This page graphics
 import DiscoveryDawn from '../images/discovery-dawn.svg'
 import DiscoveryCrises from '../images/discovery-crises.svg'
@@ -33,12 +29,7 @@ export default (props) => (
       <meta name="description" content="Discover the music of Mike Oldfield - playlists, articles, selected tracks hilighted and analysed regularly." />
     </Helmet>
 
-    <Masthead
-      title="Discover"
-      intro="Mike Oldfield"
-      textColor={variable.BRAND_PRIMARY}
-      textAlign="center"
-    />
+    <HomeHero/>
 
     <BandSplit 
       id="intro" 

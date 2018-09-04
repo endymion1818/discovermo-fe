@@ -4,7 +4,6 @@ import {
   Band,
   Container,
 } from '../components/Atoms'
-import * as variable from '../components/variables'
 
 const HomeIntro = styled.div`
   background-color: white;
