@@ -83,28 +83,10 @@ export const Container = styled.div`
   }
 `
 
-export const Column = styled.div`
-  display: inline-block;
-  float: left;
-  width: 100%;
-  text-align: ${props => (props.textAlign ? props.textAlign : 'left')};
-  margin-top: ${variable.DOUBLE};
-  &:first-of-type{
-    margin-top: 0;
-   }
-  @media (min-width: ${variable.BREAK_SMALLEST}) {
-    &:first-of-type{
-      margin-top: ${variable.DOUBLE};
-    }
-  }
-  @media (min-width: ${variable.BREAK_TABLET}) {
-    width: ${props => (props.size ? (props.size / 12) * 100 : 100)}%;
-  }
-`
-
 export const Row = styled.div`
   overflow: auto;
   padding: 0;
+
   ${Column} {
     padding: 0 ${variable.HALF};
     @media (min-width: ${variable.BREAK_DESKTOP}) {
@@ -126,6 +108,45 @@ export const Row = styled.div`
 export const RowCenter = styled(Row)`
   display: flex;
   justify-content: center;
+`
+
+export const RowGrid = styled.div`
+
+  @media (min-width: ${variable.BREAK_PHONE}) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media (min-width: ${variable.BREAK_TABLET}) {
+    display: grid;
+    grid-template-columns: repeat(${props => (props.size || '100%')}, 1fr);
+    grid-gap: ${variable.QUARTER};
+  }
+`
+
+export const Column = styled.div`
+  display: inline-block;
+  float: left;
+  width: 100%;
+  text-align: ${props => (props.textAlign ? props.textAlign : 'left')};
+  margin-top: ${variable.DOUBLE};
+  
+  &:first-of-type{
+    margin-top: 0;
+   }
+  @media (min-width: ${variable.BREAK_SMALLEST}) {
+    &:first-of-type{
+      margin-top: ${variable.DOUBLE};
+    }
+  }
+  @media (min-width: ${variable.BREAK_TABLET}) {
+    width: ${props => (props.size ? (props.size / 12) * 100 : 100)}%;
+  }
+`
+
+export const ColumnFlex = styled.div`
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
 `
 
 export const HeadingPrimary = styled.h1`
