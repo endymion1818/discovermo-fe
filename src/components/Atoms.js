@@ -105,6 +105,7 @@ export const Column = styled.div`
 
 export const ColumnFlex = styled.div`
   display: flex;
+  flex-direction: column;
   align-content: center;
   justify-content: space-between;
 `
@@ -145,8 +146,8 @@ export const RowGrid = styled.div`
   }
   @media (min-width: ${variable.BREAK_TABLET}) {
     display: grid;
-    grid-template-columns: repeat(${props => (props.size || '100%')}, 1fr);
-    grid-gap: ${variable.QUARTER};
+    grid-template-columns: repeat(${props => (props.columns || '100%')}, 1fr);
+    grid-gap: ${variable.SINGLEplusHALF};
   }
 `
 
