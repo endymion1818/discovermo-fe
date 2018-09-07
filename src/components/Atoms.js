@@ -83,6 +83,33 @@ export const Container = styled.div`
   }
 `
 
+export const Column = styled.div`
+  display: inline-block;
+  float: left;
+  width: 100%;
+  text-align: ${props => (props.textAlign ? props.textAlign : 'left')};
+  margin-top: ${variable.DOUBLE};
+  
+  &:first-of-type{
+    margin-top: 0;
+   }
+  @media (min-width: ${variable.BREAK_SMALLEST}) {
+    &:first-of-type{
+      margin-top: ${variable.DOUBLE};
+    }
+  }
+  @media (min-width: ${variable.BREAK_TABLET}) {
+    width: ${props => (props.size ? (props.size / 12) * 100 : 100)}%;
+  }
+`
+
+export const ColumnFlex = styled.div`
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
+`
+
+
 export const Row = styled.div`
   overflow: auto;
   padding: 0;
@@ -123,31 +150,6 @@ export const RowGrid = styled.div`
   }
 `
 
-export const Column = styled.div`
-  display: inline-block;
-  float: left;
-  width: 100%;
-  text-align: ${props => (props.textAlign ? props.textAlign : 'left')};
-  margin-top: ${variable.DOUBLE};
-  
-  &:first-of-type{
-    margin-top: 0;
-   }
-  @media (min-width: ${variable.BREAK_SMALLEST}) {
-    &:first-of-type{
-      margin-top: ${variable.DOUBLE};
-    }
-  }
-  @media (min-width: ${variable.BREAK_TABLET}) {
-    width: ${props => (props.size ? (props.size / 12) * 100 : 100)}%;
-  }
-`
-
-export const ColumnFlex = styled.div`
-  display: flex;
-  align-content: center;
-  justify-content: space-between;
-`
 
 export const HeadingPrimary = styled.h1`
   font-size: 2em;
