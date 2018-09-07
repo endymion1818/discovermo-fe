@@ -1,5 +1,5 @@
 import React from 'react'
-import { HeadingSecondary, HeadingTertiary,Container, Row, RowCenter, Column, Paragraph } from '../Atoms'
+import { HeadingSecondary, HeadingTertiary,Container, Row, RowCenter, Column, TextContainer } from '../Atoms'
 import Button from '../Molecules/Button'
 import Video from '../Organisms/Video'
 
@@ -21,7 +21,7 @@ const OneColumn = props => (
           {props.col1.subheading ? (
             <HeadingTertiary textColor={props.textColor} Color={props.textColor}>{props.col1.subheading}</HeadingTertiary>
           ) : null}
-          {props.col1.content ? <Paragraph textColor={props.textColor}>{props.col1.content}</Paragraph> : null}
+          {props.col1.content ? <TextContainer textColor={props.textColor}>{props.col1.content}</TextContainer> : null}
           {props.col1.link ? (
             <Button {...props.col1.linkStyle} to={props.col1.link}>
               {props.col1.linkText}
