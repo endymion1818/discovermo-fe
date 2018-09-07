@@ -3,12 +3,10 @@ import styled from 'styled-components'
 import * as variable from '../../variables'
 
 const Wrapper = styled.div`
-    {
-        padding: 0;
-        width: 100%;
-        padding: 0 0.5em;
-        height: 200px;
-    }
+    padding: 0;
+    width: 100%;
+    padding: 0 0.5em;
+    height: 200px;
 
     @media (min-width: ${variable.BREAK_PHONE}) {
         width: 100%;
@@ -17,13 +15,11 @@ const Wrapper = styled.div`
 `
 
 const Main = styled.div`
-    {
-        background-color: #ffffff;
-        border-radius: 5px;
-        height: 200px;
-        overflow: hidden;
-        width: 100%;
-    }
+    background-color: #ffffff;
+    border-radius: 5px;
+    height: 200px;
+    overflow: hidden;
+    width: 100%;
 
     @media (min-width: ${variable.BREAK_PHONE}) {
         width: auto;
@@ -31,24 +27,19 @@ const Main = styled.div`
 `
 
 const TextContainer = styled.div`
-    {
-        background-color: #ffffff;
-        padding: 1em;
-        width: 100%;
-    }
+    background-color: #ffffff;
+    color: ${variable.BRAND_PRIMARY};
+    padding: 1em;
+    width: 100%;
 `
 
 const Title = styled.h3`
-    {
-        margin-bottom: 0.5em;
-        line-height: 1.3em;
-    }
+    margin-bottom: 0.5em;
+    line-height: 1.3em;
 `
 
 const TextLink = styled.a`
-    {
-        cursor: pointer;
-    }
+    cursor: pointer;
 
     &:hover {
         color: blue;
@@ -57,14 +48,12 @@ const TextLink = styled.a`
 `
 
 const Details = styled.div`
-    {
-        color: ${variable.BRAND_HILIGHT};
-        font-size: 0.875em;
-        line-height: 1.5em;
+    color: ${variable.BRAND_HILIGHT};
+    font-size: 0.875em;
+    line-height: 1.5em;
 
-        &+& {
-            margin-bottom: 1em;
-        }
+    &+& {
+        margin-bottom: 1em;
     }
 `
 
