@@ -39,6 +39,7 @@ export default (props) => (
       backgroundColorTop="#f4791f">
       <PopOut>
         <ColumnsOne
+          narrowView
           textAlign={'center'}
           textColor='white'
           col1={{
@@ -184,17 +185,8 @@ export default (props) => (
     </Band>
 
 
-    <Band id="discovery-categories"
-      backgroundColor={variable.BRAND_HILIGHT}>
-      <ColumnsOne
-        backgroundColor={variable.BRAND_HILIGHT}
-        textColor="#ffffff"
-        heading='Elements of Mike Oldfield'
-      />
-    </Band>
-
-
     <Band id="recent-news"
+      textColor="white"
       backgroundColor={variable.BRAND_HILIGHT}>
       <CardsCarousel
         posts={props.data.allStrapiPost.edges}

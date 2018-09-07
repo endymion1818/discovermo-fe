@@ -89,7 +89,7 @@ export const Column = styled.div`
   width: 100%;
   text-align: ${props => (props.textAlign ? props.textAlign : 'left')};
   margin-top: ${variable.DOUBLE};
-  
+
   &:first-of-type{
     margin-top: 0;
    }
