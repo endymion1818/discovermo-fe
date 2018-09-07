@@ -16,6 +16,7 @@ import ColumnsThree from '../components/Organisms/ColumnsThree'
 import Video from '../components/Organisms/Video'
 import CardsCarousel from '../components/Organisms/CardsCarousel'
 import HomeHero from '../components/Partials/HomeHero'
+
 // This page graphics
 import DiscoveryDawn from '../images/discovery-dawn.svg'
 import DiscoveryCrises from '../images/discovery-crises.svg'
@@ -23,18 +24,19 @@ import DiscoveryIslands from '../images/discovery-islands.svg'
 import DiscoveryIbiza from '../images/discovery-ibiza.svg'
 
 export default (props) => (
-  <div>
+  <>
     <Helmet>
       <title>Home | { 'site meta title' }</title>
-      <meta name="description" content="Discover the music of Mike Oldfield - playlists, articles, selected tracks hilighted and analysed regularly." />
+      <meta name="description" content="Discover the music of Mike Oldfield - playlists, news, articles, and selected tracks hilighted and analysed regularly." />
     </Helmet>
 
     <HomeHero/>
 
     <BandSplit 
       id="intro" 
-      buffer={variable.DOUBLE} 
-      backgroundColorBottom={variable.BRAND_SECONDARY}>
+      bufferTop="0"
+      backgroundColorBottom={variable.BRAND_SECONDARY}
+      backgroundColorTop="#f4791f">
       <PopOut>
         <ColumnsOne
           textAlign={'center'}
@@ -42,10 +44,10 @@ export default (props) => (
           col1={{
             heading: 'Featured Discovery',
             content:
-              <div>
+              <>
                   <Paragraph textColor="white">Recently voted by fans on the Mike Oldfield Facebook page as their favourite album of all time, Ommadawn is undoubtably Mike Oldfield at his best.</Paragraph>
-                  <iframe src="https://open.spotify.com/embed/user/1138668487/playlist/2LTvgOeaIGYIScTO5QjyJi" width="100%" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
-              </div>
+                  <iframe src="https://open.spotify.com/embed/user/1138668487/playlist/2LTvgOeaIGYIScTO5QjyJi" width="100%" height="80" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+              </>
           }}
         />
       </PopOut>
@@ -200,7 +202,7 @@ export default (props) => (
      />
     </Band>
 
-  </div>
+  </>
 )
 
 export const query = graphql`
