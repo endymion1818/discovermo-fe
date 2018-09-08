@@ -198,7 +198,7 @@ export default (props) => (
 )
 
 export const query = graphql`
-query homePostQuery {
+query indexQuery {
   allStrapiPost(limit:5) {
     edges {
       node {
