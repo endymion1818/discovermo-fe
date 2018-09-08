@@ -36,7 +36,7 @@ export default (props) => (
       id="intro" 
       bufferTop="0"
       backgroundColorBottom={variable.BRAND_SECONDARY}
-      backgroundColorTop="#f4791f">
+      backgroundColorTop="transparent">
       <PopOut>
         <ColumnsOne
           narrowView
