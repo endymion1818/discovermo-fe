@@ -8,11 +8,11 @@ import {Paragraph, Band, BandSplit } from '../components/Atoms'
 
 // Molecules
 import PopOut from '../components/Molecules/Popout'
-
-// Organisms
 import ColumnsOne from '../components/Organisms/ColumnsOne'
 import ColumnsTwo from '../components/Organisms/ColumnsTwo'
 import ColumnsThree from '../components/Organisms/ColumnsThree'
+
+// Organisms
 import Video from '../components/Organisms/Video'
 import CardsCarousel from '../components/Organisms/CardsCarousel'
 import HomeHero from '../components/Partials/HomeHero'

@@ -1,20 +1,21 @@
 import React from 'react'
-import { HeadingSecondary, HeadingTertiary,Container, Row, RowCenter, Column, TextContainer } from '../Atoms'
 import Button from '../Molecules/Button'
 import Video from '../Organisms/Video'
+import { Container, Row, Column, TextContainer, HeadingSecondary, HeadingTertiary } from '../Atoms'
+
 
 const OneColumn = props => (
   <Container>
     {props.heading ? (
       <Row>
-        <Column {...props } size={ props.narrowView ? "8" : "12" }>
+        <Column {...props } size="12">
           <HeadingSecondary textColor={props.textColor}>{props.heading}</HeadingSecondary>
         </Column>
       </Row>
     ) : null}
-    <RowCenter>
+    <Row>
       {props.col1 ? (
-        <Column {...props } size={ props.narrowView ? "8" : "12" }>
+        <Column {...props } size="12">
           {props.col1.heading ? (
             <HeadingSecondary textColor={props.textColor} Color={props.textColor}>{props.col1.heading}</HeadingSecondary>
           ) : null}
@@ -31,11 +32,11 @@ const OneColumn = props => (
               <Video youtubeID={props.col1.youtubeID} />
           ) : null}
           {props.col1.imageUrl ? (
-              <img alt={props.col1.imageAlt} src={props.col1.imageUrl} />
+            <img alt={props.col1.imageAlt} src={props.col1.imageUrl} />
           ) : null}
         </Column>
       ) : null}
-    </RowCenter>
+    </Row>
   </Container>
 )
 

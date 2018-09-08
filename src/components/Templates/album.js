@@ -1,10 +1,12 @@
 import React from 'react'
 import Helmet from 'react-helmet'
+import {graphql} from 'gatsby'
 
 import * as variable from '../variables'
 import { Container, Paragraph, Band, BandSplit } from '../Atoms'
 import PopOut from '../Molecules/Popout'
-import ColumnsOne from '../Molecules/ColumnsOne'
+import ColumnsOne from '../Organisms/ColumnsOne'
+import ColumnsTwo from '../Organisms/ColumnsTwo'
 
 const AlbumTemplate = ({ data }) => (
   <>
@@ -13,9 +15,15 @@ const AlbumTemplate = ({ data }) => (
         <meta name="description" content={ data.strapiAlbum.about } />
     </Helmet>
     <Container>
-      <h1>{data.strapiAlbum.title}</h1>
-      <div>{data.strapiAlbum.about}</div>
-      <img src={data.strapiAlbum.coverimg}/>
+      <ColumnsTwo
+        col1={{
+          imageUrl: data.strapiAlbum.coverimg
+        }}
+        col2={{
+          heading: data.strapiAlbum.title,
+          content: data.strapiAlbum.about
+        }}
+      />
     </Container>
     <br/>
     <BandSplit 
@@ -53,6 +61,10 @@ export const query = graphql`
       yearpublished
       coverimg
       about
+      spotify
+      googleplay
+      amazon
+      itunes
     }
     site {
       siteMetadata {

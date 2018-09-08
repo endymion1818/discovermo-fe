@@ -1,6 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import Helmet from 'react-helmet'
+import styled from 'styled-components'
 
 // Atoms & Variables
 import * as variable from '../components/variables'
@@ -17,7 +18,12 @@ import ColumnsThree from '../components/Organisms/ColumnsThree'
 import Masthead from '../components/Organisms/Masthead'
 
 // This page graphics
+const Album = styled.article`
 
+  img {
+    max-width: 100%;
+  }
+`
 
 export default (props) => (
   <>
@@ -42,14 +48,14 @@ export default (props) => (
           content: 
             <>
               { props.data.allStrapiAlbum.edges.map(item => (
-                <div key={item} id={item.node.title}>
+                <Album key={item} id={item.node.title}>
                   <img src={item.node.coverimg}/>
                   <h3><Link to={item.node.slug}>{ item.node.title }</Link></h3>
                   <Paragraph>{item.node.about}</Paragraph>
                   <Paragraph><small>Year Published: {item.node.yearPublished}</small></Paragraph>
                   <Button transparent to={item.node.slug}>Read this post</Button>
                   <hr/>
-                </div>
+                </Album>
               )) 
               }
             </>
