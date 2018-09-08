@@ -45,12 +45,11 @@ const TwoColumn = props => (
               <Video youtubeID={props.col1.youtubeID} />
           ) : null}
           {props.col1.imageUrl ? (
-            <ImageContainer {...props}>
               <img
                 src={props.col1.imageUrl}
                 alt={props.col1.imageAlt}
+                width="100%"
               />
-            </ImageContainer>
           ) : null}
         </Column>
       ) : null}

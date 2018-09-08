@@ -1,11 +1,11 @@
 import React from 'react'
-import { graphql } from 'gatsby'
+import { graphql, withPrefix } from 'gatsby'
 import Helmet from 'react-helmet'
 import styled from 'styled-components'
 
 // Atoms & Variables
 import * as variable from '../components/variables'
-import {Paragraph, Band, BandSplit } from '../components/Atoms'
+import {Container, Paragraph, Band, BandSplit } from '../components/Atoms'
 
 // Molecules
 import PopOut from '../components/Molecules/Popout'
@@ -14,15 +14,16 @@ import Button from '../components/Molecules/Button'
 
 // Organisms
 import ColumnsOne from '../components/Organisms/ColumnsOne'
+import ColumnsTwo from '../components/Organisms/ColumnsTwo'
 import ColumnsThree from '../components/Organisms/ColumnsThree'
 import Masthead from '../components/Organisms/Masthead'
 
-// This page graphics
-const Album = styled.article`
+const Album = styled.article``
 
-  img {
-    max-width: 100%;
-  }
+const ButtonGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 1rem;
 `
 
 export default (props) => (
@@ -42,25 +43,30 @@ export default (props) => (
       id="postlist"
       backgroundColorBottom={variable.BRAND_SECONDARY}
     >
-      <ColumnsOne
-        narrowView
+    <Container>
+    { props.data.allStrapiAlbum.edges.map(item => (
+      <ColumnsTwo key={item.id} id={item.node.title}
         col1={{
-          content: 
-            <>
-              { props.data.allStrapiAlbum.edges.map(item => (
-                <Album key={item} id={item.node.title}>
-                  <img src={item.node.coverimg}/>
-                  <h3><Link to={item.node.slug}>{ item.node.title }</Link></h3>
-                  <Paragraph>{item.node.about}</Paragraph>
-                  <Paragraph><small>Year Published: {item.node.yearPublished}</small></Paragraph>
-                  <Button transparent to={item.node.slug}>Read this post</Button>
-                  <hr/>
-                </Album>
-              )) 
-              }
-            </>
+          imageUrl: item.node.coverimg,
+          imageAlt: item.node.title
         }}
-      />
+        col2={{
+          content: 
+          <Album>
+            <h3><Link to={withPrefix("/album/" + item.node.slug)}>{ item.node.title }</Link></h3>
+            <Paragraph>{item.node.about}</Paragraph>
+            <Paragraph><small>Year Published: { item.node.yearpublished }</small></Paragraph>
+            <ButtonGrid>
+              {item.node.spotify ? <Button transparent to={item.node.spotify}>Listen via Spotify</Button> : null }
+              {item.node.itunes ? <Button transparent to={item.node.itunes}>Listen on iTunes</Button> : null }
+              {item.node.amazon ? <Button transparent to={item.node.amazon}>Buy or listen on Amazon</Button> : null }
+              {item.node.googleplay ? <Button transparent to={item.node.googleplay}>Listen on Google Play</Button> : null }
+            </ButtonGrid>
+          </Album>
+        }}
+        />
+    ))}
+    </Container>
     </Band>
 
     <BandSplit 
@@ -121,7 +127,9 @@ export default (props) => (
 
 export const query = graphql`
 query albumPageQuery {
-  allStrapiAlbum {
+  allStrapiAlbum(
+    sort: {fields: [yearpublished], order: DESC},
+  ) {
     edges {
       node {
         title
@@ -129,6 +137,10 @@ query albumPageQuery {
         yearpublished
         coverimg
         about
+        spotify
+        itunes
+        googleplay
+        amazon
       }
     }
   }
