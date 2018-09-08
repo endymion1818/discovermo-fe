@@ -2,11 +2,11 @@ import React from 'react'
 import Styled from 'styled-components'
 import Link from '../Molecules/Link'
 import * as variable from '../variables'
-import {Paragraph, HeadingPrimary} from '../Atoms'
+import {Container, Paragraph, HeadingPrimary} from '../Atoms'
 
 
 const StyledMasthead = Styled.div`
-    background-color: ${variable.COLOR_DARKBLUE} ;
+    background-color: ${variable.BRAND_PRIMARY_LIGHT};
     ${props =>
       props.textColor
         ? `color: ${props.textColor};`
@@ -31,7 +31,7 @@ const StyledMasthead = Styled.div`
         padding-top: 6.563rem;
       }
 
-    @media (min-width: ${variable.BREAKPOINT_SM}) {
+    @media (min-width: ${variable.BREAK_PHONE}) {
         background-position:50% 0%;
         background-size:cover;
         > * {
@@ -40,7 +40,7 @@ const StyledMasthead = Styled.div`
         }
     }
 
-    @media (min-width: ${variable.BREAKPOINT_MD}) {
+    @media (min-width: ${variable.BREAK_DESKTOP}) {
       ${props =>
       props.backgroundimgDesktop
         ? `background-image: url(${props.backgroundimgDesktop})
@@ -62,7 +62,7 @@ const StyledMasthead = Styled.div`
 
 const Masthead = ({...props }) => (
   <StyledMasthead {...props}>
-    <div>
+    <Container>
       {props.breadcrumb ? props.breadcrumb : null}
       <HeadingPrimary>{props.title}</HeadingPrimary>
       {props.intro ? <Paragraph>{props.intro}</Paragraph> : null}
@@ -75,7 +75,7 @@ const Masthead = ({...props }) => (
           </Link>
         </Paragraph>
       ) : null}
-    </div>
+    </Container>
   </StyledMasthead>
 )
 export default Masthead
