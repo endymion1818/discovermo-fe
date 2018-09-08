@@ -7,11 +7,11 @@ import { Container, Paragraph, Band, BandSplit } from '../Atoms'
 import PopOut from '../Molecules/Popout'
 
 import ColumnsOne from '../Organisms/ColumnsOne'
-
 import CardsCarousel from '../Organisms/CardsCarousel'
 
 const PostTemplate = ({ data }) => (
   <>
+    {console.log(data)}
     <Helmet>
         <title>{ data.strapiPost.title } || { data.site.siteMetadata.title }</title>
         <meta name="description" content={ data.strapiPost.excerpt } />
@@ -58,8 +58,9 @@ const PostTemplate = ({ data }) => (
 export default PostTemplate
 
 export const query = graphql`
-  query PostTemplate {
-    strapiPost {
+  query PostTemplate($id: String!) {
+    strapiPost(id: { eq: $id }) {
+      id
       title
       content
       excerpt

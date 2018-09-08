@@ -54,8 +54,8 @@ const AlbumTemplate = ({ data }) => (
 export default AlbumTemplate
 
 export const query = graphql`
-  query AlbumTemplate {
-    strapiAlbum {
+  query AlbumTemplate($id: String!) {
+    strapiAlbum(id: { eq: $id }) {
       title
       slug
       yearpublished

@@ -1,96 +1,49 @@
 const path = require(`path`);
 
-
-const makeRequest = (graphql, request) => new Promise((resolve, reject) => {
-  resolve(
-    graphql(request).then(result => {
-      if (result.errors) {
-        reject(result.errors)
-      }
-
-      return result;
+exports.onCreateNode = ({ node, getNode, actions }) => {
+  const { createNodeField } = actions
+    createNodeField({
+      node,
+      name: `slug`,
+      value: node.slug,
     })
-  )
-});
+}
 
-exports.createPages = ({ boundActionCreators, graphql }) => {
-  const { createPage } = boundActionCreators;
-
-  const getArticles = makeRequest(graphql, `
+exports.createPages = ({ graphql, actions }) => {
+  const { createPage } = actions
+  
+  return new Promise((resolve, reject) => {
+    graphql(`
     {
       allStrapiPost {
         edges {
           node {
+            title
+            excerpt
             slug
+            createdAt
+            id
           }
         }
       }
     }
     `).then(result => {
-    // Create pages for each article.
-    result.data.allStrapiPost.edges.forEach(({ node }) => {
-      createPage({
-        path: `/post/${node.slug}`,
-        component: path.resolve(`src/components/Templates/post.js`),
-        context: {
-          id: node.slug,
-        },
+      result.data.allStrapiPost.edges.forEach(({ node }) => {
+        createPage({
+          path: '/post/' + node.slug,
+          component: path.resolve(`./src/components/Templates/post.js`),
+          context: {
+            title: node.title,
+            excerpt: node.excerpt,
+            slug: node.slug,
+            createdAt: node.createdAt,
+            id: node.id
+          },
+        })
       })
+      resolve()
     })
-  });
+  })
 
-  const getAlbums = makeRequest(graphql, `
-    {
-      allStrapiAlbum {
-        edges {
-          node {
-            slug
-          }
-        }
-      }
-    }
-    `).then(result => {
-    // Create pages for each article.
-    result.data.allStrapiAlbum.edges.forEach(({ node }) => {
-      createPage({
-        path: `/album/${node.slug}`,
-        component: path.resolve(`src/components/Templates/album.js`),
-        context: {
-          id: node.slug,
-        },
-      })
-    })
-  });
+}
 
-  const getDiscoveries = makeRequest(graphql, `
-    {
-      allStrapiDiscovery {
-        edges {
-          node {
-            Slug
-          }
-        }
-      }
-  }
-    `).then(result => {
-    // Create pages for each article.
-    result.data.allStrapiDiscovery.edges.forEach(({ node }) => {
-      createPage({
-        path: `/discovery/${node.Slug}`,
-        component: path.resolve(`src/components/Templates/discovery.js`),
-        context: {
-          id: node.slug,
-        },
-      })
-    })
-  });
-
-
-
-  // Queries for articles and authors nodes to use in creating pages.
-  return Promise.all([
-    getArticles,
-    getAlbums,
-    getDiscoveries
-  ])
-};
