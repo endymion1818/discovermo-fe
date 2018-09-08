@@ -22,13 +22,13 @@ import Masthead from '../components/Organisms/Masthead'
 export default (props) => (
   <>
     <Helmet>
-      <title>News | { props.data.site.siteMetadata.title }</title>
+      <title>Albums | { props.data.site.siteMetadata.title }</title>
       <meta name="description" content="Discover the music of Mike Oldfield - playlists, news, articles, and selected tracks hilighted and analysed regularly." />
     </Helmet>
 
     <Masthead
-        title="Posts"
-        intro="Mike Oldfield related and website news"
+        title="Albums"
+        intro="Catalogue of Mike Oldfield's studio albums"
         textColor={variable.BRAND_SECONDARY}
     />
 
@@ -41,11 +41,11 @@ export default (props) => (
         col1={{
           content: 
             <>
-              { props.data.allStrapiPost.edges.map(item => (
+              { props.data.allStrapiAlbum.edges.map(item => (
                 <div key={item} id={item.node.title}>
                   <h3><Link to={item.node.slug}>{ item.node.title }</Link></h3>
-                  <Paragraph>{item.node.excerpt}</Paragraph>
-                  <Paragraph><small>published on: {item.node.createdAt}</small></Paragraph>
+                  <Paragraph>{item.node.about}</Paragraph>
+                  <Paragraph><small>Year Published: {item.node.yearPublished}</small></Paragraph>
                   <Button transparent to={item.node.slug}>Read this post</Button>
                   <hr/>
                 </div>
@@ -81,7 +81,7 @@ export default (props) => (
     <Band id="about-mike" 
       backgroundColor={variable.BRAND_SECONDARY} 
       textColor={'white'}
-      bufferBottom={variable.QUAD} >
+      bufferBottom={variable.QUAD}>
       <ColumnsThree
         textColor="white"
         heading="More Recent Discoveries"
@@ -113,14 +113,15 @@ export default (props) => (
 )
 
 export const query = graphql`
-query homePostQuery {
-  allStrapiPost {
+query albumPageQuery {
+  allStrapiAlbum {
     edges {
       node {
         title
-        excerpt
         slug
-        createdAt(formatString: "MMMM Do, YYYY")
+        yearpublished
+        coverimg
+        about
       }
     }
   }

@@ -1,7 +1,7 @@
 import React from 'react'
-import Button from '../library/Button'
-import Video from '../library/Video'
-import { Container, Row, Column, ImageContainer, TextContainer, HeadingSecondary, HeadingTertiary } from '../Atoms'
+import Button from '../Molecules/Button'
+import Video from '../Organisms/Video'
+import { Container, Row, Column, TextContainer, HeadingSecondary, HeadingTertiary } from '../Atoms'
 
 
 const OneColumn = props => (

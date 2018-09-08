@@ -39,7 +39,7 @@ class CardsCarousel extends React.Component {
         <Container {...this.props}>
           <MainTextContainer>
             <HeadingSecondary textColor={this.props.textColor}>
-              {this.props.heading || 'Heading'}
+              {this.props.heading || 'Recent News'}
             </HeadingSecondary>
             <Paragraph textColor={this.props.textColor}>
               {this.props.content || 'Content.'}

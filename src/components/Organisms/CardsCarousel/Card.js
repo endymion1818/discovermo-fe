@@ -63,7 +63,7 @@ const NewsCard = props => (
             <Main>
                 <TextContainer>
                     <Title>
-                        <TextLink href={ props.data.link }>
+                        <TextLink href={ props.data.slug }>
                             { props.data.title }
                         </TextLink>
                     </Title>
