@@ -1,10 +1,11 @@
 import * as React from 'react'
+import { Container } from '../Atoms'
 
 const PostTemplate = ({ data }) => (
-  <div>
+  <Container>
     <h1>{data.strapiPost.title}</h1>
-    <p>{data.strapiPost.content}</p>
-  </div>
+    <div dangerouslySetInnerHTML={{ __html: data.strapiPost.content }} />
+  </Container>
 )
 
 export default PostTemplate
