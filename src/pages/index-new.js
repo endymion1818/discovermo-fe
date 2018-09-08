@@ -18,10 +18,10 @@ import CardsCarousel from '../components/Organisms/CardsCarousel'
 import HomeHero from '../components/Partials/HomeHero'
 
 // This page graphics
-import DiscoveryDawn from '../images/discovery-dawn.svg'
-import DiscoveryCrises from '../images/discovery-crises.svg'
-import DiscoveryIslands from '../images/discovery-islands.svg'
-import DiscoveryIbiza from '../images/discovery-ibiza.svg'
+import DiscoveryDawn from '../img/discovery-dawn.svg'
+import DiscoveryCrises from '../img/discovery-crises.svg'
+import DiscoveryIslands from '../img/discovery-islands.svg'
+import DiscoveryIbiza from '../img/discovery-ibiza.svg'
 
 export default (props) => (
   <>

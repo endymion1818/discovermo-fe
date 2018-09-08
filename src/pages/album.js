@@ -43,6 +43,7 @@ export default (props) => (
             <>
               { props.data.allStrapiAlbum.edges.map(item => (
                 <div key={item} id={item.node.title}>
+                  <img src={item.node.coverimg}/>
                   <h3><Link to={item.node.slug}>{ item.node.title }</Link></h3>
                   <Paragraph>{item.node.about}</Paragraph>
                   <Paragraph><small>Year Published: {item.node.yearPublished}</small></Paragraph>

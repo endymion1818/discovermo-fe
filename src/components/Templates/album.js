@@ -6,17 +6,16 @@ import { Container, Paragraph, Band, BandSplit } from '../Atoms'
 import PopOut from '../Molecules/Popout'
 import ColumnsOne from '../Molecules/ColumnsOne'
 
-import CardsCarousel from '../Organisms/CardsCarousel'
-
 const AlbumTemplate = ({ data }) => (
   <>
     <Helmet>
-        <title>{ data.strapiAlbum.title } || { data.site.siteMetadata.title }</title>
+        <title>{ data.strapiAlbum.title } | { data.site.siteMetadata.title }</title>
         <meta name="description" content={ data.strapiAlbum.about } />
     </Helmet>
     <Container>
       <h1>{data.strapiAlbum.title}</h1>
       <div>{data.strapiAlbum.about}</div>
+      <img src={data.strapiAlbum.coverimg}/>
     </Container>
     <br/>
     <BandSplit 
@@ -66,8 +65,8 @@ export const query = graphql`
           title
           slug
           coverimg
+          }
         }
       }
     }
-  }
 `

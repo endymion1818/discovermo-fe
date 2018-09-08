@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Container, RowGrid, ColumnFlex, HeadingPrimary, Paragraph } from '../Atoms'
-import LogoColour from '../../images/discovermikeoldfield-logo-color.svg' 
-import HomeBackground from '../../images/homebackground.jpg' 
+import LogoColour from '../../img/discovermikeoldfield-logo-color.svg' 
+import HomeBackground from '../../img/homebackground.jpg' 
 
 import * as variable from '../variables'
 
