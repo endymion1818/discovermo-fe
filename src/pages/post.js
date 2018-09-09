@@ -43,10 +43,10 @@ export default (props) => (
             <>
               { props.data.allStrapiPost.edges.map(item => (
                 <div key={item} id={item.node.title}>
-                  <h3><Link to={item.node.slug}>{ item.node.title }</Link></h3>
+                  <h3><Link to={'/post/' + item.node.slug}>{ item.node.title }</Link></h3>
                   <Paragraph>{item.node.excerpt}</Paragraph>
                   <Paragraph><small>published on: {item.node.createdAt}</small></Paragraph>
-                  <Button transparent to={item.node.slug}>Read this post</Button>
+                  <Button transparent to={'/post/' + item.node.slug}>Read this post</Button>
                   <hr/>
                 </div>
               )) 

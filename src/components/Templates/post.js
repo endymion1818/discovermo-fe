@@ -11,7 +11,6 @@ import CardsCarousel from '../Organisms/CardsCarousel'
 
 const PostTemplate = ({ data }) => (
   <>
-    {console.log(data)}
     <Helmet>
         <title>{ data.strapiPost.title } || { data.site.siteMetadata.title }</title>
         <meta name="description" content={ data.strapiPost.excerpt } />
