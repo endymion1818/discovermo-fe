@@ -23,6 +23,14 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `pages`,
+        path: `${__dirname}/src/pages/`,
+      },
+    },
+    `gatsby-transformer-javascript-frontmatter`,
+    {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: 'gatsby-starter-default',

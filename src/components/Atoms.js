@@ -23,7 +23,11 @@ export const Band = styled.section`
 
     background-color: ${props => props.backgroundColor || null };
     color: ${props => props.textColor || null };
-
+    
+    a {
+      color: ${props => props.textColor || null };
+    }
+    
     @media (min-width: ${variable.BREAK_DESKTOP}) {
       ${props =>
       props.backgroundimgDesktop
