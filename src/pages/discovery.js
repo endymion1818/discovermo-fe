@@ -20,6 +20,11 @@ import Masthead from '../components/Organisms/Masthead'
 
 // This page graphics
 
+export const frontmatter = {
+  title: "Discovery",
+  path: "discovery",
+  description: "Discover the world of Mike Oldfield",
+}
 
 export default (props) => (
   <Layout>

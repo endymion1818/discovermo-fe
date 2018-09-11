@@ -25,6 +25,12 @@ import DiscoveryCrises from '../img/discovery-crises.svg'
 import DiscoveryIslands from '../img/discovery-islands.svg'
 import DiscoveryIbiza from '../img/discovery-ibiza.svg'
 
+export const frontmatter = {
+  title: "Home",
+  path: "/index-new",
+  description: "Home Page",
+}
+
 export default (props) => (
   <Layout>
     <Helmet>

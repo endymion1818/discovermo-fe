@@ -28,6 +28,12 @@ const ButtonGrid = styled.div`
   grid-gap: 1rem;
 `
 
+export const frontmatter = {
+  title: "Albums",
+  path: "album",
+  description: "Discography of Mike Oldfield albums",
+}
+
 export default (props) => (
   <Layout>
     <Helmet>

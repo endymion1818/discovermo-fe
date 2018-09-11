@@ -6,7 +6,7 @@ import Layout from '../components/Templates/Layout'
 
 // Atoms & Variables
 import * as variable from '../components/variables'
-import {Paragraph, Band, BandSplit } from '../components/Atoms'
+import * as atom from '../components/Atoms'
 
 // Molecules
 import PopOut from '../components/Molecules/Popout'
@@ -20,6 +20,11 @@ import Masthead from '../components/Organisms/Masthead'
 
 // This page graphics
 
+export const frontmatter = {
+  title: "All News Posts",
+  path: "post",
+  description: "News about Mike Oldfield from around the web.",
+}
 
 export default (props) => (
   <Layout>
@@ -34,7 +39,7 @@ export default (props) => (
         textColor={variable.BRAND_SECONDARY}
     />
 
-    <Band
+    <atom.Band
       id="postlist"
       backgroundColorBottom={variable.BRAND_SECONDARY}
     >
@@ -46,8 +51,8 @@ export default (props) => (
               { props.data.allStrapiPost.edges.map(item => (
                 <div key={item} id={item.node.title}>
                   <h3><Link to={'/post/' + item.node.slug}>{ item.node.title }</Link></h3>
-                  <Paragraph>{item.node.excerpt}</Paragraph>
-                  <Paragraph><small>published on: {item.node.createdAt}</small></Paragraph>
+                  <atom.Paragraph>{item.node.excerpt}</atom.Paragraph>
+                  <atom.Paragraph><small>published on: {item.node.createdAt}</small></atom.Paragraph>
                   <Button transparent to={'/post/' + item.node.slug}>Read this post</Button>
                   <hr/>
                 </div>
@@ -56,9 +61,9 @@ export default (props) => (
             </>
         }}
       />
-    </Band>
+    </atom.Band>
 
-    <BandSplit 
+    <atom.BandSplit 
       id="intro" 
       bufferTop="0"
       backgroundColorBottom={variable.BRAND_SECONDARY}
@@ -72,15 +77,15 @@ export default (props) => (
             heading: 'Featured Discovery',
             content:
               <>
-                  <Paragraph textColor="white">Recently voted by fans on the Mike Oldfield Facebook page as their favourite album of all time, Ommadawn is undoubtably Mike Oldfield at his best.</Paragraph>
+                  <atom.Paragraph textColor="white">Recently voted by fans on the Mike Oldfield Facebook page as their favourite album of all time, Ommadawn is undoubtably Mike Oldfield at his best.</atom.Paragraph>
                   <iframe src="https://open.spotify.com/embed/user/1138668487/playlist/2LTvgOeaIGYIScTO5QjyJi" width="100%" height="80" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>
               </>
           }}
         />
       </PopOut>
-    </BandSplit>
+    </atom.BandSplit>
 
-    <Band id="about-mike" 
+    <atom.Band id="about-mike" 
       backgroundColor={variable.BRAND_SECONDARY} 
       textColor={'white'}
       bufferBottom={variable.QUAD} >
@@ -109,7 +114,7 @@ export default (props) => (
           linkText: "Discover Origins"
         }}
       />
-    </Band>
+    </atom.Band>
 
   </Layout>
 )
