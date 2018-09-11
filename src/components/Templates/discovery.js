@@ -1,7 +1,7 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 import {graphql} from 'gatsby'
-
+import Layout from './Layout'
 import * as variable from '../variables'
 import { Container, Paragraph, Band, BandSplit } from '../Atoms'
 import PopOut from '../Molecules/Popout'
@@ -9,7 +9,7 @@ import ColumnsOne from '../Organisms/ColumnsOne'
 import ColumnsTwo from '../Organisms/ColumnsTwo'
 
 const DiscoveryTemplate = ({ data }) => (
-  <>
+  <Layout>
     <Helmet>
         <title>{ data.strapiDiscovery.title } | { data.site.siteMetadata.title }</title>
         <meta name="description" content={ data.strapiDiscovery.about } />
@@ -48,7 +48,7 @@ const DiscoveryTemplate = ({ data }) => (
         />
       </PopOut>
     </BandSplit>
-  </>
+  </Layout>
   
 )
 

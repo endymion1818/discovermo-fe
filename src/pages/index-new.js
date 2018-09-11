@@ -2,6 +2,8 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 
+import Layout from '../components/Templates/Layout'
+
 // Atoms & Variables
 import * as variable from '../components/variables'
 import {Paragraph, Band, BandSplit } from '../components/Atoms'
@@ -24,7 +26,7 @@ import DiscoveryIslands from '../img/discovery-islands.svg'
 import DiscoveryIbiza from '../img/discovery-ibiza.svg'
 
 export default (props) => (
-  <>
+  <Layout>
     <Helmet>
       <title>Home | { 'site meta title' }</title>
       <meta name="description" content="Discover the music of Mike Oldfield - playlists, news, articles, and selected tracks hilighted and analysed regularly." />
@@ -194,7 +196,7 @@ export default (props) => (
      />
     </Band>
 
-  </>
+  </Layout>
 )
 
 export const query = graphql`

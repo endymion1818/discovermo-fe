@@ -3,6 +3,8 @@ import { graphql, withPrefix } from 'gatsby'
 import Helmet from 'react-helmet'
 import styled from 'styled-components'
 
+import Layout from '../components/Templates/Layout'
+
 // Atoms & Variables
 import * as variable from '../components/variables'
 import {Container, Paragraph, Band, BandSplit } from '../components/Atoms'
@@ -27,7 +29,7 @@ const ButtonGrid = styled.div`
 `
 
 export default (props) => (
-  <>
+  <Layout>
     <Helmet>
       <title>Albums | { props.data.site.siteMetadata.title }</title>
       <meta name="description" content="Discover the music of Mike Oldfield - playlists, news, articles, and selected tracks hilighted and analysed regularly." />
@@ -122,7 +124,7 @@ export default (props) => (
       />
     </Band>
 
-  </>
+  </Layout>
 )
 
 export const query = graphql`

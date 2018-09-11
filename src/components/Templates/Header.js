@@ -7,7 +7,7 @@ import {
 } from '../Atoms'
 
 import * as variable from '../variables'
-import WhiteLogo from '../../assets/images/discovermikeoldfield-logo-white.svg'
+import WhiteLogo from '../../img/discovermikeoldfield-logo-white.svg'
 
 
 const Header = props => (

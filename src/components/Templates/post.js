@@ -1,7 +1,7 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 import {graphql} from 'gatsby'
-
+import Layout from './Layout'
 import * as variable from '../variables'
 import { Container, Paragraph, Band, BandSplit } from '../Atoms'
 import PopOut from '../Molecules/Popout'
@@ -10,7 +10,7 @@ import ColumnsOne from '../Organisms/ColumnsOne'
 import CardsCarousel from '../Organisms/CardsCarousel'
 
 const PostTemplate = ({ data }) => (
-  <>
+  <Layout>
     <Helmet>
         <title>{ data.strapiPost.title } || { data.site.siteMetadata.title }</title>
         <meta name="description" content={ data.strapiPost.excerpt } />
@@ -50,7 +50,7 @@ const PostTemplate = ({ data }) => (
         />
       </PopOut>
     </BandSplit>
-  </>
+  </Layout>
   
 )
 

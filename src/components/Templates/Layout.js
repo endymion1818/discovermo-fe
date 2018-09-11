@@ -4,9 +4,10 @@ import Helmet from 'react-helmet'
 import { injectGlobal } from 'styled-components';
 import { StaticQuery, graphql } from 'gatsby'
 
-import Header from './header'
+import Header from './Header'
+import Footer from './Footer'
 
-import exoRegular from '../fonts/Exo2-Regular.woff2'
+import exoRegular from '../../fonts/Exo2-Regular.woff2'
 
 injectGlobal`
   @font-face {
@@ -34,13 +35,6 @@ const Layout = ({ children, data }) => (
             title
           }
         }
-        allSitePage {
-          edges {
-            node {
-              path
-            }
-          }
-        }
       }
     `}
     render={data => (
@@ -65,6 +59,7 @@ const Layout = ({ children, data }) => (
         >
           {children}
         </div>
+        <Footer siteTitle={data.site.siteMetadata.title} />
       </>
     )}
   />
