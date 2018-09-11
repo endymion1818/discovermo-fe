@@ -3,7 +3,7 @@ import Helmet from 'react-helmet'
 import {graphql} from 'gatsby'
 import Layout from './Layout'
 import * as variable from '../variables'
-import { Container, Paragraph, Band, BandSplit } from '../Atoms'
+import * as atom from '../Atoms'
 import PopOut from '../Molecules/Popout'
 import ColumnsOne from '../Organisms/ColumnsOne'
 import ColumnsTwo from '../Organisms/ColumnsTwo'
@@ -14,7 +14,7 @@ const AlbumTemplate = ({ data }) => (
         <title>{ data.strapiAlbum.title } | { data.site.siteMetadata.title }</title>
         <meta name="description" content={ data.strapiAlbum.about } />
     </Helmet>
-    <Container>
+    <atom.Container>
       <ColumnsTwo
         col1={{
           imageUrl: data.strapiAlbum.coverimg
@@ -24,9 +24,9 @@ const AlbumTemplate = ({ data }) => (
           content: data.strapiAlbum.about
         }}
       />
-    </Container>
+    </atom.Container>
     <br/>
-    <BandSplit 
+    <atom.BandSplit 
       id="intro" 
       bufferTop="0"
       backgroundColorBottom={variable.BRAND_SECONDARY}
@@ -40,13 +40,13 @@ const AlbumTemplate = ({ data }) => (
             heading: 'Featured Discovery',
             content:
               <>
-                  <Paragraph textColor="white">Recently voted by fans on the Mike Oldfield Facebook page as their favourite album of all time, Ommadawn is undoubtably Mike Oldfield at his best.</Paragraph>
+                  <atom.Paragraph textColor="white">Recently voted by fans on the Mike Oldfield Facebook page as their favourite album of all time, Ommadawn is undoubtably Mike Oldfield at his best.</atom.Paragraph>
                   <iframe src="https://open.spotify.com/embed/user/1138668487/playlist/2LTvgOeaIGYIScTO5QjyJi" width="100%" height="80" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>
               </>
           }}
         />
       </PopOut>
-    </BandSplit>
+    </atom.BandSplit>
   </Layout>
   
 )

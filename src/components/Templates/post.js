@@ -3,7 +3,7 @@ import Helmet from 'react-helmet'
 import {graphql} from 'gatsby'
 import Layout from './Layout'
 import * as variable from '../variables'
-import { Container, Paragraph, Band, BandSplit } from '../Atoms'
+import * as atom from '../Atoms'
 import PopOut from '../Molecules/Popout'
 
 import ColumnsOne from '../Organisms/ColumnsOne'
@@ -15,12 +15,12 @@ const PostTemplate = ({ data }) => (
         <title>{ data.strapiPost.title } || { data.site.siteMetadata.title }</title>
         <meta name="description" content={ data.strapiPost.excerpt } />
     </Helmet>
-    <Container>
+    <atom.Container>
       <h1>{data.strapiPost.title}</h1>
       <div>{data.strapiPost.content}</div>
-    </Container>
+    </atom.Container>
     <br/>
-    <Band id="recent-news"
+    <atom.Band id="recent-news"
       textColor="white"
       backgroundColor={variable.BRAND_HILIGHT}>
       <CardsCarousel
@@ -28,8 +28,8 @@ const PostTemplate = ({ data }) => (
         heading="More News"
         content="Recent news about Mike Oldfield from the press and sites around the web."
      />
-    </Band>
-    <BandSplit 
+    </atom.Band>
+    <atom.BandSplit 
       id="intro" 
       bufferTop="0"
       backgroundColorBottom={variable.BRAND_SECONDARY}
@@ -43,13 +43,13 @@ const PostTemplate = ({ data }) => (
             heading: 'Featured Discovery',
             content:
               <>
-                  <Paragraph textColor="white">Recently voted by fans on the Mike Oldfield Facebook page as their favourite album of all time, Ommadawn is undoubtably Mike Oldfield at his best.</Paragraph>
+                  <atom.Paragraph textColor="white">Recently voted by fans on the Mike Oldfield Facebook page as their favourite album of all time, Ommadawn is undoubtably Mike Oldfield at his best.</atom.Paragraph>
                   <iframe src="https://open.spotify.com/embed/user/1138668487/playlist/2LTvgOeaIGYIScTO5QjyJi" width="100%" height="80" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>
               </>
           }}
         />
       </PopOut>
-    </BandSplit>
+    </atom.BandSplit>
   </Layout>
   
 )
