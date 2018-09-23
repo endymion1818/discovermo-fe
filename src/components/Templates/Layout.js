@@ -35,7 +35,17 @@ const Layout = ({ children, data }) => (
             title
           }
         }
-        
+        allJavascriptFrontmatter {
+          edges {
+            node {
+              frontmatter {
+                title
+                path
+                description
+              }
+            }
+          }
+        }
       }
     `}
     render={data => (
