@@ -10,6 +10,7 @@ const MainNav = styled.ul`
   display: flex;
   flex-direction: row;
   list-style: none;
+  overflow-x: auto;
 
   li {
     
@@ -34,14 +35,18 @@ const MainNav = styled.ul`
 `
 
 const HeaderContainer = styled(atom.Container)`
-  display: flex;
+  overflow-x: hidden;
 
-  > a {
-    flex: 1;
-  }
+  @media (min-width: ${variable.BREAK_TABLET}) {
+    display: flex;
 
-  > ul {
-    flex: 3;
+    > a {
+      flex: 1;
+    }
+
+    > ul {
+      flex: 3;
+    }
   }
 `
 

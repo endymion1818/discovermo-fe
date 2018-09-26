@@ -89,7 +89,6 @@ export const Container = styled.div`
 
 export const Column = styled.div`
   display: inline-block;
-  float: left;
   width: 100%;
   text-align: ${props => (props.textAlign ? props.textAlign : 'left')};
   margin-top: ${variable.DOUBLE};
@@ -103,6 +102,7 @@ export const Column = styled.div`
     }
   }
   @media (min-width: ${variable.BREAK_TABLET}) {
+    float: left;
     width: ${props => (props.size ? (props.size / 12) * 100 : 100)}%;
   }
 `
