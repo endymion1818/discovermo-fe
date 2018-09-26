@@ -135,76 +135,49 @@ export default (props) => (
             }}
             col2={{
               content:
-                <div>
-                  <img src={DiscoveryIbiza} width="200"/>
-                  <atom.Paragraph>The Ibiza Playlist</atom.Paragraph>
-                </div>
+              <Link to="/discovery/crises">
+                <img src={DiscoveryCrises} width="200"/>
+                <atom.Paragraph>The Crises Playlist</atom.Paragraph>
+              </Link>
             }}
         />
         <ColumnsTwo
           textAlign={'center'}
             col1={{
               content:
-                <div>
-                  <img src={DiscoveryIslands} width="200"/>
-                  <atom.Paragraph>The Islands Playlist</atom.Paragraph>
-                </div>
+              <Link to="/discovery/ibiza-collection">
+                <img src={DiscoveryIbiza} width="200"/>
+                <atom.Paragraph>The Ibiza Playlist</atom.Paragraph>
+              </Link>
             }}
             col2={{
               content:
-                <Link to="/discovery/crises">
-                  <img src={DiscoveryCrises} width="200"/>
-                  <atom.Paragraph>The Crises Playlist</atom.Paragraph>
-                </Link>
+              <Link to="/discovery/islands-collection">
+                <img src={DiscoveryIslands} width="200"/>
+                <atom.Paragraph>The Islands Playlist</atom.Paragraph>
+              </Link>
             }}
         />
     </atom.Band>
 
     <atom.BandSplit id="concert-videos"
-      backgroundColorBottom={variable.BRAND_PRIMARY_LIGHT}>
+      backgroundColorBottom={variable.BRAND_HILIGHT}>
       <PopOut textColor="white">
         <ColumnsThree
             heading="Concert Recordings"
+            content="Selected from the Mike Oldfield fan community, these 3 recordings showcase the fan's favourite concert recordings."
             col1={{
-            content: <Video embedCode={'nko3_1dMJf8'}/>
+            content: <Video embedCode={'-kEK-37BMEA'}/>
             }}
             col2={{
-            content: <Video embedCode={'FNsFo2X0SFo'}/>
+            content: <Video embedCode={'kKYh-7o3KzA'}/>
             }}
             col3={{
-            content: <Video embedCode={'RNaZmX-NmQo'}/>
+            content: <Video embedCode={'q7U1fvpuWWU'}/>
             }}
         />
       </PopOut>
     </atom.BandSplit>
-
-
-    <atom.Band id="who-is-he" backgroundColor={variable.BRAND_PRIMARY_LIGHT}>
-      <ColumnsThree
-        heading="Who Is Mike Oldfield?"
-
-        col1={{
-          heading: "Sublime Composer",
-          content: "Mike Oldfield has composed music in many genres, from prog rock to folk to new age and back again.",
-          link: "/",
-          linkText: "Featured Compositions"
-        }}
-
-        col2={{
-          heading: "Multi Instrumentalist",
-          content: "As well as composing incredibly satisfying music, Mike often produces and plays all instruments himself.",
-          link: "/",
-          linkText: "Mike Oldfield Plays ..."
-        }}
-
-        col3={{
-          heading: "Game Designer",
-          content: "Always seeking new ways of immersing listeners in the experience of his music, Mike has designed and published several non-violent games featuring his music.",
-          link: "/",
-          linkText: "The Games of Mike Oldfield"
-        }}
-      />
-    </atom.Band>
 
 
     <atom.Band id="recent-news"
