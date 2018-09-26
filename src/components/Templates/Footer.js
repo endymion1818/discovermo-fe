@@ -42,10 +42,10 @@ const Footer = props => (
           <atom.HeadingTertiary textColor="white">About This Site</atom.HeadingTertiary>
           <Link to="/">
             <img src={WhiteLogo} alt={props.siteTitle} width="180" height="auto"/>
-            <atom.Paragraph textColor="white">
-              All music, album art and imagery &copy; their original copyright holders. This site text content, layout and design: &copy; <a href="https://deliciousreverie.co.uk">Benjamin Read</a>.
-            </atom.Paragraph>
           </Link>
+          <atom.Paragraph textColor="white">
+            All music, album art and imagery &copy; their original copyright holders. This site text content, layout and design: &copy; <a href="https://deliciousreverie.co.uk">Benjamin Read</a>.
+          </atom.Paragraph>
         </atom.Column>
         <atom.Column>
         </atom.Column>
