@@ -112,6 +112,13 @@ export const ColumnFlex = styled.div`
   flex-direction: column;
   align-content: center;
   justify-content: space-between;
+
+  ${props => 
+  props.narrowView 
+  ? 
+  `width: 80%;
+  margin: 0 auto;` 
+  : null }
 `
 
 

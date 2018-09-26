@@ -1,28 +1,28 @@
 import React from 'react'
 import Button from '../Molecules/Button'
 import Video from '../Organisms/Video'
-import { Container, Row, Column, TextContainer, HeadingSecondary, HeadingTertiary } from '../Atoms'
+import * as atom from '../Atoms'
 
 
 const OneColumn = props => (
-  <Container>
+  <atom.Container>
     {props.heading ? (
-      <Row>
-        <Column {...props } size="12">
-          <HeadingSecondary textColor={props.textColor}>{props.heading}</HeadingSecondary>
-        </Column>
-      </Row>
+      <atom.Row>
+        <atom.ColumnFlex {...props } size="12">
+          <atom.HeadingSecondary textColor={props.textColor}>{props.heading}</atom.HeadingSecondary>
+        </atom.ColumnFlex>
+      </atom.Row>
     ) : null}
-    <Row>
+    <atom.Row>
       {props.col1 ? (
-        <Column {...props } size="12">
+        <atom.ColumnFlex {...props } size="12">
           {props.col1.heading ? (
-            <HeadingSecondary textColor={props.textColor} Color={props.textColor}>{props.col1.heading}</HeadingSecondary>
+            <atom.HeadingSecondary textColor={props.textColor} Color={props.textColor}>{props.col1.heading}</atom.HeadingSecondary>
           ) : null}
           {props.col1.subheading ? (
-            <HeadingTertiary textColor={props.textColor} Color={props.textColor}>{props.col1.subheading}</HeadingTertiary>
+            <atom.HeadingTertiary textColor={props.textColor} Color={props.textColor}>{props.col1.subheading}</atom.HeadingTertiary>
           ) : null}
-          {props.col1.content ? <TextContainer textColor={props.textColor}>{props.col1.content}</TextContainer> : null}
+          {props.col1.content ? <atom.TextContainer textColor={props.textColor}>{props.col1.content}</atom.TextContainer> : null}
           {props.col1.link ? (
             <Button {...props.col1.linkStyle} to={props.col1.link}>
               {props.col1.linkText}
@@ -34,10 +34,10 @@ const OneColumn = props => (
           {props.col1.imageUrl ? (
             <img alt={props.col1.imageAlt} src={props.col1.imageUrl} />
           ) : null}
-        </Column>
+        </atom.ColumnFlex>
       ) : null}
-    </Row>
-  </Container>
+    </atom.Row>
+  </atom.Container>
 )
 
 export default OneColumn
