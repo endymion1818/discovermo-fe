@@ -29,7 +29,8 @@ export const frontmatter = {
   title: "Home",
   path: "/index-new",
   description: "Home Page",
-  inMainNav: true
+  inMainNav: true,
+  menuOrder: 1
 }
 
 export default (props) => (

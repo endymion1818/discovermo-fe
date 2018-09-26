@@ -37,6 +37,7 @@ const Layout = ({ children, data }) => (
         }
         allJavascriptFrontmatter(
           filter: { frontmatter:{ inMainNav:{ eq: true } } }
+          sort:{ fields:frontmatter___menuOrder }
         ) {
           edges {
             node {

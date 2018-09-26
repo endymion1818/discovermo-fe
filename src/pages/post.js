@@ -24,7 +24,8 @@ export const frontmatter = {
   title: "News",
   path: "post",
   description: "News about Mike Oldfield from around the web.",
-  inMainNav: true
+  inMainNav: true,
+  menuOrder: 3
 }
 
 export default (props) => (
