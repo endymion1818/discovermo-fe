@@ -35,7 +35,9 @@ const Layout = ({ children, data }) => (
             title
           }
         }
-        allJavascriptFrontmatter {
+        allJavascriptFrontmatter(
+          filter: { frontmatter:{ inMainNav:{ eq: true } } }
+        ) {
           edges {
             node {
               frontmatter {
@@ -59,7 +61,7 @@ const Layout = ({ children, data }) => (
         >
           <html lang="en" />
         </Helmet>
-        <Header siteTitle={data.site.siteMetadata.title} />
+        <Header siteTitle={data.site.siteMetadata.title} navItems={data.allJavascriptFrontmatter}/>
           {children}
         <Footer siteTitle={data.site.siteMetadata.title} />
       </>

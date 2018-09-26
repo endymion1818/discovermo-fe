@@ -68,7 +68,7 @@ const NewsCard = props => (
                         </TextLink>
                     </Title>
                     <Details>{ props.data.author ? props.data.author.name : null }</Details>
-                    <Details><date>{ props.data.date }</date></Details>
+                    <Details><time>{ props.data.date }</time></Details>
                 </TextContainer>
             </Main>
         </Wrapper>

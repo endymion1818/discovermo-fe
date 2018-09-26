@@ -2,9 +2,10 @@ import React from 'react'
 import Layout from '../components/Templates/Layout'
 
 export const frontmatter = {
-  title: "Page Not Found",
+  title: "404",
   path: "404",
-  description: "Page not found page.",
+  description: "Page not found",
+  inMainNav: false
 }
 
 const NotFoundPage = () => (

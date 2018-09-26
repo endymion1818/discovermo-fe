@@ -21,9 +21,10 @@ import Masthead from '../components/Organisms/Masthead'
 // This page graphics
 
 export const frontmatter = {
-  title: "All News Posts",
+  title: "News",
   path: "post",
   description: "News about Mike Oldfield from around the web.",
+  inMainNav: true
 }
 
 export default (props) => (

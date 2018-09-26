@@ -1,8 +1,6 @@
 import React from 'react'
 import Link from '../Molecules/Link'
 
-import MainNav from '../Organisms/MainNav'
-
 import * as atom from '../Atoms'
 import * as variable from '../variables'
 import WhiteLogo from '../../img/discovermikeoldfield-logo-white.svg'
@@ -17,7 +15,11 @@ const Header = props => (
     <Link to="/">
       <img src={WhiteLogo} alt={props.siteTitle} width="210" height="auto"/>
     </Link>
-    <MainNav links={props.allJavascriptFrontmatter.edges}/>
+    {props.navItems
+      ? props.navItems.edges.map(item => (
+          <li key={item.node.frontmatter.path}><Link to={item.node.frontmatter.path}>{item.node.frontmatter.title}</Link></li>
+        ))
+    : null}
     </atom.Container>
   </atom.Band>
 )

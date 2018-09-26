@@ -32,6 +32,7 @@ export const frontmatter = {
   title: "Albums",
   path: "album",
   description: "Discography of Mike Oldfield albums",
+  inMainNav: true
 }
 
 export default (props) => (
