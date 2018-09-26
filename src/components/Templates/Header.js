@@ -42,6 +42,9 @@ const HeaderContainer = styled(atom.Container)`
 
     > a {
       flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
     > ul {
