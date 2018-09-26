@@ -36,7 +36,7 @@ export default (props) => (
     </Helmet>
 
     <Masthead
-        title="Posts"
+        title="Discoveries"
         intro="Mike Oldfield playlists and song analysis"
         textColor={variable.BRAND_SECONDARY}
     />
@@ -54,7 +54,6 @@ export default (props) => (
                 <div key={item} id={item.node.title}>
                   <h3><Link to={'/discovery/' + item.node.Slug}>{ item.node.title }</Link></h3>
                   <Paragraph>{item.node.excerpt}</Paragraph>
-                  <Paragraph><small>published on: {item.node.createdAt}</small></Paragraph>
                   <Button transparent to={'/discovery/' + item.node.Slug}>Read this post</Button>
                   <hr/>
                 </div>
@@ -130,6 +129,7 @@ query homeDiscoveryQuery {
         Slug
         title
         description
+        excerpt
         spotify_playlist
         vimeo_video
       }

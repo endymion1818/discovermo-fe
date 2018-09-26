@@ -13,7 +13,8 @@ import PopOut from '../components/Molecules/Popout'
 import ColumnsOne from '../components/Organisms/ColumnsOne'
 import ColumnsTwo from '../components/Organisms/ColumnsTwo'
 import ColumnsThree from '../components/Organisms/ColumnsThree'
-import Button from '../components/Molecules/Button';
+import Button from '../components/Molecules/Button'
+import Link from '../components/Molecules/Link'
 
 // Organisms
 import Video from '../components/Organisms/Video'
@@ -127,16 +128,16 @@ export default (props) => (
           textAlign={'center'}
             col1={{
               content:
-                <div>
+                <Link to="/discovery/mike-oldfield-genesis">
                   <img src={DiscoveryDawn} width="200"/>
                   <atom.Paragraph>The Dawn Playlist</atom.Paragraph>
-                </div>
+                </Link>
             }}
             col2={{
               content:
                 <div>
                   <img src={DiscoveryIbiza} width="200"/>
-                  <atom.Paragraph>The Dawn Playlist</atom.Paragraph>
+                  <atom.Paragraph>The Ibiza Playlist</atom.Paragraph>
                 </div>
             }}
         />
@@ -146,15 +147,15 @@ export default (props) => (
               content:
                 <div>
                   <img src={DiscoveryIslands} width="200"/>
-                  <atom.Paragraph>The Dawn Playlist</atom.Paragraph>
+                  <atom.Paragraph>The Islands Playlist</atom.Paragraph>
                 </div>
             }}
             col2={{
               content:
-                <div>
+                <Link to="/discovery/crises">
                   <img src={DiscoveryCrises} width="200"/>
-                  <atom.Paragraph>The Dawn Playlist</atom.Paragraph>
-                </div>
+                  <atom.Paragraph>The Crises Playlist</atom.Paragraph>
+                </Link>
             }}
         />
     </atom.Band>

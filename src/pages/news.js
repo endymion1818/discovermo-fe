@@ -36,7 +36,7 @@ export default (props) => (
     </Helmet>
 
     <Masthead
-        title="Posts"
+        title="News"
         intro="Mike Oldfield related and website news"
         textColor={variable.BRAND_SECONDARY}
     />
