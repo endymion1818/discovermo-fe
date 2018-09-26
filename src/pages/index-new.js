@@ -37,7 +37,6 @@ export const frontmatter = {
 export default (props) => (
   <Layout>
     <Helmet>
-      {console.log(props.data)}
       <title>Home | {props.data.site.siteMetadata.title} </title>
       <meta name="description" content="Discover the music of Mike Oldfield - playlists, news, articles, and selected tracks hilighted and analysed regularly." />
     </Helmet>
