@@ -26,11 +26,12 @@ const Slide = styled.div`
   width: 100%;
   flex-shrink: 0;
   
-  > * {
+  > * > * {
     background-color: white;
     padding: 0;
     margin: 0 7px;
     border-radius: ${variable.RADIUS_CORNER};
+    height: 100%;
   }
 `
 
@@ -50,7 +51,10 @@ const PaginationBubble = styled.div`
   border-radius: ${variable.RADIUS_BUTTON};
   margin: 0 ${variable.HALF};
   cursor: pointer;
-  &:hover {
+  
+  &:hover,
+  &:active,
+  &:focus {
     background-color: ${variable.BRAND_HILIGHT};
   }
   &.PaginationBubble--Active {

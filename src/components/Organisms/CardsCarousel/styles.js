@@ -38,6 +38,7 @@ export const CardsContainer = styled.div`
 
 export const MainTextContainer = styled.div`
   margin: 0 ${variable.DOUBLE} ${variable.DOUBLE} ${variable.TRIPLEplusHALF};
+
   @media (min-width: ${variable.BREAK_PHONE}) {
     padding-right: 0;
     float: left;
