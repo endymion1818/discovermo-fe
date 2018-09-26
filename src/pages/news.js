@@ -22,7 +22,7 @@ import Masthead from '../components/Organisms/Masthead'
 
 export const frontmatter = {
   title: "News",
-  path: "post",
+  path: "news",
   description: "News about Mike Oldfield from around the web.",
   inMainNav: true,
   menuOrder: 3
@@ -52,10 +52,10 @@ export default (props) => (
             <>
               { props.data.allStrapiPost.edges.map(item => (
                 <div key={item} id={item.node.title}>
-                  <h3><Link to={'/post/' + item.node.slug}>{ item.node.title }</Link></h3>
+                  <h3><Link to={'/news/' + item.node.slug}>{ item.node.title }</Link></h3>
                   <atom.Paragraph>{item.node.excerpt}</atom.Paragraph>
                   <atom.Paragraph><small>published on: {item.node.createdAt}</small></atom.Paragraph>
-                  <Button transparent to={'/post/' + item.node.slug}>Read this post</Button>
+                  <Button transparent to={'/news/' + item.node.slug}>Read this post</Button>
                   <hr/>
                 </div>
               )) 

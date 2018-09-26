@@ -54,7 +54,7 @@ exports.createPages = ({ actions, graphql }) => {
     // Create pages for each user.
     result.data.allStrapiPost.edges.forEach(({ node }) => {
       createPage({
-        path: `/post/${node.slug}`,
+        path: `/news/${node.slug}`,
         component: path.resolve(`src/components/Templates/post.js`),
         context: {
           id: node.id,
