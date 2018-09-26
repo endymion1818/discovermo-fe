@@ -129,7 +129,7 @@ query homePostQuery {
         title
         excerpt
         slug
-        createdAt(formatString: "MMMM Do, YYYY")
+        createdAt(formatString: "DD MMMM YYYY")
       }
     }
   }

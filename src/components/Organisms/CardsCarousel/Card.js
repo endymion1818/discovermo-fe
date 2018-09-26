@@ -6,7 +6,6 @@ const Wrapper = styled.div`
     padding: 0;
     width: 100%;
     padding: 0 0.5em;
-    height: 200px;
 
     @media (min-width: ${variable.BREAK_PHONE}) {
         width: 100%;
@@ -15,9 +14,7 @@ const Wrapper = styled.div`
 `
 
 const Main = styled.div`
-    background-color: #ffffff;
     border-radius: 5px;
-    height: 200px;
     overflow: hidden;
     width: 100%;
 
@@ -27,7 +24,6 @@ const Main = styled.div`
 `
 
 const TextContainer = styled.div`
-    background-color: #ffffff;
     color: ${variable.BRAND_PRIMARY};
     padding: 1em;
     width: 100%;
@@ -39,16 +35,17 @@ const Title = styled.h3`
 `
 
 const TextLink = styled.a`
-    cursor: pointer;
+    color: ${variable.BRAND_PRIMARY}!important;
 
-    &:hover {
+    &:hover,
+    &:focus,
+    &:active {
         color: blue;
         text-decoration: underline;
     }
 `
 
 const Details = styled.div`
-    color: ${variable.BRAND_HILIGHT};
     font-size: 0.875em;
     line-height: 1.5em;
 
@@ -62,13 +59,13 @@ const NewsCard = props => (
         <Wrapper>
             <Main>
                 <TextContainer>
+                    <Details><time>{ props.data.createdAt }</time></Details>
                     <Title>
                         <TextLink href={ '/post/' + props.data.slug }>
                             { props.data.title }
                         </TextLink>
                     </Title>
-                    <Details>{ props.data.author ? props.data.author.name : null }</Details>
-                    <Details><time>{ props.data.date }</time></Details>
+                    <p>{props.data.excerpt}</p>
                 </TextContainer>
             </Main>
         </Wrapper>

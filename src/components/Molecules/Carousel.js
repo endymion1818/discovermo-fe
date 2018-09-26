@@ -25,6 +25,13 @@ const Slide = styled.div`
   display: flex;
   width: 100%;
   flex-shrink: 0;
+  
+  > * {
+    background-color: white;
+    padding: 0;
+    margin: 0 7px;
+    border-radius: ${variable.RADIUS_CORNER};
+  }
 `
 
 const Pagination = styled.div`

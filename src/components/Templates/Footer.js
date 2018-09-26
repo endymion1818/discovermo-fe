@@ -48,16 +48,18 @@ const Footer = props => (
           </Link>
         </atom.Column>
         <atom.Column>
-        <atom.HeadingTertiary textColor="white">Navigate</atom.HeadingTertiary>
-        <FooterNav>
-          {props.navItems
-            ? props.navItems.edges.map(item => (
-                <li key={item.node.frontmatter.path}>
-                  <Link activeClassName="active" to={item.node.frontmatter.path}>{item.node.frontmatter.title}</Link>
-                </li>
-              ))
-          : null}
-          </FooterNav>
+        </atom.Column>
+        <atom.Column>
+          <atom.HeadingTertiary textColor="white">Navigate</atom.HeadingTertiary>
+          <FooterNav>
+            {props.navItems
+              ? props.navItems.edges.map(item => (
+                  <li key={item.node.frontmatter.path}>
+                    <Link activeClassName="active" to={item.node.frontmatter.path}>{item.node.frontmatter.title}</Link>
+                  </li>
+                ))
+            : null}
+            </FooterNav>
         </atom.Column>
       </atom.RowGrid>
     </atom.Container>

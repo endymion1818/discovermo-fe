@@ -29,6 +29,7 @@ export const Container = styled.div`
 `
 
 export const CardsContainer = styled.div`
+
   @media (min-width: ${variable.BREAK_PHONE}) {
     width: 60%;
     float: right;
@@ -42,19 +43,5 @@ export const MainTextContainer = styled.div`
     float: left;
     margin: 0 0 ${variable.SINGLE};
     width: 40%;
-  }
-`
-export const SmallView = styled.div`
-  display: block;
-  @media (min-width: ${variable.BREAK_TABLET}) {
-    display: none;
-  }
-`
-
-export const LargeView = styled.div`
-    display: none;
-  }
-  @media (min-width: ${variable.BREAK_TABLET}) {
-    display: block;
   }
 `

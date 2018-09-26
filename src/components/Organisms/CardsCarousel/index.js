@@ -1,7 +1,9 @@
 import React from 'react'
 import { 
   HeadingSecondary,
-  Paragraph
+  Paragraph,
+  SmallView,
+  LargeView
 } from '../../Atoms'
 import Carousel from '../../Molecules/Carousel'
 import {
@@ -9,8 +11,6 @@ import {
   CardsContainer,
   MainTextContainer,
   Container,
-  SmallView,
-  LargeView,
 } from './styles'
 import Card from './Card'
 import {
