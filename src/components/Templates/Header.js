@@ -33,25 +33,39 @@ const MainNav = styled.ul`
   }
 `
 
+const HeaderContainer = styled(atom.Container)`
+  display: flex;
+
+  > a {
+    flex: 1;
+  }
+
+  > ul {
+    flex: 3;
+  }
+`
+
 const Header = props => (
   <atom.Band 
     backgroundColor={variable.BRAND_PRIMARY}
     textColor={'white'}
+    bufferBottom={variable.HALF}
+
   >
-    <atom.Container>
-    <Link to="/">
-      <img src={WhiteLogo} alt={props.siteTitle} width="210" height="auto"/>
-    </Link>
-    <MainNav>
-    {props.navItems
-      ? props.navItems.edges.map(item => (
-          <li key={item.node.frontmatter.path}>
-            <Link activeClassName="active" to={item.node.frontmatter.path}>{item.node.frontmatter.title}</Link>
-          </li>
-        ))
-    : null}
-    </MainNav>
-    </atom.Container>
+    <HeaderContainer>
+      <Link to="/">
+        <img src={WhiteLogo} alt={props.siteTitle} width="210" height="auto"/>
+      </Link>
+      <MainNav>
+      {props.navItems
+        ? props.navItems.edges.map(item => (
+            <li key={item.node.frontmatter.path}>
+              <Link activeClassName="active" to={item.node.frontmatter.path}>{item.node.frontmatter.title}</Link>
+            </li>
+          ))
+      : null}
+      </MainNav>
+    </HeaderContainer>
   </atom.Band>
 )
 

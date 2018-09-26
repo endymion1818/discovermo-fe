@@ -21,7 +21,7 @@ import Masthead from '../components/Organisms/Masthead'
 // This page graphics
 
 export const frontmatter = {
-  title: "Discovery",
+  title: "Discover",
   path: "discovery",
   description: "Discover the world of Mike Oldfield",
   inMainNav: true,

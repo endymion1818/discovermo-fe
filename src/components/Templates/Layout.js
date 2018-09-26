@@ -64,7 +64,7 @@ const Layout = ({ children, data }) => (
         </Helmet>
         <Header siteTitle={data.site.siteMetadata.title} navItems={data.allJavascriptFrontmatter}/>
           {children}
-        <Footer siteTitle={data.site.siteMetadata.title} />
+        <Footer siteTitle={data.site.siteMetadata.title} navItems={data.allJavascriptFrontmatter}/>
       </>
     )}
   />
