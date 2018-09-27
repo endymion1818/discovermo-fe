@@ -6,19 +6,17 @@ import Layout from '../components/Templates/Layout'
 
 // Atoms & Variables
 import * as variable from '../components/variables'
-import {Paragraph, Band, BandSplit } from '../components/Atoms'
+import * as atom from '../components/Atoms'
 
 // Molecules
-import PopOut from '../components/Molecules/Popout'
+
 import Link from '../components/Molecules/Link'
 import Button from '../components/Molecules/Button'
 
 // Organisms
 import ColumnsOne from '../components/Organisms/ColumnsOne'
-import ColumnsThree from '../components/Organisms/ColumnsThree'
 import Masthead from '../components/Organisms/Masthead'
-
-// This page graphics
+import CardsCarousel from '../components/Organisms/CardsCarousel'
 
 export const frontmatter = {
   title: "Discover",
@@ -41,7 +39,7 @@ export default (props) => (
         textColor={variable.BRAND_SECONDARY}
     />
 
-    <Band
+    <atom.Band
       id="postlist"
       backgroundColorBottom={variable.BRAND_SECONDARY}
     >
@@ -53,7 +51,7 @@ export default (props) => (
               { props.data.allStrapiDiscovery.edges.map(item => (
                 <div key={item} id={item.node.title}>
                   <h3><Link to={'/discovery/' + item.node.Slug}>{ item.node.title }</Link></h3>
-                  <Paragraph>{item.node.excerpt}</Paragraph>
+                  <atom.Paragraph>{item.node.excerpt}</atom.Paragraph>
                   <Button transparent to={'/discovery/' + item.node.Slug}>Read this post</Button>
                   <hr/>
                 </div>
@@ -62,60 +60,16 @@ export default (props) => (
             </>
         }}
       />
-    </Band>
+    </atom.Band>
 
-    <BandSplit 
-      id="intro" 
-      bufferTop="0"
-      backgroundColorBottom={variable.BRAND_SECONDARY}
-      backgroundColorTop="transparent">
-      <PopOut>
-        <ColumnsOne
-          narrowView
-          textAlign={'center'}
-          textColor='white'
-          col1={{
-            heading: 'Featured Discovery',
-            content:
-              <>
-                  <Paragraph textColor="white">Recently voted by fans on the Mike Oldfield Facebook page as their favourite album of all time, Ommadawn is undoubtably Mike Oldfield at his best.</Paragraph>
-                  <iframe src="https://open.spotify.com/embed/user/1138668487/playlist/2LTvgOeaIGYIScTO5QjyJi" width="100%" height="80" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>
-              </>
-          }}
-        />
-      </PopOut>
-    </BandSplit>
-
-    <Band id="about-mike" 
-      backgroundColor={variable.BRAND_SECONDARY} 
-      textColor={'white'}
-      bufferBottom={variable.QUAD} >
-      <ColumnsThree
-        textColor="white"
-        heading="More Recent Discoveries"
-
-        col1={{
-          heading: "The Classical Mike Oldfield",
-          content: "Some of Mike's most sublime creations are his classical works. From the recent hit album, Music of the Spheres, to the little-known and underappreciated wonder Mont St Michael, here are a few classical selections to get your ears tingling ...",
-          link: "/",
-          linkText: "Discover Classical"
-        }}
-
-        col2={{
-          heading: "Ibiza Influences",
-          content: "Inspired by the nightclub scene in his then home of Ibiza, this Discovery showcases some of Mike's best work that has been influenced and inspired by dance, trance and house music.",
-          link: "/",
-          linkText: "Discover Ibiza"
-        }}
-
-        col3={{
-          heading: "Origins",
-          content: "Mike's early music inspired a generation, because it was so unexpected, new and original. Mike was only 19 when he recorded the hit album Tubular Bells. He went on to create four more albums in this vein, all of them spectacularly original.",
-          link: "/",
-          linkText: "Discover Origins"
-        }}
-      />
-    </Band>
+    <atom.Band id="recent-news"
+      textColor="white"
+      backgroundColor={variable.BRAND_HILIGHT}>
+      <CardsCarousel
+        posts={props.data.allStrapiPost.edges}
+        content="Recent news about Mike Oldfield from the press and sites around the web."
+     />
+    </atom.Band>
 
   </Layout>
 )
@@ -132,6 +86,18 @@ query homeDiscoveryQuery {
         excerpt
         spotify_playlist
         vimeo_video
+      }
+    }
+  }
+  allStrapiPost(limit:5) {
+    edges {
+      node {
+        title
+        content
+        slug
+        id
+        createdAt(formatString: "DD MMMM YYYY")
+        excerpt
       }
     }
   }

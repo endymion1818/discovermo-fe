@@ -97,23 +97,33 @@ export default (props) => (
 
         col1={{
           heading: "The Classical Mike Oldfield",
-          content: "Some of Mike's most sublime creations are his classical works. From the recent hit album, Music of the Spheres, to the little-known and underappreciated wonder Mont St Michael, here are a few classical selections to get your ears tingling ...",
-          link: "/",
-          linkText: "Discover Classical"
+          content: 
+            <>
+              <atom.Paragraph>
+                Some of Mike's most sublime creations are his classical works. From the recent hit album, Music of the Spheres, to the little-known and underappreciated wonder Mont St Michael, here are a few classical selections to get your ears tingling ...
+              </atom.Paragraph>
+              <Button white to="/discovery/classical-mike-oldfield">Discover Classical</Button>
+            </>
         }}
 
         col2={{
           heading: "Ibiza Influences",
-          content: "Inspired by the nightclub scene in his then home of Ibiza, this Discovery showcases some of Mike's best work that has been influenced and inspired by dance, trance and house music.",
-          link: "/",
-          linkText: "Discover Ibiza"
+          content: 
+          <>
+            <atom.Paragraph>Inspired by the nightclub scene in his then home of Ibiza, this Discovery showcases some of Mike's best work that has been influenced and inspired by dance, trance and house music.
+            </atom.Paragraph>
+            <Button white to="/discovery/ibiza-influences">Discover Ibiza</Button>
+          </>
         }}
 
         col3={{
-          heading: "Origins",
-          content: "Mike's early music inspired a generation, because it was so unexpected, new and original. Mike was only 19 when he recorded the hit album Tubular Bells. He went on to create four more albums in this vein, all of them spectacularly original.",
-          link: "/",
-          linkText: "Discover Origins"
+          heading: "Genesis",
+          content: 
+          <>
+            <atom.Paragraph>Mike's early music inspired a generation, because it was so unexpected, new and original. Mike was only 19 when he recorded the hit album Tubular Bells. He went on to create four more albums in this vein, all of them spectacularly original.
+            </atom.Paragraph>
+            <Button white to="/discovery/mike-oldfield-genesis">Discover Genesis</Button>
+          </>
         }}
       />
     </atom.Band>
