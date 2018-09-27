@@ -23,8 +23,8 @@ const StyledMasthead = Styled.div`
         : null}
     background-position:50% 0%;
     background-size:cover;
-    padding-top: ${props => (props.buffer ? props.buffer : '5.5r')}em;
-    padding-bottom: ${props => (props.buffer ? props.buffer : '2.563r')}em;
+    padding-top: ${props => (props.buffer ? props.buffer : '2.5r')}em;
+    padding-bottom: ${props => (props.buffer ? props.buffer : '0.563r')}em;
 
     &.deepPad {
         padding-bottom: 6.563rem;
@@ -47,8 +47,8 @@ const StyledMasthead = Styled.div`
             background-size:cover;
             background-position: right top;`
         : null}
-        padding-top: ${props => (props.buffer ? props.buffer : '4.938r')}em;
-        padding-bottom: ${props => (props.buffer ? props.buffer : '5.813r')}em;
+        padding-top: ${props => (props.buffer ? props.buffer : '2.938r')}em;
+        padding-bottom: ${props => (props.buffer ? props.buffer : '1.813r')}em;
 
         margin-top: -4rem;
         margin: 0 auto;
