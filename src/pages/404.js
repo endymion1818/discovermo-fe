@@ -1,5 +1,7 @@
 import React from 'react'
 import Layout from '../components/Templates/Layout'
+import Link from '../components/Molecules/Link';
+import * as atom from '../components/Atoms'
 
 export const frontmatter = {
   title: "404",
@@ -10,8 +12,9 @@ export const frontmatter = {
 
 const NotFoundPage = () => (
   <Layout>
-    <h1>NOT FOUND</h1>
-    <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
+    <atom.HeadingPrimary>NOT FOUND</atom.HeadingPrimary>
+    <atom.Paragraph>You just hit a route that doesn&#39;t exist... the sadness.</atom.Paragraph>
+    <atom.Paragraph>You might want to check out the <Link to="/sitemap">sitemap</Link>, or go back to the <Link to="/"> homepage</Link>.</atom.Paragraph>
   </Layout>
 )
 
