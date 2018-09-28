@@ -1,8 +1,12 @@
 import React from 'react'
+import {graphql} from 'gatsby'
+import Helmet from 'react-helmet'
+import * as variable from '../components/variables'
 import Layout from '../components/Templates/Layout'
-import Link from '../components/Molecules/Link';
+import Link from '../components/Molecules/Link'
 import * as atom from '../components/Atoms'
 
+import Masthead from '../components/Organisms/Masthead'
 import ColumnsOne from '../components/Organisms/ColumnsOne'
 
 export const frontmatter = {
@@ -14,10 +18,15 @@ export const frontmatter = {
 
 const sitemap = props => (
   <Layout>
-    <atom.Container>
-        <atom.HeadingPrimary>Sitemap</atom.HeadingPrimary>
-        <atom.Paragraph>Welcome to the sitemap.</atom.Paragraph>
-    </atom.Container>
+    <Helmet>
+      <title>Sitemap | { props.data.site.siteMetadata.title }</title>
+      <meta name="description" content="All pages on this website.." />
+    </Helmet>
+    <Masthead
+        title="Sitemap"
+        intro="All pages on this website."
+        textColor={variable.BRAND_SECONDARY}
+    />
     <atom.Band>
         <atom.Container>
             <ColumnsOne
