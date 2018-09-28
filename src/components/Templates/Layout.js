@@ -8,11 +8,16 @@ import Header from './Header'
 import Footer from './Footer'
 
 import exoRegular from '../../fonts/Exo2-Regular.woff2'
+import exoExtraBold from '../../fonts/Exo2-ExtraBold.woff2'
 
 injectGlobal`
   @font-face {
     font-family: 'exo';
     src: url(${exoRegular});
+  }
+  @font-face {
+    font-family: 'exoBold';
+    src: url(${exoExtraBold});
   }
   * {
     box-sizing: border-box;
@@ -23,6 +28,12 @@ injectGlobal`
   body {
     margin: 0;
     font-family: 'exo';
+  }
+  h1,
+  h2,
+  h3 {
+    font-family: 'exoBold';
+    font-weight: 700;
   }
 `;
 

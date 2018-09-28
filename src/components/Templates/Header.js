@@ -1,6 +1,7 @@
 import React from 'react'
 import Link from '../Molecules/Link'
 import styled from 'styled-components'
+import {withPrefix} from 'gatsby'
 
 import * as atom from '../Atoms'
 import * as variable from '../variables'
@@ -68,7 +69,7 @@ const Header = props => (
       {props.navItems
         ? props.navItems.edges.map(item => (
             <li key={item.node.frontmatter.path}>
-              <Link activeClassName="active" to={item.node.frontmatter.path}>{item.node.frontmatter.title}</Link>
+              <Link activeClassName="active" to={withPrefix(item.node.frontmatter.path)}>{item.node.frontmatter.title}</Link>
             </li>
           ))
       : null}
