@@ -23,7 +23,7 @@ export const frontmatter = {
   path: "discovery",
   description: "Discover the world of Mike Oldfield",
   inMainNav: true,
-  menuOrder: 4
+  menuOrder: 5
 }
 
 export default (props) => (
