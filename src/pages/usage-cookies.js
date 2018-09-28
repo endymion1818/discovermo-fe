@@ -30,15 +30,20 @@ const usage = props => (
         intro="Contract for using this website and cookie policy"
         textColor={variable.BRAND_SECONDARY}
     />
-    <atom.HeadingPrimary>Site Use Policy and Cookie Information</atom.HeadingPrimary>
-    <atom.Paragraph>About This Website.</atom.Paragraph>
     <atom.Band>
         <atom.Container>
           <ColumnsOne
               col1={{
               content: 
                   <>
-                  test
+                    <atom.HeadingSecondary>Privacy &amp; Cookies Notice</atom.HeadingSecondary>
+                    <atom.Paragraph>This website deliberately tries to avoid cookies. There are no analytics tracking scripts, no sneaky font-embedded trackers, and no advertising scripts. I hope that means you can browse this site in the comfort of knowing your personal data is not being harvested.</atom.Paragraph>
+                    <atom.Paragraph><strong>However.</strong> This site does use 3rd-party scripts from YouTube and Spotify to embed videos. I serve YouTube content from a "no cookie" domain provided by YouTube. Alas, there is some evidence this domain is not free from cookies as advertised.</atom.Paragraph>
+                    <atom.HeadingSecondary>Fair Usage Policy</atom.HeadingSecondary>
+                    <atom.Paragraph>The website is provided for use as-is with no warranty and I am not liable for any damages that may arise from using it, especially if you are a cloth-eared nincompoop.</atom.Paragraph>
+                    <atom.HeadingSecondary>Contributing Policy</atom.HeadingSecondary>
+                    <atom.Paragraph>All contributions to the codebase, to the content, or constructive criticism of the site in general will be gratefully recieved and will be treated with confidence and respect. I do reserve the right to not include content without explanation. No profanity or discriminatory comments of any sort please. Also, if you'd like to help me write a proper contributions policy you'd be most welcome to do so.</atom.Paragraph>
+                    
                   </>
               }}
           />

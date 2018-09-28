@@ -58,20 +58,20 @@ const NotFoundPage = props => (
                     </atom.Paragraph>
                     <atom.HeadingSecondary>Design &amp; Content</atom.HeadingSecondary>
                     <atom.Paragraph>
-                      I designed this website and wrote the content in my spare evenings and weekends, usually after the kids had gone to bed. Design was done mostly in the Sketch-like UI layout tool Figma with some work in GIMP to alter bitmap graphics.
+                      I designed this website and wrote the content in my spare evenings and weekends, usually after the kids had gone to bed. Design was done mostly in the Sketch-like UI layout tool <Link to="https://figma.com">Figma</Link> with some work in GIMP to alter bitmap graphics.
                     </atom.Paragraph>
                     <atom.Paragraph>
-                      The layout is set on a 12-column grid. I don't find any other grid systems adequate. The design shares some DNA with a development project I was involved with recently. Imitation is the sincerest form of flattery.
+                      The layout is set on a 12-column grid. I don't find any other grid systems adequate. The design shares some DNA with a development project I was involved with recently.
                     </atom.Paragraph>
                     <atom.Paragraph>
                       The typeface, the largest design aspect of any website, is Exo, a free font by Natanael Gama. You can view his beautiful craftwork at <a href="http://www.ndiscovered.com/">http://www.ndiscovered.com/</a>
                     </atom.Paragraph>
                     <atom.HeadingSecondary>Technical Details</atom.HeadingSecondary>
                     <atom.Paragraph>
-                      <strong>Frontend: </strong> The front end, or display, part of this site is built with GatsbyJS, a modern JavaScript framework for creating single-page applications that render on the server and rehydrate on the client. This part of the website is hosted on Netlify.
+                      <strong>Frontend: </strong> The front end, or display, part of this site is built with <Link to="https://gatsbyjs.org">GatsbyJS</Link>, a modern JavaScript framework for creating single-page applications that render on the server and rehydrate on the client. This part of the website is hosted on <Link to="https://netlify.com">Netlify</Link>.
                     </atom.Paragraph>
                     <atom.Paragraph>
-                      <strong>Backend: </strong> The back end, or server code that supplies the data, is an api that allows me to write articles in a friendly graphical interface. It's built with Strapi, a modern CMS that is completely headless and only provides an API endpoint. It's hosted on Heroku with a MongoDB database hosted by MLab.
+                      <strong>Backend: </strong> The back end, or server code that supplies the data, is an api that allows me to write articles in a friendly graphical interface. It's built with <Link to="https://strapi.io/">Strapi</Link>, a modern CMS that is completely headless and only provides an API endpoint. It's hosted on Heroku with a MongoDB database hosted by <Link to="https://mlab.com/">MLab</Link>.
                     </atom.Paragraph>
                     <atom.Paragraph>The whole application, frontend, backend and database, is hosted for free.</atom.Paragraph>
                 </>
