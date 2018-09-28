@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import * as variable from '../../variables'
+import Link from '../../Molecules/Link'
 
 const Wrapper = styled.div`
     padding: 0;
@@ -34,7 +35,7 @@ const Title = styled.h3`
     line-height: 1.3em;
 `
 
-const TextLink = styled.a`
+const TextLink = styled(Link)`
     color: ${variable.BRAND_PRIMARY}!important;
 
     &:hover,
@@ -61,7 +62,7 @@ const NewsCard = props => (
                 <TextContainer>
                     <Details><time>{ props.data.createdAt }</time></Details>
                     <Title>
-                        <TextLink href={ '/post/' + props.data.slug }>
+                        <TextLink to={ '/news/' + props.data.slug }>
                             { props.data.title }
                         </TextLink>
                     </Title>

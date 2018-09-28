@@ -44,7 +44,7 @@ class CardsCarousel extends React.Component {
             <Paragraph textColor={this.props.textColor}>
               {this.props.content || 'Content.'}
             </Paragraph>
-            <Button to="/post/" white>
+            <Button to="/news/" white>
               Read more articles
             </Button>
           </MainTextContainer>
