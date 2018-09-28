@@ -30,7 +30,7 @@ const AlbumTemplate = ({ data }) => (
       id="intro" 
       bufferTop="0"
       backgroundColorBottom={variable.BRAND_SECONDARY}
-      backgroundColorTop={variable.BRAND_HILIGHT}>
+      backgroundColorTop={'transparent'}>
       <PopOut>
         <ColumnsOne
           narrowView

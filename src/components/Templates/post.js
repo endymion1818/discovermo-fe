@@ -77,6 +77,8 @@ export const query = graphql`
           content
           slug
           id
+          createdAt(formatString: "DD MMMM YYYY")
+          excerpt
         }
       }
     }

@@ -4,50 +4,35 @@ import {graphql} from 'gatsby'
 import Layout from './Layout'
 import * as variable from '../variables'
 import * as atom from '../Atoms'
-import PopOut from '../Molecules/Popout'
-import ColumnsOne from '../Organisms/ColumnsOne'
+import CardsCarousel from '../Organisms/CardsCarousel'
 import ColumnsTwo from '../Organisms/ColumnsTwo'
 
-const DiscoveryTemplate = ({ data }) => (
+const DiscoveryTemplate = props => (
   <Layout>
     <Helmet>
-        <title>{ data.strapiDiscovery.title } | { data.site.siteMetadata.title }</title>
-        <meta name="description" content={ data.strapiDiscovery.about } />
+        <title>{ props.data.strapiDiscovery.title } | { props.data.site.siteMetadata.title }</title>
+        <meta name="description" content={ props.data.strapiDiscovery.about } />
     </Helmet>
     <atom.Container>
       <ColumnsTwo
         col1={{
-          heading: data.strapiDiscovery.title,
-          content: data.strapiDiscovery.description
+          heading: props.data.strapiDiscovery.title,
+          content: props.data.strapiDiscovery.description
         }}
         col2={{
           content: 
-            <div dangerouslySetInnerHTML={{ __html: data.strapiDiscovery.spotify_playlist }}/>
+            <div dangerouslySetInnerHTML={{ __html: props.data.strapiDiscovery.spotify_playlist }}/>
         }}
       />
     </atom.Container>
-    <br/>
-    <atom.BandSplit 
-      id="intro" 
-      bufferTop="0"
-      backgroundColorBottom={variable.BRAND_SECONDARY}
-      backgroundColorTop={variable.BRAND_HILIGHT}>
-      <PopOut>
-        <ColumnsOne
-          narrowView
-          textAlign={'center'}
-          textColor='white'
-          col1={{
-            heading: 'Featured Discovery',
-            content:
-              <>
-                  <atom.Paragraph textColor="white">Recently voted by fans on the Mike Oldfield Facebook page as their favourite album of all time, Ommadawn is undoubtably Mike Oldfield at his best.</atom.Paragraph>
-                  <iframe src="https://open.spotify.com/embed/user/1138668487/playlist/2LTvgOeaIGYIScTO5QjyJi" width="100%" height="80" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>
-              </>
-          }}
-        />
-      </PopOut>
-    </atom.BandSplit>
+    <atom.Band id="recent-news"
+      textColor="white"
+      backgroundColor={variable.BRAND_HILIGHT}>
+      <CardsCarousel
+        posts={props.data.allStrapiPost.edges}
+        content="Recent news about Mike Oldfield from the press and sites around the web."
+     />
+    </atom.Band>
   </Layout>
   
 )
@@ -63,6 +48,18 @@ export const query = graphql`
       description
       spotify_playlist
       vimeo_video
+    }
+    allStrapiPost(limit:5) {
+      edges {
+        node {
+          title
+          content
+          slug
+          id
+          createdAt(formatString: "DD MMMM YYYY")
+          excerpt
+        }
+      }
     }
     site {
       siteMetadata {
