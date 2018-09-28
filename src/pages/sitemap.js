@@ -13,7 +13,11 @@ export const frontmatter = {
   title: "Sitemap",
   path: "sitemap",
   description: "All pages on this website",
-  inMainNav: false
+  inMainNav: false,
+  menuOrder: 2,
+  categories: [
+    'insitemenu',
+  ]
 }
 
 const sitemap = props => (

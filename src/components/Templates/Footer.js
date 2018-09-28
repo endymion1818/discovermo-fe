@@ -48,6 +48,16 @@ const Footer = props => (
           </atom.Paragraph>
         </atom.Column>
         <atom.Column>
+        <atom.HeadingTertiary textColor="white">This Site</atom.HeadingTertiary>
+          <FooterNav>
+              {props.siteMenu
+                ? props.siteMenu.edges.map(item => (
+                    <li key={item.node.frontmatter.path}>
+                      <Link activeClassName="active" to={item.node.frontmatter.path}>{item.node.frontmatter.title}</Link>
+                    </li>
+                  ))
+              : null}
+              </FooterNav>
         </atom.Column>
         <atom.Column>
           <atom.HeadingTertiary textColor="white">Navigate</atom.HeadingTertiary>

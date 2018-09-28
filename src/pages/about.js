@@ -12,8 +12,11 @@ export const frontmatter = {
   title: "About",
   path: "about",
   description: "A little bit about this site, who made it, and why.",
-  inMainNav: true,
-  menuOrder: 4
+  inMainNav: false,
+  menuOrder: 1,
+  categories: [
+    'insitemenu',
+  ]
 }
 
 const NotFoundPage = props => (
@@ -45,7 +48,7 @@ const NotFoundPage = props => (
                     </atom.Paragraph>
                     <atom.HeadingSecondary>About This Website</atom.HeadingSecondary>
                     <atom.Paragraph>
-                      This website was made by Benjamin Read, a web developer, designer, writer and tinkerer from the UK. I wanted to make a site that would help new fans get to know Mike Oldfield, as a way of introducing Mike to a new audience of younger, perhaps less patient listeners, who nonetheless wanted an idea of where to start.
+                      This website was made by <Link to="https://deliciousreverie.co.uk">Benjamin Read</Link>, a web developer, designer, writer and tinkerer from the UK. I wanted to make a site that would help new fans get to know Mike Oldfield, as a way of introducing Mike to a new audience of younger, perhaps less patient listeners, who nonetheless wanted an idea of where to start.
                     </atom.Paragraph>
                     <atom.Paragraph>
                       To that end, the site attempts to break down some of the music of Mike Oldfield into broad (sometimes oversimplified) categories, in the hopes that someone who has started listening to one style can explore that particular style more easily.
@@ -56,6 +59,9 @@ const NotFoundPage = props => (
                     <atom.HeadingSecondary>Design &amp; Content</atom.HeadingSecondary>
                     <atom.Paragraph>
                       I designed this website and wrote the content in my spare evenings and weekends, usually after the kids had gone to bed. Design was done mostly in the Sketch-like UI layout tool Figma with some work in GIMP to alter bitmap graphics.
+                    </atom.Paragraph>
+                    <atom.Paragraph>
+                      The layout is set on a 12-column grid. I don't find any other grid systems adequate. The design shares some DNA with a development project I was involved with recently. Imitation is the sincerest form of flattery.
                     </atom.Paragraph>
                     <atom.Paragraph>
                       The typeface, the largest design aspect of any website, is Exo, a free font by Natanael Gama. You can view his beautiful craftwork at <a href="http://www.ndiscovered.com/">http://www.ndiscovered.com/</a>

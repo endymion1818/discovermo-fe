@@ -49,6 +49,18 @@ const Layout = ({ children, data }) => (
             }
           }
         }
+        siteMenu: allJavascriptFrontmatter(
+          filter: { frontmatter:{ categories:{ eq: "insitemenu" } } }
+        ) {
+          edges {
+            node {
+              frontmatter {
+                title
+                path
+              }
+            }
+          }
+        }
       }
     `}
     render={data => (
@@ -64,7 +76,7 @@ const Layout = ({ children, data }) => (
         </Helmet>
         <Header siteTitle={data.site.siteMetadata.title} navItems={data.allJavascriptFrontmatter}/>
           {children}
-        <Footer siteTitle={data.site.siteMetadata.title} navItems={data.allJavascriptFrontmatter}/>
+        <Footer siteTitle={data.site.siteMetadata.title} navItems={data.allJavascriptFrontmatter} siteMenu={data.siteMenu}/>
       </>
     )}
   />

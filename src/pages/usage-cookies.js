@@ -12,7 +12,11 @@ export const frontmatter = {
   title: "Usage & Cookies",
   path: "usage-cookies",
   description: "Contract for using this website and cookie policy.",
-  inMainNav: false
+  inMainNav: false,
+  menuOrder: 3,
+  categories: [
+    'insitemenu',
+  ]
 }
 
 const usage = props => (
