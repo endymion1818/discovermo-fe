@@ -12,7 +12,10 @@ export const frontmatter = {
   title: "Links",
   path: "links",
   description: "Sites about Mike Oldfield around the internet.",
-  inMainNav: false
+  inMainNav: false,
+  categories: [
+    'insitemenu',
+  ]
 }
 
 const NotFoundPage = props => (
