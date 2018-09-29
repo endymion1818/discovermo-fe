@@ -34,7 +34,7 @@ const PostTemplate = ({ data }) => (
       bufferTop="0"
       backgroundColorBottom={variable.BRAND_SECONDARY}
       backgroundColorTop={variable.BRAND_HILIGHT}>
-      <PopOut>
+      <PopOut NarrowView>
         <atom.HeadingSecondary textColor="white">
             Featured Discovery
         </atom.HeadingSecondary>

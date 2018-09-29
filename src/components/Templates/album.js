@@ -31,7 +31,7 @@ const AlbumTemplate = ({ data }) => (
       bufferTop="0"
       backgroundColorBottom={variable.BRAND_SECONDARY}
       backgroundColorTop={'transparent'}>
-      <PopOut>
+      <PopOut NarrowView>
         <atom.HeadingSecondary textColor="white">
             Featured Discovery
         </atom.HeadingSecondary>

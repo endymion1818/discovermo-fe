@@ -19,7 +19,7 @@ const MainContainer = styled.div`
   background-position: 50% 50%;
 
   @media (min-width: ${variable.BREAK_TABLET}) {
-    padding: ${variable.TRIPLE};
+    padding: ${props => props.NarrowView ? `${variable.QUAD} ${variable.SEXTUPLE};` : `${variable.QUAD};` };
   }
 `
 
