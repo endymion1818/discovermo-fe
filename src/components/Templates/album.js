@@ -4,8 +4,9 @@ import {graphql} from 'gatsby'
 import Layout from './Layout'
 import * as variable from '../variables'
 import * as atom from '../Atoms'
+
 import PopOut from '../Molecules/Popout'
-import ColumnsOne from '../Organisms/ColumnsOne'
+import Button from '../Molecules/Button'
 import ColumnsTwo from '../Organisms/ColumnsTwo'
 
 const AlbumTemplate = ({ data }) => (
@@ -21,7 +22,17 @@ const AlbumTemplate = ({ data }) => (
         }}
         col2={{
           heading: data.strapiAlbum.title,
-          content: data.strapiAlbum.about
+          content: 
+           <>
+            <atom.Paragraph>{data.strapiAlbum.about}</atom.Paragraph>
+            <atom.ButtonGrid>
+              {data.strapiAlbum.itunes ? <Button transparent to={data.strapiAlbum.itunes}>Listen on iTunes</Button> : null }
+              {data.strapiAlbum.amazon ? <Button transparent to={data.strapiAlbum.amazon}>Buy or listen on Amazon</Button> : null }
+              {data.strapiAlbum.googleplay ? <Button transparent to={data.strapiAlbum.googleplay}>Listen on Google Play</Button> : null }
+            </atom.ButtonGrid>
+            <br/>
+            <atom.SpotifyViewer dangerouslySetInnerHTML={{ __html:data.strapiAlbum.spotify }}></atom.SpotifyViewer>
+           </>
         }}
       />
     </atom.Container>

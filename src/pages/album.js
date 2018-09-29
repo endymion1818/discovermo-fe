@@ -22,12 +22,6 @@ import Masthead from '../components/Organisms/Masthead'
 
 const Album = styled.article``
 
-const ButtonGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: 1rem;
-`
-
 export const frontmatter = {
   title: "Albums",
   path: "album",
@@ -66,12 +60,11 @@ export default (props) => (
             <h3><Link to={withPrefix("/album/" + item.node.slug)}>{ item.node.title }</Link></h3>
             <atom.Paragraph>{item.node.about}</atom.Paragraph>
             <atom.Paragraph><small>Year Published: { item.node.yearpublished }</small></atom.Paragraph>
-            <ButtonGrid>
-              {item.node.spotify ? <Button transparent to={item.node.spotify}>Listen via Spotify</Button> : null }
+            <atom.ButtonGrid>
               {item.node.itunes ? <Button transparent to={item.node.itunes}>Listen on iTunes</Button> : null }
               {item.node.amazon ? <Button transparent to={item.node.amazon}>Buy or listen on Amazon</Button> : null }
               {item.node.googleplay ? <Button transparent to={item.node.googleplay}>Listen on Google Play</Button> : null }
-            </ButtonGrid>
+            </atom.ButtonGrid>
           </Album>
         }}
         />

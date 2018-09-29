@@ -239,3 +239,16 @@ export const SmallView = styled.div`
     display: none;
   }
 `
+
+export const ButtonGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 1rem;
+`
+
+export const SpotifyViewer = styled.div`
+
+  > iframe {
+    width: 100%!important;
+  }
+`
