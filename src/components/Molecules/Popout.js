@@ -10,7 +10,7 @@ const MainContainer = styled.div`
   width: 100%;
   background-color: ${props => props.backgroundColor ? props.backgroundColor : variable.BRAND_PRIMARY };
   height: 100%;
-  padding: ${variable.TRIPLE} 0;
+  padding: ${variable.TRIPLE};
   text-align:center;
   border-radius:${variable.DOUBLE}};
   color: ${props => props.textColor ? props.textColor : variable.BRAND_HILIGHT };
@@ -23,9 +23,9 @@ const MainContainer = styled.div`
 
 const PopOut = props => (
   <Container>
-  <MainContainer {...props} style={ props.background ? {backgroundImage : `url(${props.background})`}: null } >
-   {props.children}
-  </MainContainer>
+    <MainContainer {...props} style={ props.background ? {backgroundImage : `url(${props.background})`}: null } >
+    {props.children}
+    </MainContainer>
   </Container>
 )
 
