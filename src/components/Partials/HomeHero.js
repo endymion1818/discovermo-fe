@@ -9,7 +9,11 @@ import * as variable from '../variables'
 const HomeMasthead = styled.header`
     overflow: hidden;
     position: relative;
-    margin-bottom: -12rem;
+    margin-bottom: -6rem;
+
+    @media (min-width: ${variable.BREAK_TABLET}) {
+        margin-bottom: -12rem;
+    }
 `
 
 const HomeImg = styled.img`
@@ -41,7 +45,7 @@ const HomeParagraph = styled(Paragraph)`
     font-size: 2rem;
 `
 
-export default (props) => (
+export default props => (
     <HomeMasthead>
         <HomeImg src={HomeBackground}/>
         <Container>
