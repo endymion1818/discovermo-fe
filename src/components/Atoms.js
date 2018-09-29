@@ -82,6 +82,7 @@ export const Container = styled.div`
     background-position: right top;` : null)}
   ${props => (props.backgroundColor ? `
     background-color: ${props.backgroundColor}` : null)}
+    
   @media all and (min-width: ${variable.BREAK_PHONE}) {
     padding: 0 ${variable.DOUBLE};
   }
