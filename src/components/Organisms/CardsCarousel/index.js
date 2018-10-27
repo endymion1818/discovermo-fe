@@ -20,9 +20,6 @@ import {
 import Button from '../../Molecules/Button'
 
 class CardsCarousel extends React.Component {
-  constructor(props) {
-    super(props)
-  }
 
   render() {
     return (
