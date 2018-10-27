@@ -46,7 +46,7 @@ const Layout = ({ children, data }) => (
             title
           }
         }
-        allJavascriptFrontmatter(
+        mainNav: allJavascriptFrontmatter(
           filter: { frontmatter:{ inMainNav:{ eq: true } } }
           sort:{ fields:frontmatter___menuOrder }
         ) {
@@ -85,9 +85,9 @@ const Layout = ({ children, data }) => (
         >
           <html lang="en" />
         </Helmet>
-        <Header siteTitle={data.site.siteMetadata.title} navItems={data.allJavascriptFrontmatter}/>
+        <Header siteTitle={data.site.siteMetadata.title} navItems={data.mainNav}/>
           {children}
-        <Footer siteTitle={data.site.siteMetadata.title} navItems={data.allJavascriptFrontmatter} siteMenu={data.siteMenu}/>
+        <Footer siteTitle={data.site.siteMetadata.title} navItems={data.mainNav} siteMenu={data.siteMenu}/>
       </>
     )}
   />
