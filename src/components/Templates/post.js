@@ -63,7 +63,10 @@ export const query = graphql`
         title
       }
     }
-    allStrapiPost(limit:5) {
+    allStrapiPost(
+      limit:5
+      sort: {fields: [createdAt], order: DESC},
+    ) {
       edges {
         node {
           title

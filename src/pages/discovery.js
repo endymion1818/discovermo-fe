@@ -89,7 +89,10 @@ query homeDiscoveryQuery {
       }
     }
   }
-  allStrapiPost(limit:5) {
+  allStrapiPost(
+    limit:5
+    sort: {fields: [createdAt], order: DESC},
+  ) {
     edges {
       node {
         title

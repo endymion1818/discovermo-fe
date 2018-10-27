@@ -3,7 +3,6 @@ import {graphql} from 'gatsby'
 import Helmet from 'react-helmet'
 import * as variable from '../components/variables'
 import Layout from '../components/Templates/Layout'
-import Link from '../components/Molecules/Link'
 import * as atom from '../components/Atoms'
 
 import Masthead from '../components/Organisms/Masthead'

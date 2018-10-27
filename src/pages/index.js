@@ -187,7 +187,10 @@ export default (props) => (
 
 export const query = graphql`
 query indexQuery {
-  allStrapiPost(limit:5) {
+  allStrapiPost(
+    limit:5
+    sort: {fields: [createdAt], order: DESC},
+  ) {
     edges {
       node {
         title

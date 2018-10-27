@@ -49,7 +49,10 @@ export const query = graphql`
       spotify_playlist
       vimeo_video
     }
-    allStrapiPost(limit:5) {
+    allStrapiPost(
+      limit:5
+      sort: {fields: [createdAt], order: DESC},
+    ) {
       edges {
         node {
           title
