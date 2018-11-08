@@ -29,6 +29,7 @@ module.exports = {
         path: `${__dirname}/src/pages/`,
       },
     },
+    `gatsby-transformer-markdown`,
     `gatsby-transformer-javascript-frontmatter`,
     {
       resolve: `gatsby-plugin-manifest`,
