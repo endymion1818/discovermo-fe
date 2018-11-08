@@ -1,27 +1,38 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 import {graphql} from 'gatsby'
+
+import unified from 'unified';
+import markdown from 'remark-parse';
+import html from 'remark-html';
+
 import Layout from './Layout'
 import * as variable from '../variables'
 import * as atom from '../Atoms'
 import CardsCarousel from '../Organisms/CardsCarousel'
 import ColumnsTwo from '../Organisms/ColumnsTwo'
 
-const DiscoveryTemplate = props => (
+const DiscoveryTemplate = ({data}) => (
   <Layout>
     <Helmet>
-        <title>{ props.data.strapiDiscovery.title } | { props.data.site.siteMetadata.title }</title>
-        <meta name="description" content={ props.data.strapiDiscovery.about } />
+        <title>{ data.strapiDiscovery.title } | { data.site.siteMetadata.title }</title>
+        <meta name="description" content={ data.strapiDiscovery.about } />
     </Helmet>
     <atom.Container>
       <ColumnsTwo
         col1={{
-          heading: props.data.strapiDiscovery.title,
-          content: props.data.strapiDiscovery.description
+          heading: data.strapiDiscovery.title,
+          content: 
+            <div dangerouslySetInnerHTML={{
+              __html: unified()
+              .use(markdown)
+              .use(html)
+              .processSync(data.strapiDiscovery.description)
+            }}/>
         }}
         col2={{
           content: 
-            <div dangerouslySetInnerHTML={{ __html: props.data.strapiDiscovery.spotify_playlist }}/>
+            <div dangerouslySetInnerHTML={{ __html: data.strapiDiscovery.spotify_playlist }}/>
         }}
       />
     </atom.Container>
@@ -29,7 +40,7 @@ const DiscoveryTemplate = props => (
       textColor="white"
       backgroundColor={variable.BRAND_HILIGHT}>
       <CardsCarousel
-        posts={props.data.allStrapiPost.edges}
+        posts={data.allStrapiPost.edges}
         content="Recent news about Mike Oldfield from the press and sites around the web."
      />
     </atom.Band>

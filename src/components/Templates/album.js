@@ -1,6 +1,11 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 import {graphql} from 'gatsby'
+
+import unified from 'unified';
+import markdown from 'remark-parse';
+import html from 'remark-html';
+
 import Layout from './Layout'
 import * as variable from '../variables'
 import * as atom from '../Atoms'
@@ -24,7 +29,12 @@ const AlbumTemplate = ({ data }) => (
           heading: data.strapiAlbum.title,
           content: 
            <>
-            <atom.Paragraph>{data.strapiAlbum.about}</atom.Paragraph>
+            <div dangerouslySetInnerHTML={{
+              __html: unified()
+              .use(markdown)
+              .use(html)
+              .processSync(data.strapiAlbum.about)
+            }}/>
             <atom.ButtonGrid>
               {data.strapiAlbum.itunes ? <Button transparent to={data.strapiAlbum.itunes}>Listen on iTunes</Button> : null }
               {data.strapiAlbum.amazon ? <Button transparent to={data.strapiAlbum.amazon}>Buy or listen on Amazon</Button> : null }

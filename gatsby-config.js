@@ -29,7 +29,7 @@ module.exports = {
         path: `${__dirname}/src/pages/`,
       },
     },
-    `gatsby-transformer-javascript-frontmatter`,
+    `gatsby-transformer-javascript-frontmatter`,    
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
