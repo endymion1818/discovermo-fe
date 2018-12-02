@@ -48,7 +48,7 @@ export default (props) => (
       id="intro" 
       bufferTop="0"
       backgroundColorBottom={variable.BRAND_SECONDARY}
-      backgroundColorTop="transparent">
+      backgroundColorTop="#4facfe">
       <PopOut NarrowView>
         <atom.HeadingSecondary textColor="white">
             Featured Discovery

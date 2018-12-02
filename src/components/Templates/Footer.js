@@ -46,6 +46,11 @@ const Footer = props => (
           <atom.Paragraph textColor="white">
             All music, album art and imagery &copy; their original copyright holders. This site text content, layout and design: &copy; <a href="https://deliciousreverie.co.uk">Benjamin Read</a>.
           </atom.Paragraph>
+          <atom.Paragraph textColor="white">
+            <Link to={'https://mikeoldfieldofficial.com/'}>
+            Official Mike Oldfield Site
+            </Link>
+          </atom.Paragraph>
         </atom.Column>
         <atom.Column>
         <atom.HeadingTertiary textColor="white">This Site</atom.HeadingTertiary>

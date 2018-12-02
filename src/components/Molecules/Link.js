@@ -1,5 +1,5 @@
 import React from 'react'
-import GatsbyLink from "gatsby-link"
+import GatsbyLink, { withPrefix } from "gatsby-link"
 
 export default ({ children, to, ...other }) => {
   // This regex assumes that any internal link (intended for Gatsby to process)
@@ -18,7 +18,7 @@ export default ({ children, to, ...other }) => {
 
   if (internal) {
     return (
-      <GatsbyLink to={to} { ...other }>
+      <GatsbyLink to={withPrefix(to)} { ...other }>
         {children}
       </GatsbyLink>
     );

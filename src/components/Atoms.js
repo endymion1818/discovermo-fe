@@ -158,7 +158,7 @@ export const RowGrid = styled.div`
   }
   @media (min-width: ${variable.BREAK_TABLET}) {
     display: grid;
-    grid-template-columns: repeat(${props => (props.columns || '100%')}, 1fr);
+    grid-template-columns: repeat(${props => (props.columns || '1')}, 1fr);
     grid-gap: ${variable.SINGLEplusHALF};
   }
 `

@@ -1,27 +1,23 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Container, RowGrid, ColumnFlex, HeadingPrimary, Paragraph } from '../Atoms'
+import { Container, Row, Column, HeadingPrimary, Paragraph } from '../Atoms'
 import LogoColour from '../../img/discovermikeoldfield-logo-color.svg' 
-import HomeBackground from '../../img/homebackground.jpg' 
-
 import * as variable from '../variables'
+
+const RowExt = styled(Row)`
+    overflow: hidden;
+`
 
 const HomeMasthead = styled.header`
     overflow: hidden;
     position: relative;
     margin-bottom: -6rem;
+    background-image: linear-gradient(to top, #4facfe 0%, #00f2fe 100%);
 
     @media (min-width: ${variable.BREAK_TABLET}) {
         margin-bottom: -12rem;
     }
 `
-
-const HomeImg = styled.img`
-    height: 100%;
-    position: absolute;
-    top: 0;
-    right: 0;
-` 
 
 const HomeTitle = styled.div`
     @keyframes fadeinup {
@@ -42,22 +38,21 @@ const HomeTitle = styled.div`
 `
 
 const HomeParagraph = styled(Paragraph)`
-    font-size: 2rem;
+    font-size: 1.6rem;
 `
 
 export default props => (
     <HomeMasthead>
-        <HomeImg src={HomeBackground}/>
         <Container>
-            <RowGrid>
-                <ColumnFlex size="6">
+            <RowExt>
+                <Column size="8">
                     <HomeTitle>
                         <HeadingPrimary textColor={variable.BRAND_PRIMARY}>Welcome To</HeadingPrimary>
                         <img src={LogoColour} alt="Discover Mike Oldfield" width="100%"/>
-                        <HomeParagraph>Visionary composer, talented multi-instrumentalist and immersive VR game designer.</HomeParagraph>
+                        <HomeParagraph>Visionary composer Mike Oldfield has changed the landscape of music forever with his album Tubular Bells in 1973. Since then, he has composed, produced and performed more than 20 amazing rock, classical, and folk, albums that continue to inspire people around the world.</HomeParagraph>
                     </HomeTitle>
-                </ColumnFlex>
-            </RowGrid>
+                </Column>
+            </RowExt>
         </Container>
     </HomeMasthead>
 )
