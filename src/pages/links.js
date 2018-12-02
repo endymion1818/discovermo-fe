@@ -50,7 +50,7 @@ const NotFoundPage = props => (
                     </ul>
                     <hr/>
                     <atom.HeadingSecondary>Add Yours!</atom.HeadingSecondary>
-                    <atom.Paragraph>If I've missed your website, <a href="endymion1818@gmail.com">please send me an email</a>.</atom.Paragraph>
+                    <atom.Paragraph>If I've missed your website, <a href="mailto:endymion1818@gmail.com">please send me an email</a>.</atom.Paragraph>
                 </>
             }}
         />
