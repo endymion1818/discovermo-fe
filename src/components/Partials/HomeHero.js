@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Container, Row, Column, HeadingPrimary, Paragraph } from '../Atoms'
+import Button from '../Molecules/Button'
 import LogoColour from '../../img/discovermikeoldfield-logo-color.svg' 
 import * as variable from '../variables'
 
@@ -11,8 +12,12 @@ const RowExt = styled(Row)`
 const HomeMasthead = styled.header`
     overflow: hidden;
     position: relative;
-    margin-bottom: -6rem;
+    
     background-image: linear-gradient(to top, #4facfe 0%, #00f2fe 100%);
+
+    @media(min-width: ${variable.BREAK_PHONE}) {
+        margin-bottom: -6rem;
+    }
 
     @media (min-width: ${variable.BREAK_TABLET}) {
         margin-bottom: -12rem;
@@ -35,6 +40,7 @@ const HomeTitle = styled.div`
     display: flex;
     flex-direction: column;
     margin-top: 2rem;
+    margin-bottom: 2rem;
 `
 
 const HomeParagraph = styled(Paragraph)`
@@ -49,9 +55,11 @@ export default props => (
                     <HomeTitle>
                         <HeadingPrimary textColor={variable.BRAND_PRIMARY}>Welcome To</HeadingPrimary>
                         <img src={LogoColour} alt="Discover Mike Oldfield" width="100%"/>
-                        <HomeParagraph>Visionary composer Mike Oldfield has changed the landscape of music forever with his album Tubular Bells in 1973. Since then, he has composed, produced and performed more than 20 amazing rock, classical, and folk, albums that continue to inspire people around the world.</HomeParagraph>
+                        <HomeParagraph>Visionary composer Mike Oldfield has changed the landscape of music forever with his album Tubular Bells in 1973. Since then, he has composed, produced and performed more than 20 amazing rock, classical, and folk, albums that continue to inspire people around the world. </HomeParagraph>
+                        <Column size="6"><Button to={'/discover'}>Discover the music</Button></Column>
                     </HomeTitle>
                 </Column>
+                
             </RowExt>
         </Container>
     </HomeMasthead>
