@@ -36,7 +36,7 @@ const AlbumTemplate = ({ data }) => (
               .processSync(data.strapiAlbum.about)
             }}/>
             <atom.ButtonGrid>
-              {data.strapiAlbum.itunes ? <Button transparent to={data.strapiAlbum.itunes}>Listen on iTunes</Button> : null }
+              {data.strapiAlbum.itunes ? <Button transparent to={data.strapiAlbum.itunes}>Listen or buy on iTunes</Button> : null }
               {data.strapiAlbum.amazon ? <Button transparent to={data.strapiAlbum.amazon}>Buy or listen on Amazon</Button> : null }
               {data.strapiAlbum.googleplay ? <Button transparent to={data.strapiAlbum.googleplay}>Listen on Google Play</Button> : null }
             </atom.ButtonGrid>

@@ -36,6 +36,7 @@ const NotFoundPage = props => (
                 <>
                     <atom.HeadingSecondary>Official Sites</atom.HeadingSecondary>
                     <ul>
+                        <li><a href="https://mikeoldfieldofficial.com/">Mike Oldfield Official Website</a></li>
                         <li><a href="https://www.facebook.com/MikeOldfieldOfficial/">Official Facebook Page</a></li>
                         <li><a href="https://www.youtube.com/user/MikeOldfieldVEVO">YouTube Channel</a></li>
                         <li><a href="https://open.spotify.com/artist/562Od3CffWedyz2BbeYWVn">Spotify channel</a></li>
@@ -43,7 +44,6 @@ const NotFoundPage = props => (
                     <atom.HeadingSecondary>Fan Sites</atom.HeadingSecondary>
                     <ul>
                         <li><a href="https://tubular.net/">Tubular.net - "an open website dedicated to Mike Oldfield."</a></li>
-                        <li><a href="https://mikeoldfieldofficial.com/">Mike Oldfield Official</a></li>
                         <li><a href="http://www.mikeoldfield.org">Dark Star: The Mike Oldfield Magazine</a></li>
                         <li><a href="http://www.dbennett.karoo.net/">"Yet Another Mike Oldfield Site"</a></li>
                         <li><a href="http://ozwolf.tripod.com/hrcafe.html">Wolf's Hergest Ridge Cafe</a></li>
