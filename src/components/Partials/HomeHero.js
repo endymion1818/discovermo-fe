@@ -56,7 +56,7 @@ export default props => (
                         <HeadingPrimary textColor={variable.BRAND_PRIMARY}>Welcome To</HeadingPrimary>
                         <img src={LogoColour} alt="Discover Mike Oldfield" width="100%"/>
                         <HomeParagraph>Visionary composer Mike Oldfield has changed the landscape of music forever with his album Tubular Bells in 1973. Since then, he has composed, produced and performed more than 20 amazing rock, classical, and folk, albums that continue to inspire people around the world. </HomeParagraph>
-                        <Column size="6"><Button to={'/discover'}>Discover the music</Button></Column>
+                        <Column size="6"><Button to={'/discovery'}>Discover the music</Button></Column>
                     </HomeTitle>
                 </Column>
                 
