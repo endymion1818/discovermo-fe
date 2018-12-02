@@ -39,9 +39,10 @@ const AlbumTemplate = ({ data }) => (
               {data.strapiAlbum.itunes ? <Button transparent to={data.strapiAlbum.itunes}>Listen or buy on iTunes</Button> : null }
               {data.strapiAlbum.amazon ? <Button transparent to={data.strapiAlbum.amazon}>Buy or listen on Amazon</Button> : null }
               {data.strapiAlbum.googleplay ? <Button transparent to={data.strapiAlbum.googleplay}>Listen on Google Play</Button> : null }
+              {data.strapiAlbum.spotify ? <Button transparent to={data.strapiAlbum.spotify}>Listen on Spotify</Button> : null }
             </atom.ButtonGrid>
             <br/>
-            <atom.SpotifyViewer dangerouslySetInnerHTML={{ __html:data.strapiAlbum.spotify }}></atom.SpotifyViewer>
+
            </>
         }}
       />
