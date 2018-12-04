@@ -21,21 +21,19 @@ const PostTemplate = ({ data }) => (
       </title>
       <meta name="description" content={data.strapiPost.excerpt} />
     </Helmet>
-    <atom.Container>
-      <atom.Row>
-        <atom.Column size="8">
-          <h1>{data.strapiPost.title}</h1>
-          <div
-            dangerouslySetInnerHTML={{
-              __html: unified()
-                .use(markdown)
-                .use(html)
-                .processSync(data.strapiPost.content),
-            }}
-          />
-        </atom.Column>
-      </atom.Row>
-    </atom.Container>
+    <article>
+      <atom.Container>
+        <h1>{data.strapiPost.title}</h1>
+        <div
+          dangerouslySetInnerHTML={{
+            __html: unified()
+              .use(markdown)
+              .use(html)
+              .processSync(data.strapiPost.content),
+          }}
+        />
+      </atom.Container>
+    </article>
     <br />
     <atom.Band
       id="recent-news"
