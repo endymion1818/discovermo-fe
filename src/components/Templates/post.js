@@ -2,10 +2,6 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
 
-import unified from 'unified'
-import markdown from 'remark-parse'
-import html from 'remark-html'
-
 import Layout from './Layout'
 import * as variable from '../variables'
 import * as atom from '../Atoms'
@@ -24,14 +20,7 @@ const PostTemplate = ({ data }) => (
     <article>
       <atom.Container>
         <h1>{data.strapiPost.title}</h1>
-        <div
-          dangerouslySetInnerHTML={{
-            __html: unified()
-              .use(markdown)
-              .use(html)
-              .processSync(data.strapiPost.content),
-          }}
-        />
+        <div dangerouslySetInnerHTML={{ html: data.strapiPost.content }} />
       </atom.Container>
     </article>
     <br />
