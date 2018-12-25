@@ -17,7 +17,14 @@ const Main = styled.div`
 `
 
 const Video = props => (
-  <Main dangerouslySetInnerHTML={{__html: '<iframe width="560" height="315" src="https://www.youtube.com/embed/' + props.embedCode + '?rel=0" frameBorder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>'}}/>
+  <Main
+    dangerouslySetInnerHTML={{
+      __html:
+        '<iframe width="560" height="315" src="https://www.youtube.com/embed/' +
+        props.embedCode +
+        '?rel=0" frameBorder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>',
+    }}
+  />
 )
 
 export default Video

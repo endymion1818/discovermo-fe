@@ -20,7 +20,7 @@ const PostTemplate = ({ data }) => (
     <article>
       <atom.Container>
         <h1>{data.strapiPost.title}</h1>
-        <div dangerouslySetInnerHTML={{ html: data.strapiPost.content }} />
+        <div dangerouslySetInnerHTML={{ __html: data.strapiPost.content }} />
       </atom.Container>
     </article>
     <br />

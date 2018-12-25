@@ -2,7 +2,13 @@ import React from 'react'
 import styled from 'styled-components'
 import Button from '../Molecules/Button'
 import Link from '../Molecules/Link'
-import { Container, Row, Column, HeadingSecondary, HeadingTertiary } from '../Atoms'
+import {
+  Container,
+  Row,
+  Column,
+  HeadingSecondary,
+  HeadingTertiary,
+} from '../Atoms'
 
 const HeadingSecondaryExtended = styled(HeadingSecondary)`
   text-align: center;
@@ -10,25 +16,25 @@ const HeadingSecondaryExtended = styled(HeadingSecondary)`
 
 const FourColumn = props => (
   <Container textAlign="center">
-    <HeadingSecondaryExtended>{props.heading ? props.heading : null}</HeadingSecondaryExtended>
+    <HeadingSecondaryExtended>
+      {props.heading ? props.heading : null}
+    </HeadingSecondaryExtended>
     <Row>
       {props.data
         ? props.data.map((item, index) => (
             <Column key={index} size="3" textAlign="center">
               {item.imagealt ? (
-                  <img alt={item.imagealt} src={item.imageurl} width="100%" />
+                <img alt={item.imagealt} src={item.imageurl} width="100%" />
               ) : null}
               {item.title ? (
-                <HeadingTertiary dangerouslySetInnerHTML={{ __html: item.title }} />
-              ) : null}
-              {item.content ? (
-                <div
-                  dangerouslySetInnerHTML={{ __html: item.content }}
+                <HeadingTertiary
+                  dangerouslySetInnerHTML={{ __html: item.title }}
                 />
               ) : null}
-              {item.link ? (
-                <Link to={item.link}>{item.linkText}</Link>
+              {item.content ? (
+                <div dangerouslySetInnerHTML={{ __html: item.content }} />
               ) : null}
+              {item.link ? <Link to={item.link}>{item.linkText}</Link> : null}
             </Column>
           ))
         : null}
