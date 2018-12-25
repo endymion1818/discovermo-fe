@@ -7,19 +7,15 @@ module.exports = {
     {
       resolve: `gatsby-plugin-styled-components`,
       options: {
-        displayName: true
+        displayName: true,
       },
     },
     // `gatsby-plugin-typescript`,
     {
       resolve: `gatsby-source-strapi`,
       options: {
-        apiURL:  'https://discovermikeoldfield-content.herokuapp.com',
-        contentTypes: [
-          `post`,
-          `album`,
-          `discovery`
-        ],
+        apiURL: 'https://discovermikeoldfield-content.herokuapp.com',
+        contentTypes: [`post`, `album`, `discovery`],
       },
     },
     {
@@ -29,7 +25,7 @@ module.exports = {
         path: `${__dirname}/src/pages/`,
       },
     },
-    `gatsby-transformer-javascript-frontmatter`,    
+    `gatsby-transformer-javascript-frontmatter`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -40,6 +36,12 @@ module.exports = {
         theme_color: '#663399',
         display: 'minimal-ui',
         icon: 'src/img/favicon.png', // This path is relative to the root of the site.
+      },
+    },
+    {
+      resolve: `gatsby-plugin-favicon`,
+      options: {
+        logo: './src/img/favicon.png',
       },
     },
     'gatsby-plugin-offline',
