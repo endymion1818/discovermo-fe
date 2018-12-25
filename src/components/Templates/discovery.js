@@ -1,10 +1,10 @@
 import React from 'react'
 import Helmet from 'react-helmet'
-import {graphql} from 'gatsby'
+import { graphql } from 'gatsby'
 
-import unified from 'unified';
-import markdown from 'remark-parse';
-import html from 'remark-html';
+import unified from 'unified'
+import markdown from 'remark-parse'
+import html from 'remark-html'
 
 import Layout from './Layout'
 import * as variable from '../variables'
@@ -12,40 +12,51 @@ import * as atom from '../Atoms'
 import CardsCarousel from '../Organisms/CardsCarousel'
 import ColumnsTwo from '../Organisms/ColumnsTwo'
 
-const DiscoveryTemplate = ({data}) => (
+const DiscoveryTemplate = ({ data }) => (
   <Layout>
     <Helmet>
-        <title>{ data.strapiDiscovery.title } | { data.site.siteMetadata.title }</title>
-        <meta name="description" content={ data.strapiDiscovery.about } />
+      <title>
+        {data.strapiDiscovery.title} | {data.site.siteMetadata.title}
+      </title>
+      <meta name="description" content={data.strapiDiscovery.about} />
     </Helmet>
     <atom.Container>
       <ColumnsTwo
         col1={{
           heading: data.strapiDiscovery.title,
-          content: 
-            <div dangerouslySetInnerHTML={{
-              __html: unified()
-              .use(markdown)
-              .use(html)
-              .processSync(data.strapiDiscovery.description)
-            }}/>
+          content: (
+            <div
+              dangerouslySetInnerHTML={{
+                __html: unified()
+                  .use(markdown)
+                  .use(html)
+                  .processSync(data.strapiDiscovery.description),
+              }}
+            />
+          ),
         }}
         col2={{
-          content: 
-            <div dangerouslySetInnerHTML={{ __html: data.strapiDiscovery.spotify_playlist }}/>
+          content: (
+            <div
+              dangerouslySetInnerHTML={{
+                __html: data.strapiDiscovery.spotify_playlist,
+              }}
+            />
+          ),
         }}
       />
     </atom.Container>
-    <atom.Band id="recent-news"
+    <atom.Band
+      id="recent-news"
       textColor="white"
-      backgroundColor={variable.BRAND_HILIGHT}>
+      backgroundColor={variable.BRAND_HILIGHT}
+    >
       <CardsCarousel
         posts={data.allStrapiPost.edges}
         content="Recent news about Mike Oldfield from the press and sites around the web."
-     />
+      />
     </atom.Band>
   </Layout>
-  
 )
 
 export default DiscoveryTemplate
@@ -60,10 +71,7 @@ export const query = graphql`
       spotify_playlist
       vimeo_video
     }
-    allStrapiPost(
-      limit:5
-      sort: {fields: [createdAt], order: DESC},
-    ) {
+    allStrapiPost(limit: 5, sort: { fields: [createdAt], order: DESC }) {
       edges {
         node {
           title
@@ -80,14 +88,14 @@ export const query = graphql`
         title
       }
     }
-    allStrapiAlbum(limit:5) {
+    allStrapiAlbum(limit: 5) {
       edges {
         node {
           title
           slug
           coverimg
-          }
         }
       }
     }
+  }
 `
