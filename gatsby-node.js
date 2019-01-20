@@ -108,7 +108,7 @@ exports.onCreateNode = ({
   createContentDigest,
 }) => {
   const { createNode, createNodeField } = actions
-  if (node.internal.type === strapiPost.content) {
+  if (node.internal.type === 'strapiPost.content') {
     console.log('found node')
     const newNode = createNode({
       id: createNodeId(`${node.id} markdown field`),

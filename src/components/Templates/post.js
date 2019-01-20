@@ -76,7 +76,11 @@ export const query = graphql`
     strapiPost(id: { eq: $id }) {
       id
       title
-      content
+      content {
+        childMarkdownRemark {
+          html
+        }
+      }
       excerpt
       createdAt
     }
