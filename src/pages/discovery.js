@@ -83,7 +83,7 @@ export default props => (
 
 export const query = graphql`
   query homeDiscoveryQuery {
-    allStrapiDiscovery(sort: { fields: [createdAt], order: ASC }) {
+    allStrapiDiscovery(sort: { fields: [createdAt], order: DESC }) {
       edges {
         node {
           id
