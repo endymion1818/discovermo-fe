@@ -1,7 +1,7 @@
 {
   "name": "discover-mike-oldfield",
   "description": "The place to discover the incredible, diverse and prolific music of Mike Oldfield",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "Benjamin Read <endymion1818@gmail.com>",
   "dependencies": {
     "babel-plugin-styled-components": "^1.5.1",
