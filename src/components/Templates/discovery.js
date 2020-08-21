@@ -14,23 +14,23 @@ import ColumnsTwo from '../Organisms/ColumnsTwo'
 
 const DiscoveryTemplate = ({ data }) => (
   <Layout>
-    <Helmet>
+    {/* <Helmet>
       <title>
-        {data.strapiDiscovery.title} | {data.site.siteMetadata.title}
+      `${data.strapiDiscovery.title} | ${data.site.siteMetadata.title}`
       </title>
       <meta name="description" content={data.strapiDiscovery.about} />
-    </Helmet>
+    </Helmet> */}
     <atom.Container>
       <ColumnsTwo
         col1={{
-          heading: data.strapiDiscovery.title,
+          heading: data.strapiDiscovery.Title,
           content: (
             <div
               dangerouslySetInnerHTML={{
                 __html: unified()
                   .use(markdown)
                   .use(html)
-                  .processSync(data.strapiDiscovery.description),
+                  .processSync(data.strapiDiscovery.Body),
               }}
             />
           ),
@@ -39,7 +39,7 @@ const DiscoveryTemplate = ({ data }) => (
           content: (
             <div
               dangerouslySetInnerHTML={{
-                __html: data.strapiDiscovery.spotify_playlist,
+                __html: data.strapiDiscovery.Spotify,
               }}
             />
           ),
@@ -66,20 +66,19 @@ export const query = graphql`
     strapiDiscovery(id: { eq: $id }) {
       id
       Slug
-      title
-      description
-      spotify_playlist
-      vimeo_video
+      Title
+      Body
+      Spotify
     }
-    allStrapiPost(limit: 5, sort: { fields: [createdAt], order: DESC }) {
+    allStrapiPost(limit: 5, sort: { fields: [created_at], order: DESC }) {
       edges {
         node {
-          title
-          content
-          slug
+          Title
+          Body
+          Slug
           id
-          createdAt(formatString: "DD MMMM YYYY")
-          excerpt
+          created_at(formatString: "DD MMMM YYYY")
+          Excerpt
         }
       }
     }
@@ -91,9 +90,11 @@ export const query = graphql`
     allStrapiAlbum(limit: 5) {
       edges {
         node {
-          title
-          slug
-          coverimg
+          Title
+          Slug
+          Cover {
+            publicURL
+          }
         }
       }
     }

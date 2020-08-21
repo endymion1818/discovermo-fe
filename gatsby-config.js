@@ -1,3 +1,7 @@
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
 module.exports = {
   siteMetadata: {
     title: 'Discover Mike Oldfield',
@@ -14,7 +18,7 @@ module.exports = {
     {
       resolve: `gatsby-source-strapi`,
       options: {
-        apiURL: 'https://discovermikeoldfield-content.herokuapp.com',
+        apiURL: 'https://discovermikeoldfield-strapi-v3.herokuapp.com',
         contentTypes: [`post`, `album`, `discovery`],
       },
     },

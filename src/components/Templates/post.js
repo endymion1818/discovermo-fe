@@ -13,14 +13,14 @@ const PostTemplate = ({ data }) => (
   <Layout>
     <Helmet>
       <title>
-        {data.strapiPost.title} || {data.site.siteMetadata.title}
+        {data.strapiPost.Title} || {data.site.siteMetadata.title}
       </title>
-      <meta name="description" content={data.strapiPost.excerpt} />
+      <meta name="description" content={data.strapiPost.Excerpt} />
     </Helmet>
     <article>
       <atom.Container>
-        <h1>{data.strapiPost.title}</h1>
-        <div dangerouslySetInnerHTML={{ __html: data.strapiPost.content }} />
+        <h1>{data.strapiPost.Title}</h1>
+        <div dangerouslySetInnerHTML={{ __html: data.strapiPost.Body }} />
       </atom.Container>
     </article>
     <br />
@@ -75,25 +75,25 @@ export const query = graphql`
   query PostTemplate($id: String!) {
     strapiPost(id: { eq: $id }) {
       id
-      title
-      content
-      excerpt
-      createdAt
+      Title
+      Body
+      Excerpt
+      created_at
     }
     site {
       siteMetadata {
         title
       }
     }
-    allStrapiPost(limit: 5, sort: { fields: [createdAt], order: DESC }) {
+    allStrapiPost(limit: 5, sort: { fields: [created_at], order: DESC }) {
       edges {
         node {
-          title
-          content
-          slug
+          Title
+          Body
+          Slug
           id
-          createdAt(formatString: "DD MMMM YYYY")
-          excerpt
+          created_at(formatString: "DD MMMM YYYY")
+          Excerpt
         }
       }
     }

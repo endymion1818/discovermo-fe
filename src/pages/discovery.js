@@ -49,13 +49,13 @@ export default props => (
           content: (
             <>
               {props.data.allStrapiDiscovery.edges.map(item => (
-                <div key={item} id={item.node.title}>
+                <div key={item} id={item.node.Title}>
                   <h3>
                     <Link to={'/discovery/' + item.node.Slug}>
-                      {item.node.title}
+                      {item.node.Title}
                     </Link>
                   </h3>
-                  <atom.Paragraph>{item.node.excerpt}</atom.Paragraph>
+                  <atom.Paragraph>{item.node.Excerpt}</atom.Paragraph>
                   <Button transparent to={'/discovery/' + item.node.Slug}>
                     Read this post
                   </Button>
@@ -83,28 +83,27 @@ export default props => (
 
 export const query = graphql`
   query homeDiscoveryQuery {
-    allStrapiDiscovery(sort: { fields: [createdAt], order: DESC }) {
+    allStrapiDiscovery(sort: { fields: [created_at], order: DESC }) {
       edges {
         node {
           id
           Slug
-          title
-          description
-          excerpt
-          spotify_playlist
-          vimeo_video
+          Title
+          Body
+          Excerpt
+          Spotify
         }
       }
     }
-    allStrapiPost(limit: 5, sort: { fields: [createdAt], order: DESC }) {
+    allStrapiPost(limit: 5, sort: { fields: [created_at], order: DESC }) {
       edges {
         node {
-          title
-          content
-          slug
+          Title
+          Body
+          Slug
           id
-          createdAt(formatString: "DD MMMM YYYY")
-          excerpt
+          created_at(formatString: "DD MMMM YYYY")
+          Excerpt
         }
       }
     }

@@ -18,17 +18,19 @@ const AlbumTemplate = ({ data }) => (
   <Layout>
     <Helmet>
       <title>
-        {data.strapiAlbum.title} | {data.site.siteMetadata.title}
+        {data.strapiAlbum.Title} | {data.site.siteMetadata.title}
       </title>
-      <meta name="description" content={data.strapiAlbum.about} />
+      <meta name="description" content={data.strapiAlbum.Excerpt} />
     </Helmet>
     <atom.Container>
       <ColumnsTwo
         col1={{
-          imageUrl: data.strapiAlbum.coverimg,
+          content: (
+            <img src={data.strapiAlbum.Cover.publicURL} width="100%"/>
+          )
         }}
         col2={{
-          heading: data.strapiAlbum.title,
+          heading: data.strapiAlbum.Title,
           content: (
             <>
               <div
@@ -36,27 +38,27 @@ const AlbumTemplate = ({ data }) => (
                   __html: unified()
                     .use(markdown)
                     .use(html)
-                    .processSync(data.strapiAlbum.about),
+                    .processSync(data.strapiAlbum.Body),
                 }}
               />
               <atom.ButtonGrid>
-                {data.strapiAlbum.itunes ? (
-                  <Button transparent to={data.strapiAlbum.itunes}>
+                {data.strapiAlbum.iTunes ? (
+                  <Button transparent to={data.strapiAlbum.iTunes}>
                     Listen or buy on iTunes
                   </Button>
                 ) : null}
-                {data.strapiAlbum.amazon ? (
-                  <Button transparent to={data.strapiAlbum.amazon}>
+                {data.strapiAlbum.Amazon ? (
+                  <Button transparent to={data.strapiAlbum.Amazon}>
                     Buy or listen on Amazon
                   </Button>
                 ) : null}
-                {data.strapiAlbum.googleplay ? (
-                  <Button transparent to={data.strapiAlbum.googleplay}>
+                {data.strapiAlbum.GooglePlay ? (
+                  <Button transparent to={data.strapiAlbum.GooglePlay}>
                     Listen on Google Play
                   </Button>
                 ) : null}
-                {data.strapiAlbum.spotify ? (
-                  <Button transparent to={data.strapiAlbum.spotify}>
+                {data.strapiAlbum.Spotify ? (
+                  <Button transparent to={data.strapiAlbum.Spotify}>
                     Listen on Spotify
                   </Button>
                 ) : null}
@@ -107,15 +109,17 @@ export default AlbumTemplate
 export const query = graphql`
   query AlbumTemplate($id: String!) {
     strapiAlbum(id: { eq: $id }) {
-      title
-      slug
-      yearpublished
-      coverimg
-      about
-      spotify
-      googleplay
-      amazon
-      itunes
+      Title
+      Slug
+      Published
+      Cover {
+        publicURL
+      }
+      Body
+      Spotify
+      GooglePlay
+      Amazon
+      iTunes
     }
     site {
       siteMetadata {
@@ -125,9 +129,11 @@ export const query = graphql`
     allStrapiAlbum(limit: 5) {
       edges {
         node {
-          title
-          slug
-          coverimg
+          Title
+          Slug
+          Cover {
+            publicURL
+          }
         }
       }
     }

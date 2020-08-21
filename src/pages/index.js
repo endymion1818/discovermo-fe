@@ -37,6 +37,7 @@ export const frontmatter = {
 
 export default (props) => (
   <Layout>
+    {console.log(props.data)}
     <Helmet>
       <title>Home | {props.data.site.siteMetadata.title} </title>
       <meta name="description" content="Discover the music of Mike Oldfield - playlists, news, articles, and selected tracks hilighted and analysed regularly." />
@@ -189,16 +190,16 @@ export const query = graphql`
 query indexQuery {
   allStrapiPost(
     limit:5
-    sort: {fields: [createdAt], order: DESC},
+    sort: {fields: [created_at], order: DESC},
   ) {
     edges {
       node {
-        title
-        content
-        slug
+        Title
+        Body
+        Slug
         id
-        createdAt(formatString: "DD MMMM YYYY")
-        excerpt
+        created_at(formatString: "DD MMMM YYYY")
+        Excerpt
       }
     }
   }

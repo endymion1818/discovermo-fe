@@ -115,15 +115,15 @@ query sitemapQuery {
       node {
         id
         Slug
-        title
+        Title
       }
     }
   }
   allStrapiPost {
     edges {
       node {
-        title
-        slug
+        Title
+        Slug
         id
       }
     }
@@ -131,8 +131,8 @@ query sitemapQuery {
   allStrapiAlbum {
     edges {
       node {
-        title
-        slug
+        Title
+        Slug
         id
       }
     }

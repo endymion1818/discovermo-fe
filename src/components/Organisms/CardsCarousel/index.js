@@ -25,9 +25,9 @@ class CardsCarousel extends React.Component {
     return (
       <Main
         style={
-          this.props.backgroundimg
+          this.props.Cover
             ? {
-                backgroundImage: `url(${this.props.backgroundimg})`,
+                backgroundImage: `url(${this.props.Cover.publicURL})`,
                 backgroundSize: `cover`,
               }
             : null
@@ -36,7 +36,7 @@ class CardsCarousel extends React.Component {
         <Container {...this.props}>
           <MainTextContainer>
             <HeadingSecondary textColor={this.props.textColor}>
-              {this.props.heading || 'Recent News'}
+              {this.props.Title || 'Recent News'}
             </HeadingSecondary>
             <Paragraph textColor={this.props.textColor}>
               {this.props.content || 'Content.'}

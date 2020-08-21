@@ -60,13 +60,13 @@ const NewsCard = props => (
         <Wrapper>
             <Main>
                 <TextContainer>
-                    <Details><time>{ props.data.createdAt }</time></Details>
+                    <Details><time>{ props.data.created_at }</time></Details>
                     <Title>
-                        <TextLink to={ '/news/' + props.data.slug }>
-                            { props.data.title }
+                        <TextLink to={ '/news/' + props.data.Slug }>
+                            { props.data.Title }
                         </TextLink>
                     </Title>
-                    <p>{props.data.excerpt}</p>
+                    <p>{props.data.Excerpt}</p>
                 </TextContainer>
             </Main>
         </Wrapper>

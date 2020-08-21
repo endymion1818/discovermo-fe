@@ -26,7 +26,7 @@ export const frontmatter = {
   path: "album",
   description: "Discography of Mike Oldfield albums",
   inMainNav: true,
-  menuOrder: 2
+  menuOrder: 3
 }
 
 export default (props) => (
@@ -50,7 +50,7 @@ export default (props) => (
     { props.data.allStrapiAlbum.edges.map(item => (
       <ColumnsTwo key={item.id} id={item.node.title}
         col1={{
-          imageUrl: item.node.coverimg,
+          imageUrl: item?.node?.Cover?.publicURL,
           imageAlt: item.node.title
         }}
         col2={{
@@ -135,19 +135,22 @@ export default (props) => (
 export const query = graphql`
 query albumPageQuery {
   allStrapiAlbum(
-    sort: {fields: [yearpublished], order: DESC},
+    sort: {fields: [Published], order: DESC},
   ) {
     edges {
       node {
-        title
-        slug
-        yearpublished
-        coverimg
-        about
-        spotify
-        itunes
-        googleplay
-        amazon
+        Title
+        Slug
+        Published
+        Cover {
+          publicURL
+        }
+        Body
+        Spotify
+        iTunes
+        GooglePlay
+        Amazon
+        Youtube
       }
     }
   }

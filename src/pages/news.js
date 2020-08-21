@@ -51,11 +51,11 @@ export default (props) => (
           content: 
             <>
               { props.data.allStrapiPost.edges.map(item => (
-                <div key={item} id={item.node.title}>
-                  <h3><Link to={'/news/' + item.node.slug}>{ item.node.title }</Link></h3>
-                  <atom.Paragraph>{item.node.excerpt}</atom.Paragraph>
-                  <atom.Paragraph><small>published on: {item.node.createdAt}</small></atom.Paragraph>
-                  <Button transparent to={'/news/' + item.node.slug}>Read this post</Button>
+                <div key={item} id={item.node.Title}>
+                  <h3><Link to={'/news/' + item.node.Slug}>{ item.node.title }</Link></h3>
+                  <atom.Paragraph>{item.node.Excerpt}</atom.Paragraph>
+                  <atom.Paragraph><small>published on: {item.node.created_at}</small></atom.Paragraph>
+                  <Button transparent to={'/news/' + item.node.Slug}>Read this post</Button>
                   <hr/>
                 </div>
               )) 
@@ -129,14 +129,14 @@ export default (props) => (
 export const query = graphql`
 query homePostQuery {
   allStrapiPost(
-          sort: {fields: [createdAt], order: DESC},
+          sort: {fields: [created_at], order: DESC},
     ) {
     edges {
       node {
-        title
-        excerpt
-        slug
-        createdAt(formatString: "DD MMMM YYYY")
+        Title
+        Excerpt
+        Slug
+        created_at(formatString: "DD MMMM YYYY")
       }
     }
   }

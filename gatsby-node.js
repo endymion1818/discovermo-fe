@@ -21,7 +21,7 @@ exports.createPages = ({ actions, graphql }) => {
         edges {
           node {
             id
-            slug
+            Slug
           }
         }
       }
@@ -29,11 +29,11 @@ exports.createPages = ({ actions, graphql }) => {
     `).then(result => {
     result.data.allStrapiAlbum.edges.forEach(({ node }) => {
       createPage({
-        path: `/album/${node.slug}`,
+        path: `/album/${node.Slug}`,
         component: path.resolve(`src/components/Templates/album.js`),
         context: {
           id: node.id,
-          slug: node.slug
+          slug: node.Slug
         },
       })
     })
@@ -45,7 +45,7 @@ exports.createPages = ({ actions, graphql }) => {
         edges {
           node {
             id
-            slug
+            Slug
           }
         }
       }
@@ -54,11 +54,11 @@ exports.createPages = ({ actions, graphql }) => {
     // Create pages for each user.
     result.data.allStrapiPost.edges.forEach(({ node }) => {
       createPage({
-        path: `/news/${node.slug}`,
+        path: `/news/${node.Slug}`,
         component: path.resolve(`src/components/Templates/post.js`),
         context: {
           id: node.id,
-          slug: node.slug
+          slug: node.Slug
         },
       })
     })

@@ -13,8 +13,8 @@ export const frontmatter = {
   title: "About",
   path: "about",
   description: "A little bit about this site, who made it, and why.",
-  inMainNav: false,
-  menuOrder: 1,
+  inMainNav: true,
+  menuOrder: 2,
   categories: [
     'insitemenu',
   ]
