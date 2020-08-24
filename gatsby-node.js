@@ -1,5 +1,6 @@
 const path = require(`path`);
 var remark = require(`remark`)
+var html = require('remark-html')
 
 const makeRequest = (graphql, request) => new Promise((resolve, reject) => {
   resolve(
@@ -95,27 +96,15 @@ exports.createPages = ({ actions, graphql }) => {
     getDiscoveries
   ])
 };
-exports.onCreateNode = ({ node, actions, createContentDigest }) => {
-  const { createNode, createNodeField } = actions  
+exports.onCreateNode = ({ node, actions }) => {
+  const { createNodeField } = actions  
 
   if (node.internal.type === 'StrapiPost') {
-      const parsed = JSON.stringify(remark().parse(node.Body))
-      const textNode = {
-        id: `${node.id}-MarkdownBody`,
-        parent: node.id,
-        internal: {
-          type: `${node.internal.type}MarkdownBody`,
-          mediaType: "text/markdown",
-          content: parsed,
-          contentDigest: createContentDigest(parsed),
-        },
-      }
-      createNode(textNode)
-  
       createNodeField({
-        node,
-        name: "markdownBody___NODE",
-        value: textNode.id,
+        name: 'BodyMarkdown',
+        node: node.Body,
+        value: remark().use(html, {sanitize: node.Body}),
+        parent: node.Body
       })
   }
 }
