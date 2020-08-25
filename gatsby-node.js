@@ -1,6 +1,7 @@
-const path = require(`path`);
-var remark = require(`remark`)
-var html = require('remark-html')
+const path = require(`path`)
+const markdown = require(`remark-parse`)
+const html = require(`remark-html`)
+const unified = require(`unified`)
 
 const makeRequest = (graphql, request) => new Promise((resolve, reject) => {
   resolve(
@@ -96,15 +97,21 @@ exports.createPages = ({ actions, graphql }) => {
     getDiscoveries
   ])
 };
+
 exports.onCreateNode = ({ node, actions }) => {
   const { createNodeField } = actions  
 
   if (node.internal.type === 'StrapiPost') {
-      createNodeField({
-        name: 'BodyMarkdown',
-        node: node.Body,
-        value: remark().use(html, {sanitize: node.Body}),
-        parent: node.Body
-      })
+    const parsedBody = parse(node.Body)
+    console.log(parsedBody)
+    createNodeField({
+      node,
+      name: 'BodyHtml',
+      value: parsedBody,
+    })
   }
 }
+const parse = md => unified()
+  .use(markdown)
+  .use(html, { sanitize: md })
+  .process(md)
