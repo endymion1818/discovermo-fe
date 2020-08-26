@@ -103,7 +103,6 @@ module.exports.onCreateNode = async ({ node, actions, createNodeId, createConten
       const newNode = {
           id: createNodeId(`StrapiPostContent-${node.id}`),
           parent: node.id,
-          children: [],
           internal: {
               content: JSON.stringify(
                 unified()
