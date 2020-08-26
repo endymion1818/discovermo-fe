@@ -9,7 +9,10 @@ import PopOut from '../Molecules/Popout'
 
 import CardsCarousel from '../Organisms/CardsCarousel'
 
-const PostTemplate = ({ data }) => (
+const PostTemplate = ({ data }) => {
+  const Body = data.strapiPost.childStrapiPostContent.internal.content
+  const parsedBody =JSON.parse(Body)
+  return (
   <Layout>
     <Helmet>
       <title>
@@ -20,7 +23,7 @@ const PostTemplate = ({ data }) => (
     <article>
       <atom.Container>
         <h1>{data.strapiPost.Title}</h1>
-        <div dangerouslySetInnerHTML={{ __html: data.strapiPost.Body }} />
+        <div dangerouslySetInnerHTML={{ __html: parsedBody.contents  }} />
       </atom.Container>
     </article>
     <br />
@@ -67,7 +70,7 @@ const PostTemplate = ({ data }) => (
       </PopOut>
     </atom.BandSplit>
   </Layout>
-)
+)}
 
 export default PostTemplate
 
@@ -76,7 +79,11 @@ export const query = graphql`
     strapiPost(id: { eq: $id }) {
       id
       Title
-      Body
+      childStrapiPostContent {
+        internal {
+          content
+        }
+      }
       Excerpt
       created_at
     }
@@ -89,7 +96,6 @@ export const query = graphql`
       edges {
         node {
           Title
-          Body
           Slug
           id
           created_at(formatString: "DD MMMM YYYY")

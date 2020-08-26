@@ -1,4 +1,8 @@
-const path = require(`path`);
+const path = require(`path`)
+const markdown = require(`remark-parse`)
+ const html = require(`remark-html`)
+ const unified = require(`unified`);
+ const { parse } = require("path");
 
 const makeRequest = (graphql, request) => new Promise((resolve, reject) => {
   resolve(
@@ -91,6 +95,32 @@ exports.createPages = ({ actions, graphql }) => {
   return Promise.all([
     getAlbums,
     getPosts,
-    getDiscoveries
+    getDiscoveries,
   ])
+};
+module.exports.onCreateNode = async ({ node, actions, createNodeId, createContentDigest }) => {
+  if (node.internal.type === "StrapiPost") {
+      const newNode = {
+          id: createNodeId(`StrapiPostContent-${node.id}`),
+          parent: node.id,
+          internal: {
+              content: JSON.stringify(
+                unified()
+                  .use(markdown)
+                  .use(html, { sanitize: node.Body })
+                  .processSync(node.Body)
+              ) || " ",
+              type: "StrapiPostContent",
+              mediaType: "text/markdown",
+              contentDigest: createContentDigest({
+                content: JSON.stringify(node.Body),
+              })
+          },
+      };
+      actions.createNode(newNode);
+      actions.createParentChildLink({
+          parent: node,
+          child: newNode,
+      });
+  }
 };
