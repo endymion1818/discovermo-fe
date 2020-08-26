@@ -1,8 +1,8 @@
 const path = require(`path`)
 const markdown = require(`remark-parse`)
-const html = require(`remark-html`)
-const unified = require(`unified`);
-const { parse } = require("path");
+ const html = require(`remark-html`)
+ const unified = require(`unified`);
+ const { parse } = require("path");
 
 const makeRequest = (graphql, request) => new Promise((resolve, reject) => {
   resolve(
@@ -92,27 +92,36 @@ exports.createPages = ({ actions, graphql }) => {
     })
   });
 
-  const createNodes = onCreateNode = ({ node, actions }) => {
-    const { createNodeField } = actions  
-
-    const parse = md => unified()
-    .use(markdown)
-    .use(html, { sanitize: md })
-    .processSync(md)
-  
-    if (node.internal.type === 'StrapiPost') {
-        createNodeField({
-          node,
-          name: 'BodyHtml',
-          value: parse(node.Body),
-        })
-    }
-  }
-
   return Promise.all([
     getAlbums,
     getPosts,
     getDiscoveries,
-    createNodes
   ])
+};
+module.exports.onCreateNode = async ({ node, actions, createNodeId, createContentDigest }) => {
+  if (node.internal.type === "StrapiPost") {
+      const newNode = {
+          id: createNodeId(`StrapiPostContent-${node.id}`),
+          parent: node.id,
+          children: [],
+          internal: {
+              content: JSON.stringify(
+                unified()
+                  .use(markdown)
+                  .use(html, { sanitize: node.Body })
+                  .processSync(node.Body)
+              ) || " ",
+              type: "StrapiPostContent",
+              mediaType: "text/markdown",
+              contentDigest: createContentDigest({
+                content: JSON.stringify(node.Body),
+              })
+          },
+      };
+      actions.createNode(newNode);
+      actions.createParentChildLink({
+          parent: node,
+          child: newNode,
+      });
+  }
 };
