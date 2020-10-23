@@ -90,15 +90,7 @@ const AlbumTemplate = ({ data }) => (
           original work. We've also added a bonus: listen to a selection of work
           from the recently released "Return to Ommadawn"
         </atom.Paragraph>
-        <iframe
-          title="ommadawn playlist"
-          src="https://open.spotify.com/embed/user/1138668487/playlist/2LTvgOeaIGYIScTO5QjyJi"
-          width="100%"
-          height="240"
-          frameborder="0"
-          allowtransparency="true"
-          allow="encrypted-media"
-        />
+        <iframe src="https://open.spotify.com/embed/playlist/2LTvgOeaIGYIScTO5QjyJi" width="300" height="380" frameBorder="0" allowTransparency="true" allow="encrypted-media"/>
       </PopOut>
     </atom.BandSplit>
   </Layout>
