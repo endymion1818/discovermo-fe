@@ -38,12 +38,12 @@ const sitemap = props => (
                 content: 
                     <>
                     <atom.HeadingSecondary>Pages</atom.HeadingSecondary>
+                        <ul>
                     { props.data.allJavascriptFrontmatter.edges.map(item => (
-                        <ul key={item} id={item.node.frontmatter.title}>
-                            <li><Link to={item.node.frontmatter.path}>{ item.node.frontmatter.title }</Link></li>
-                        </ul>
+                            <li key={item.node.id}><Link to={item.node.frontmatter.path}>{ item.node.frontmatter.title }</Link></li>
                     )) 
                     }
+                        </ul>
                     </>
                 }}
             />
@@ -56,12 +56,13 @@ const sitemap = props => (
                 content: 
                     <>
                     <atom.HeadingSecondary>Posts</atom.HeadingSecondary>
+                        <ul>
                     { props.data.allStrapiPost.edges.map(item => (
-                        <ul key={item} id={item.node.title}>
-                            <li><Link to={item.node.slug}>{ item.node.title }</Link></li>
-                        </ul>
+                            <li key={item.node.id}><Link to={item.node.Slug}>{ item.node.Title }</Link>
+                            {console.log(item)}</li>
                     )) 
                     }
+                        </ul>
                     </>
                 }}
             />
@@ -74,12 +75,12 @@ const sitemap = props => (
                 content: 
                     <>
                     <atom.HeadingSecondary>Discoveries</atom.HeadingSecondary>
+                        <ul>
                     { props.data.allStrapiDiscovery.edges.map(item => (
-                        <ul key={item} id={item.node.title}>
-                            <li><Link to={item.node.Slug}>{ item.node.title }</Link></li>
-                        </ul>
+                            <li key={item.node.id}><Link to={item.node.Slug}>{ item.node.Title }</Link></li>
                     )) 
                     }
+                        </ul>
                     </>
                 }}
             />
@@ -92,12 +93,12 @@ const sitemap = props => (
                 content: 
                     <>
                     <atom.HeadingSecondary>Albums</atom.HeadingSecondary>
+                        <ul>
                     { props.data.allStrapiAlbum.edges.map(item => (
-                        <ul key={item} id={item.node.title}>
-                            <li><Link to={item.node.slug}>{ item.node.title }</Link></li>
-                        </ul>
+                            <li key={item.node.id}><Link to={item.node.Slug}>{ item.node.Title }</Link></li>
                     )) 
                     }
+                        </ul>
                     </>
                 }}
             />
